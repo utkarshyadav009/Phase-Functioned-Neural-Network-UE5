@@ -79,6 +79,9 @@ void UTrajectoryComponent::BeginPlay()
 	Directions[LENGTH] = {UPFNNHelperFunctions::XZYTranslationToXYZ(glm::vec3(OwnerPawn->GetActorForwardVector().X, OwnerPawn->GetActorForwardVector().Y, 0.0f))};
 
 	tickcounter = 0;
+
+	GEngine->AddOnScreenDebugMessage(-1, 0.0f, FColor::Yellow, FString::Printf(TEXT("Gait stand")));
+
 }
 
 
