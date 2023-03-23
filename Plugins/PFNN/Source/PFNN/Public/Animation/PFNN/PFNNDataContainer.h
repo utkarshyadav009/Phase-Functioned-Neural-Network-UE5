@@ -74,19 +74,61 @@ private:
 	void LoadWeights(Eigen::ArrayXf &arg_V, const int arg_Items, const FString arg_FileName, ...);
 
 	//DO NOT CHANGE! These values determine the dimentions of the Neural Network. Changing them without knowing what you are doing will crash the engine.
+	/*
+	XDIM: The number of input neurons in the PFNN.
+	YDIM: The number of output neurons in the PFNN.
+	HDIM: The number of hidden neurons in the PFNN.
+	*/
 	enum { XDIM = 342, YDIM = 311, HDIM = 512 };
 
-	Eigen::ArrayXf Xmean, Xstd;
-	Eigen::ArrayXf Ymean, Ystd;
+	/*
+	Xmean: The mean of the input data used for normalization during training of the PFNN.
+	Xstd: The standard deviation of the input data used for normalization during training of the PFNN.
+	Ymean: The mean of the output data used for normalization during training of the PFNN.
+	Ystd: The standard deviation of the output data used for normalization during training of the PFNN.
+	*/
+	Eigen::ArrayXf Xmean;
+	Eigen::ArrayXf Xstd;
+	Eigen::ArrayXf Ymean;
+	Eigen::ArrayXf Ystd;
 
-	TArray<Eigen::ArrayXXf> W0, W1, W2;
-	TArray<Eigen::ArrayXf>  b0, b1, b2;
+	/**/
 
-	Eigen::ArrayXf  Xp, Yp;
-	Eigen::ArrayXf  H0, H1;
-	Eigen::ArrayXXf W0p, W1p, W2p;
-	Eigen::ArrayXf  b0p, b1p, b2p;
-	//Ending of things that you should not change.
+	// The weight matrices of the PFNN between the input layer and the first hidden layer, between the first hidden layer and the second hidden layer, and between the second hidden layer and the output layer, respectively.
+	TArray<Eigen::ArrayXXf> W0;
+	TArray<Eigen::ArrayXXf> W1;
+	TArray<Eigen::ArrayXXf> W2;
+
+	// The bias vectors of the PFNN for the first hidden layer, second hidden layer, and output layer, respectively.
+	TArray<Eigen::ArrayXf> b0;
+	TArray<Eigen::ArrayXf> b1;
+	TArray<Eigen::ArrayXf> b2;
+
+	// The input data for a single frame of the animation.
+	Eigen::ArrayXf Xp;
+	// The output data for a single frame of the animation.
+	Eigen::ArrayXf Yp;
+	// The hidden layer activations for the first and second hidden layers, respectively.
+	Eigen::ArrayXf H0;
+	Eigen::ArrayXf H1;
+
+	/*
+	*W0p, W1p, and W2p: The weight matrices for the prediction part of the PFNN 
+	 between the input layer and the first hidden layer, between the first hidden 
+	 layer and the second hidden layer, and between the second hidden layer and 
+	 the output layer, respectively.
+	*/
+	Eigen::ArrayXXf W0p;
+	Eigen::ArrayXXf W1p;
+	Eigen::ArrayXXf W2p;
+
+	/*
+	 b0p, b1p, and b2p: The bias vectors for the prediction part of 
+	 the PFNN for the first hidden layer, second hidden layer, and output layer, respectively.
+	*/
+	Eigen::ArrayXf b0p;
+	Eigen::ArrayXf b1p;
+	Eigen::ArrayXf b2p;
 
 	//Mutex for ensuring ThreadSafety of the DataContainer
 	FCriticalSection DataLocker;
