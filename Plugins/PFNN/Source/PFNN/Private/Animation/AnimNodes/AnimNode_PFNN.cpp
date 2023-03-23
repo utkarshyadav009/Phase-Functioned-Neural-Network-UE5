@@ -1,4 +1,4 @@
-// Copyright 2018 Sticks & Stones. All Rights Reserved.
+
 
 #include "Animation/AnimNodes/AnimNode_PFNN.h"
 #include "Animation/AnimInstances/PFNNAnimInstance.h"

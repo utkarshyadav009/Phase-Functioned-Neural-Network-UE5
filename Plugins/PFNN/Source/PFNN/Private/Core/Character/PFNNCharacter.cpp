@@ -1,4 +1,4 @@
-// Copyright 2018 Sticks & Stones. All Rights Reserved.
+
 
 #include "Core/Character/PFNNCharacter.h"
 #include "Camera/CameraComponent.h"

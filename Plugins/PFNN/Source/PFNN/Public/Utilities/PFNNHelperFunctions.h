@@ -1,4 +1,4 @@
-// Copyright 2018 Sticks & Stones. All Rights Reserved.
+
 
 #pragma once
 
