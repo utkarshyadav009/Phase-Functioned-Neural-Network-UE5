@@ -85,6 +85,7 @@ void UTrajectoryComponent::TickComponent(float DeltaTime, ELevelTick TickType, F
 
 #ifdef WITH_EDITOR
 	DrawDebugTrajectory();
+	LogTrajectoryData(DeltaTime);
 #endif
 
 }
@@ -351,6 +352,8 @@ void UTrajectoryComponent::TickTrajectory()
 	PredictFutureTrajectory();
 	TickRotations();
 	TickHeights();
+
+
 }
 
 void UTrajectoryComponent::TickInput()
@@ -374,9 +377,7 @@ void UTrajectoryComponent::CalculateTargetDirection()
 {
 	glm::vec3 FlippedForward = UPFNNHelperFunctions::XZYTranslationToXYZ(glm::vec3(OwnerPawn->GetActorForwardVector().X, OwnerPawn->GetActorForwardVector().Y, 0.0f));
 	glm::vec3 TrajectoryTargetDirectionNew = glm::normalize(FlippedForward);
-	const glm::mat3 TrajectoryTargetRotation = glm::mat3(glm::rotate(atan2f(
-		TrajectoryTargetDirectionNew.x,
-		TrajectoryTargetDirectionNew.z), glm::vec3(0.0f, 1.0f, 0.0f)));
+	const glm::mat3 TrajectoryTargetRotation = glm::mat3(glm::rotate(atan2f(TrajectoryTargetDirectionNew.x, TrajectoryTargetDirectionNew.z), glm::vec3(0.0f, 1.0f, 0.0f)));
 
 	const float TargetVelocitySpeed = OwnerPawn->GetVelocity().SizeSquared() / (OwnerPawn->GetMovementComponent()->GetMaxSpeed() * OwnerPawn->GetMovementComponent()->GetMaxSpeed()) / 7.5f; //7.5 is current training walking speed
 
@@ -407,13 +408,13 @@ void UTrajectoryComponent::CalculateTargetDirection()
 		FVector TargetDirectionActor = ActorLoc + FVector(0.0f, 0.0f, 250.0f);
 		FVector TargetVelocityActor = ActorLoc + FVector(0.0f, 0.0f, 225.0f);
 
-		DrawDebugDirectionalArrow(GetWorld(), FrameInputActor, FrameInputActor + FlippedCurrentFrameInput * 100, 0.0f, FColor::White, false, -1, 0, 2);
+		//(GetWorld(), FrameInputActor, FrameInputActor + FlippedCurrentFrameInput * 100, 0.0f, FColor::White, false, -1, 0, 2);
 		
-		DrawDebugDirectionalArrow(GetWorld(),TargetDirectionActor, TargetDirectionActor + FlippedTargetDirectionNew * 100.0f, 0.0f, FColor::Blue, false, -1, 0, 2);
-		DrawDebugDirectionalArrow(GetWorld(), TargetDirectionActor, TargetDirectionActor + FlippedTargetDirection * 100.0f, 0.0f, FColor::Green, false, -1, 0, 2);
+		//DrawDebugDirectionalArrow(GetWorld(),TargetDirectionActor, TargetDirectionActor + FlippedTargetDirectionNew * 100.0f, 0.0f, FColor::Blue, false, -1, 0, 2);
+		//DrawDebugDirectionalArrow(GetWorld(), TargetDirectionActor, TargetDirectionActor + FlippedTargetDirection * 100.0f, 0.0f, FColor::Green, false, -1, 0, 2);
 		
-		DrawDebugDirectionalArrow(GetWorld(), TargetVelocityActor, TargetVelocityActor + FlippedTargetVelocityNew * 1000.0f, 0.0f, FColor::Red, false, -1, 0, 2);
-		DrawDebugDirectionalArrow(GetWorld(), TargetVelocityActor, TargetVelocityActor + FlippedTargetVelocity * 1000.0f, 0.0f, FColor::Yellow, false, -1, 0, 2);
+		//DrawDebugDirectionalArrow(GetWorld(), TargetVelocityActor, TargetVelocityActor + FlippedTargetVelocityNew * 1000.0f, 0.0f, FColor::Red, false, -1, 0, 2);
+		//DrawDebugDirectionalArrow(GetWorld(), TargetVelocityActor, TargetVelocityActor + FlippedTargetVelocity * 1000.0f, 0.0f, FColor::Yellow, false, -1, 0, 2);
 	}
 }
 
@@ -448,9 +449,9 @@ void UTrajectoryComponent::DrawDebugTrajectory()
 		DrawDebugPoint(GetWorld(), DebugMidPoint, 10.0f, FColor::Red);
 		DrawDebugPoint(GetWorld(), DebugEndPoint, 10.0f, FColor::Red);
 
-		DrawDebugString(GetWorld(), DebugStartingPoint, TEXT("Past"), nullptr, FColor::Blue, 0.001f);
+		DrawDebugString(GetWorld(), DebugStartingPoint, TEXT("Past"), nullptr, FColor::Black, 0.001f);
 		DrawDebugString(GetWorld(), DebugMidPoint, TEXT("Current"), nullptr, FColor::Blue, 0.001f);
-		DrawDebugString(GetWorld(), DebugEndPoint, TEXT("Future"), nullptr, FColor::Blue, 0.001f);
+		DrawDebugString(GetWorld(), DebugEndPoint, TEXT("Future"), nullptr, FColor::Red, 0.001f);
 		
 		const FVector StartingDirection = UPFNNHelperFunctions::XYZTranslationToXZY(Directions[0]);
 		const FVector MidDirection = UPFNNHelperFunctions::XYZTranslationToXZY(Directions[LENGTH / 2]);

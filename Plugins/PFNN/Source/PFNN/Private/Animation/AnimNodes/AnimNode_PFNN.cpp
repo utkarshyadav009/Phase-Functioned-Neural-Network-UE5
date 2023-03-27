@@ -402,7 +402,7 @@ void FAnimNode_PFNN::LogNetworkData(int arg_FrameCounter)
 	try 
 	{
 		std::fstream fs;
-		fs.open("UE4_Network.log", std::ios::out);
+		fs.open("UE5_Network.log", std::ios::out);
 
 		if (fs.is_open()) 
 		{

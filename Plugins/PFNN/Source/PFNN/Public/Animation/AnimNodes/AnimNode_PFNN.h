@@ -144,6 +144,12 @@ struct PFNN_API FAnimNode_PFNN : public FAnimNode_Base
 
 	bool bIsPFNNLoaded;
 
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "PFNN")
+	TArray<FVector> Node_JointLocations;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "PFNN")
+	TArray<FQuat> Node_JointRotations;
+
 private:
 	void DrawDebugSkeleton(const FPoseContext& arg_Context);
 	void DrawDebugBoneVelocity(const FPoseContext& arg_Context);
