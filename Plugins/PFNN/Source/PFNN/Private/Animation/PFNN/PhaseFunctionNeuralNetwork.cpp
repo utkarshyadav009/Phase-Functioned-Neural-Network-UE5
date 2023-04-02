@@ -35,7 +35,7 @@ UPhaseFunctionNeuralNetwork::~UPhaseFunctionNeuralNetwork()
 }
 
 bool UPhaseFunctionNeuralNetwork::LoadNetworkData(UObject* arg_ContextObject)
-{
+{	
 	UPFNNGameInstance* GameInstance = Cast<UPFNNGameInstance>(UGameplayStatics::GetGameInstance(arg_ContextObject));
 	if (GameInstance) 
 	{
