@@ -92,14 +92,20 @@ private:
 	Eigen::ArrayXf Ymean;
 	Eigen::ArrayXf Ystd;
 
-	/**/
 
-	// The weight matrices of the PFNN between the input layer and the first hidden layer, between the first hidden layer and the second hidden layer, and between the second hidden layer and the output layer, respectively.
+	/*
+	The weight matrices of the PFNN between the input layer and the first hidden layer, 
+	between the first hidden layer and the second hidden layer, 
+	and between the second hidden layer and the output layer, respectively.
+	*/
 	TArray<Eigen::ArrayXXf> W0;
 	TArray<Eigen::ArrayXXf> W1;
 	TArray<Eigen::ArrayXXf> W2;
 
-	// The bias vectors of the PFNN for the first hidden layer, second hidden layer, and output layer, respectively.
+	/*
+	The bias vectors of the PFNN for the first hidden layer, 
+	second hidden layer, and output layer, respectively.
+	*/
 	TArray<Eigen::ArrayXf> b0;
 	TArray<Eigen::ArrayXf> b1;
 	TArray<Eigen::ArrayXf> b2;
@@ -108,6 +114,7 @@ private:
 	Eigen::ArrayXf Xp;
 	// The output data for a single frame of the animation.
 	Eigen::ArrayXf Yp;
+
 	// The hidden layer activations for the first and second hidden layers, respectively.
 	Eigen::ArrayXf H0;
 	Eigen::ArrayXf H1;

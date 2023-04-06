@@ -81,9 +81,6 @@ void FAnimNode_PFNN::LoadPFNN()
 		}
 
 		bIsPFNNLoaded = PFNN->LoadNetworkData(Trajectory->GetOwner());
-
-		FString OwningClassName = Trajectory->GetOwner()->GetClass()->GetName();
-		UE_LOG(PFNN_Logging, Error, TEXT("Owning class name: %s"), *OwningClassName);
 	}
 }
 

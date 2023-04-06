@@ -1,7 +1,4 @@
-
-
 #include "Animation/PFNN/PhaseFunctionNeuralNetwork.h"
-
 #include "Engine/Engine.h"
 #include "Kismet/GameplayStatics.h"
 #include "GenericPlatform/GenericPlatformFile.h"
@@ -20,9 +17,10 @@ UPhaseFunctionNeuralNetwork::UPhaseFunctionNeuralNetwork() : Mode(EPFNNMode::PM_
 	H0 = Eigen::ArrayXf(static_cast<int>(HDIM));
 	H1 = Eigen::ArrayXf(static_cast<int>(HDIM));
 
-	W0p = Eigen::ArrayXXf(static_cast<int>(HDIM), static_cast<int>(XDIM));
+	W0p = Eigen::ArrayXXf(static_cast<int>(HDIM), static_cast<int>(XDIM));	
 	W1p = Eigen::ArrayXXf(static_cast<int>(HDIM), static_cast<int>(HDIM));
 	W2p = Eigen::ArrayXXf(static_cast<int>(YDIM), static_cast<int>(HDIM));
+
 
 	b0p = Eigen::ArrayXf(static_cast<int>(HDIM));
 	b1p = Eigen::ArrayXf(static_cast<int>(HDIM));
@@ -114,11 +112,17 @@ void UPhaseFunctionNeuralNetwork::Predict(float arg_Phase)
 	switch (Mode)
 	{
 	case EPFNNMode::PM_Constant:
-		pindex_1 = static_cast<int>((arg_Phase / (2 * PI)) * 50);
+		pindex_1  = static_cast<int>((arg_Phase / (2 * PI)) * 50);
+
+		//Layer 1 
 		H0 = (W0[pindex_1].matrix() * Xp.matrix()).array() + b0[pindex_1];
 		ELU(H0);
+
+		//Layer 2
 		H1 = (W1[pindex_1].matrix() * H0.matrix()).array() + b1[pindex_1];
 		ELU(H1);
+
+		//Layer 3, Network Output 
 		Yp = (W2[pindex_1].matrix() * H1.matrix()).array() + b2[pindex_1];
 		break;
 
