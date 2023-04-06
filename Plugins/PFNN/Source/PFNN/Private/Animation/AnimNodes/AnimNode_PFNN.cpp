@@ -73,14 +73,17 @@ void FAnimNode_PFNN::LoadXForms()
 
 void FAnimNode_PFNN::LoadPFNN()
 {
-
 	if(!bIsPFNNLoaded && Trajectory)
 	{
 		if (PFNN == nullptr)
 		{
 			PFNN = NewObject<UPhaseFunctionNeuralNetwork>();
 		}
+
 		bIsPFNNLoaded = PFNN->LoadNetworkData(Trajectory->GetOwner());
+
+		FString OwningClassName = Trajectory->GetOwner()->GetClass()->GetName();
+		UE_LOG(PFNN_Logging, Error, TEXT("Owning class name: %s"), *OwningClassName);
 	}
 }
 

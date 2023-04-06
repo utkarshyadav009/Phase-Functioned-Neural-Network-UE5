@@ -62,8 +62,8 @@ bool UPhaseFunctionNeuralNetwork::LoadNetworkData(UObject* arg_ContextObject)
 	}
 	else 
 	{
-		GEngine->AddOnScreenDebugMessage(-1, 1.0f, FColor::Green, TEXT("Invalid Shitty Code..."));
-
+		//GEngine->AddOnScreenDebugMessage(-1, 1.0f, FColor::Green, TEXT("Invalid Shitty Code..."));
+		
 		UE_LOG(PFNN_Logging, Error, TEXT("Invalid GameInstance for PFNN"));
 	}
 	return false;

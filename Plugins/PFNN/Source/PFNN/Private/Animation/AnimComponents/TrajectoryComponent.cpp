@@ -279,11 +279,11 @@ void UTrajectoryComponent::LogTrajectoryData(int arg_FrameCount)
 	try 
 	{
 		std::ofstream fs;
-		fs.open("UE4_Trajectory.log", std::ios::out);
+		fs.open("UE5_Trajectory.log", std::ios::out);
 
 		if (fs.is_open()) 
 		{
-			fs << "UE4_Implementation" << std::endl;
+			fs << "UE5_Implementation" << std::endl;
 			fs << "TrajectoryLog Frame[" << arg_FrameCount << "]" << std::endl << std::endl;
 
 			fs << "#Basic Variables" << std::endl;
@@ -408,7 +408,7 @@ void UTrajectoryComponent::CalculateTargetDirection()
 		FVector TargetDirectionActor = ActorLoc + FVector(0.0f, 0.0f, 250.0f);
 		FVector TargetVelocityActor = ActorLoc + FVector(0.0f, 0.0f, 225.0f);
 
-		//(GetWorld(), FrameInputActor, FrameInputActor + FlippedCurrentFrameInput * 100, 0.0f, FColor::White, false, -1, 0, 2);
+		//DrawDebugDirectionalArrow(GetWorld(), FrameInputActor, FrameInputActor + FlippedCurrentFrameInput * 100, 0.0f, FColor::White, false, -1, 0, 2);
 		
 		//DrawDebugDirectionalArrow(GetWorld(),TargetDirectionActor, TargetDirectionActor + FlippedTargetDirectionNew * 100.0f, 0.0f, FColor::Blue, false, -1, 0, 2);
 		//DrawDebugDirectionalArrow(GetWorld(), TargetDirectionActor, TargetDirectionActor + FlippedTargetDirection * 100.0f, 0.0f, FColor::Green, false, -1, 0, 2);
