@@ -279,7 +279,7 @@ void UTrajectoryComponent::LogTrajectoryData(int arg_FrameCount)
 	try 
 	{
 		std::ofstream fs;
-		fs.open("UE5_Trajectory.log", std::ios::out);
+		fs.open("UE5_Trajectory.txt", std::ios::out);
 
 		if (fs.is_open()) 
 		{
@@ -457,12 +457,12 @@ void UTrajectoryComponent::DrawDebugTrajectory()
 		const FVector MidDirection = UPFNNHelperFunctions::XYZTranslationToXZY(Directions[LENGTH / 2]);
 		const FVector EndDirection = UPFNNHelperFunctions::XYZTranslationToXZY(Directions[LENGTH - 1]);
 
-		GEngine->AddOnScreenDebugMessage(-1, 0.0f, FColor::Black, FString::Printf(TEXT("%s Past Direction"), *StartingDirection.ToString()));
-		GEngine->AddOnScreenDebugMessage(-1, 0.0f, FColor::Purple, FString::Printf(TEXT("%s Past Position"), *DebugStartingPoint.ToString()));
-		GEngine->AddOnScreenDebugMessage(-1, 0.0f, FColor::Black, FString::Printf(TEXT("%s Present Direction"), *MidDirection.ToString()));
-		GEngine->AddOnScreenDebugMessage(-1, 0.0f, FColor::Purple, FString::Printf(TEXT("%s Present Position"), *DebugMidPoint.ToString()));
-		GEngine->AddOnScreenDebugMessage(-1, 0.0f, FColor::Black, FString::Printf(TEXT("%s Future Direction"), *EndDirection.ToString()));
-		GEngine->AddOnScreenDebugMessage(-1, 0.0f, FColor::Purple, FString::Printf(TEXT("%s Future Position"), *DebugEndPoint.ToString()));
+		//GEngine->AddOnScreenDebugMessage(-1, 0.0f, FColor::Black, FString::Printf(TEXT("%s Past Direction"), *StartingDirection.ToString()));
+		//GEngine->AddOnScreenDebugMessage(-1, 0.0f, FColor::Purple, FString::Printf(TEXT("%s Past Position"), *DebugStartingPoint.ToString()));
+		//GEngine->AddOnScreenDebugMessage(-1, 0.0f, FColor::Black, FString::Printf(TEXT("%s Present Direction"), *MidDirection.ToString()));
+		//GEngine->AddOnScreenDebugMessage(-1, 0.0f, FColor::Purple, FString::Printf(TEXT("%s Present Position"), *DebugMidPoint.ToString()));
+		//GEngine->AddOnScreenDebugMessage(-1, 0.0f, FColor::Black, FString::Printf(TEXT("%s Future Direction"), *EndDirection.ToString()));
+		//GEngine->AddOnScreenDebugMessage(-1, 0.0f, FColor::Purple, FString::Printf(TEXT("%s Future Position"), *DebugEndPoint.ToString()));
 
 	}
 }

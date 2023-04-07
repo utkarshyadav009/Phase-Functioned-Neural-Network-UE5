@@ -272,7 +272,7 @@ void FAnimNode_PFNN::ApplyPFNN()
 	Phase = fmod(Phase + (StandAmount * 0.9f + 0.1f) * 2.0f * PI * PFNN->Yp(3), 2.0f * PI);
 
 	FrameCounter++;
-	if (FrameCounter == 1)
+	if (FrameCounter >= 1)
 	{
 		Trajectory->LogTrajectoryData(FrameCounter);
 		LogNetworkData(FrameCounter);
