@@ -69,8 +69,8 @@ struct PFNN_API FAnimNode_PFNN : public FAnimNode_Base
 
 	FAnimNode_PFNN();
 
-	void LoadData();
-	void LoadXForms();
+	void LoadData(FAnimInstanceProxy* arg_Context);
+	void LoadXForms(FAnimInstanceProxy* arg_Context);
 	void LoadPFNN();
 
 	void ApplyPFNN();
@@ -111,6 +111,10 @@ struct PFNN_API FAnimNode_PFNN : public FAnimNode_Base
 		JOINT_NUM = 31
 	};
 
+	// Joints utils
+	TArray<FName> JointNameByIndex;
+	TArray<int32> JointRange;
+
 	UPROPERTY()
 	class UPFNNAnimInstance* PFNNAnimInstance;
 
@@ -121,7 +125,7 @@ struct PFNN_API FAnimNode_PFNN : public FAnimNode_Base
 
 	glm::vec3 JointPosition[JOINT_NUM];
 	glm::vec3 JointVelocitys[JOINT_NUM];
-	glm::vec3 JointRotations[JOINT_NUM];
+	glm::mat3 JointRotations[JOINT_NUM];
 
 	glm::mat4 JointAnimXform[JOINT_NUM];
 	glm::mat4 JointRestXform[JOINT_NUM];
@@ -144,11 +148,7 @@ struct PFNN_API FAnimNode_PFNN : public FAnimNode_Base
 
 	bool bIsPFNNLoaded;
 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "PFNN")
-	TArray<FVector> Node_JointLocations;
 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "PFNN")
-	TArray<FQuat> Node_JointRotations;
 
 private:
 	void DrawDebugSkeleton(const FPoseContext& arg_Context);

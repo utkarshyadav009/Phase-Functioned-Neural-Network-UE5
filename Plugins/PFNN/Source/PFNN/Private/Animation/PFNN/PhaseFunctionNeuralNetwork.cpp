@@ -100,11 +100,11 @@ void UPhaseFunctionNeuralNetwork::Cubic(Eigen::ArrayXXf& arg_Out, const Eigen::A
 
 void UPhaseFunctionNeuralNetwork::Predict(float arg_Phase)
 {
-	float pamount;
-	int pindex_0;
-	int pindex_1;
-	int pindex_2;
-	int pindex_3;
+	float pamount = 0.f;
+	int32 pindex_0 = 0;
+	int32 pindex_1 = 0;
+	int32 pindex_2 = 0;
+	int32 pindex_3 = 0;
 
 	Xp = (Xp - Xmean) / Xstd;
 

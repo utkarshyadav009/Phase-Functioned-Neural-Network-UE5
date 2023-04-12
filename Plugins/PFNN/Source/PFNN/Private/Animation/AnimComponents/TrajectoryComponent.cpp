@@ -99,11 +99,11 @@ glm::vec3 UTrajectoryComponent::GetRootPosition() const
 
 glm::vec3 UTrajectoryComponent::GetPreviousRootPosition() const
 {
+	const auto idx = LENGTH / 2 - 1;
 	return glm::vec3(
-		Positions[LENGTH / 2 - 1].x,
-		Heights[LENGTH / 2 - 1],
-		Positions[LENGTH / 2 - 1].z
-	);
+		Positions[idx].x,
+		Heights[idx],
+		Positions[idx].z);
 }
 
 glm::mat3 UTrajectoryComponent::GetRootRotation() const
@@ -118,103 +118,160 @@ glm::mat3 UTrajectoryComponent::GetPreviousRootRotation() const
 
 void UTrajectoryComponent::TickGaits()
 {
+	// TODO: crouch amount update
+	//character->crouched_amount = glm::mix(character->crouched_amount, character->crouched_target, options->extra_crouched_smooth);
+
 	//Updating of the gaits
 	const float MovementCutOff = 0.01f;
 	const float JogCuttoff = 0.5f;
 	const auto TrajectoryLength = glm::length(TargetVelocity);
 	//const auto NormalizedTrajectoryLength = glm::normalize(TrajectoryLength);
-	if (TrajectoryLength < MovementCutOff) //Standing
+	const int32 MedianLength = LENGTH / 2;
+
+	const auto updateValue = [ExtraGaitSmooth = ExtraGaitSmooth](float& param, const float value) { param = glm::mix(param, value, ExtraGaitSmooth); };
+	if (TrajectoryLength < MovementCutOff)  // stand
 	{
 		const float StandingClampMin = 0.0f;
 		const float StandingClampMax = 1.0f;
-		const float StandingAmount = 1.0f - glm::clamp(glm::length(TargetVelocity) / 0.1f, StandingClampMin, StandingClampMax);
-		GaitStand[LENGTH / 2] = glm::mix(GaitStand[LENGTH / 2], StandingAmount, ExtraGaitSmooth);
-		GaitWalk[LENGTH / 2] = glm::mix(GaitWalk[LENGTH / 2], 0.0f, ExtraGaitSmooth);
-		GaitJog	[LENGTH / 2] = glm::mix(GaitJog	[LENGTH / 2], 0.0f, ExtraGaitSmooth);
-		GaitJump[LENGTH / 2] = glm::mix(GaitJump[LENGTH / 2], 0.0f, ExtraGaitSmooth);
-		GaitBump[LENGTH / 2] = glm::mix(GaitBump[LENGTH / 2], 0.0f, ExtraGaitSmooth);
-
+		float stand_amount = 1.0f - glm::clamp(TrajectoryLength * 10, StandingClampMin, StandingClampMax);
+		updateValue(GaitStand[MedianLength], stand_amount);
+		updateValue(GaitWalk[MedianLength], 0.0f);
+		updateValue(GaitJog[MedianLength], 0.0f);
+		updateValue(GaitCrouch[MedianLength], 0.0f);
+		updateValue(GaitJump[MedianLength], 0.0f);
+		updateValue(GaitBump[MedianLength], 0.0f);
 	}
-	else if (glm::abs(TargetVelocity.x) > JogCuttoff || glm::abs(TargetVelocity.y) > JogCuttoff) //Jog
+	else if (const float crouched = 0/*character->crouched_amount*/; crouched > 0.1) // crouched
 	{
-
-		GaitStand[LENGTH / 2] = glm::mix(GaitStand[LENGTH / 2], 0.0f, ExtraGaitSmooth);
-		GaitWalk[LENGTH / 2] = glm::mix(GaitWalk[LENGTH / 2], 0.0f, ExtraGaitSmooth);
-		GaitJog	[LENGTH / 2] = glm::mix(GaitJog	[LENGTH / 2], 1.0f, ExtraGaitSmooth);
-		GaitJump[LENGTH / 2] = glm::mix(GaitJump[LENGTH / 2], 0.0f, ExtraGaitSmooth);
-		GaitBump[LENGTH / 2] = glm::mix(GaitBump[LENGTH / 2], 0.0f, ExtraGaitSmooth);
+		updateValue(GaitStand[MedianLength], 0.0f);
+		updateValue(GaitWalk[MedianLength], 0.0f);
+		updateValue(GaitJog[MedianLength], 0.0f);
+		updateValue(GaitCrouch[MedianLength], crouched);
+		updateValue(GaitJump[MedianLength], 0.0f);
+		updateValue(GaitBump[MedianLength], 0.0f);
 	}
-	else //Walking
+	else if (glm::abs(TrajectoryLength) > JogCuttoff) //Jog old
+		// else if((SDL_JoystickGetAxis(stick, GAMEPAD_TRIGGER_R) / 32768.0) + 1.0) // jog original
+		// else if(glm::abs(TargetVelocity.x) > JogCuttoff || glm::abs(TargetVelocity.y) > JogCuttoff) //Jog old
 	{
-		GaitStand[LENGTH / 2] = glm::mix(GaitStand[LENGTH / 2], 0.0f, ExtraGaitSmooth);
-		GaitWalk[LENGTH / 2] = glm::mix(GaitWalk[LENGTH / 2], 1.0f, ExtraGaitSmooth);
-		GaitJog	[LENGTH / 2] = glm::mix(GaitJog	[LENGTH / 2], 0.0f, ExtraGaitSmooth);
-		GaitJump[LENGTH / 2] = glm::mix(GaitJump[LENGTH / 2], 0.0f, ExtraGaitSmooth);
-		GaitBump[LENGTH / 2] = glm::mix(GaitBump[LENGTH / 2], 0.0f, ExtraGaitSmooth);
+		updateValue(GaitStand[MedianLength], 0.0f);
+		updateValue(GaitWalk[MedianLength], 0.0f);
+		updateValue(GaitJog[MedianLength], 1.0f);
+		updateValue(GaitCrouch[MedianLength], 0.0f);
+		updateValue(GaitJump[MedianLength], 0.0f);
+		updateValue(GaitBump[MedianLength], 0.0f);
 	}
-	
+	else // walk
+	{
+		updateValue(GaitStand[MedianLength], 0.0f);
+		updateValue(GaitWalk[MedianLength], 1.0f);
+		updateValue(GaitJog[MedianLength], 0.0f);
+		updateValue(GaitCrouch[MedianLength], 0.0f);
+		updateValue(GaitJump[MedianLength], 0.0f);
+		updateValue(GaitBump[MedianLength], 0.0f);
+	}
+
 	if (bIsTrajectoryDebuggingEnabled)
 	{
-		GEngine->AddOnScreenDebugMessage(-1, 0.0f, FColor::Yellow, FString::Printf(TEXT("%f Gait stand "),	GaitStand[LENGTH / 2]));
-		GEngine->AddOnScreenDebugMessage(-1, 0.0f, FColor::Yellow, FString::Printf(TEXT("%f Gait walks "),	GaitWalk[LENGTH / 2]));
-		GEngine->AddOnScreenDebugMessage(-1, 0.0f, FColor::Yellow, FString::Printf(TEXT("%f Gait Jog "),		GaitJog[LENGTH / 2]));
-		GEngine->AddOnScreenDebugMessage(-1, 0.0f, FColor::Yellow, FString::Printf(TEXT("%f Gait Jump "),		GaitJump[LENGTH / 2]));
-		GEngine->AddOnScreenDebugMessage(-1, 0.0f, FColor::Yellow, FString::Printf(TEXT("%f Gait Bump "),		GaitBump[LENGTH / 2]));
+		GEngine->AddOnScreenDebugMessage(-1, 0.0f, FColor::Yellow, FString::Printf(TEXT("%f Gait stand "), GaitStand[LENGTH / 2]));
+		GEngine->AddOnScreenDebugMessage(-1, 0.0f, FColor::Yellow, FString::Printf(TEXT("%f Gait walks "), GaitWalk[LENGTH / 2]));
+		GEngine->AddOnScreenDebugMessage(-1, 0.0f, FColor::Yellow, FString::Printf(TEXT("%f Gait Jog "), GaitJog[LENGTH / 2]));
+		GEngine->AddOnScreenDebugMessage(-1, 0.0f, FColor::Yellow, FString::Printf(TEXT("%f Gait Jump "), GaitJump[LENGTH / 2]));
+		GEngine->AddOnScreenDebugMessage(-1, 0.0f, FColor::Yellow, FString::Printf(TEXT("%f Gait Bump "), GaitBump[LENGTH / 2]));
+		GEngine->AddOnScreenDebugMessage(-1, 0.0f, FColor::Yellow, FString::Printf(TEXT("%f TrajectoryLength "), TrajectoryLength));
 	}
 
 }
 
 void UTrajectoryComponent::PredictFutureTrajectory()
 {
+	const auto halfLength = LENGTH / 2;
 	//Predicting future trajectory
 	glm::vec3 TrajectoryPositionsBlend[LENGTH] = { glm::vec3(0.0f) };
-	TrajectoryPositionsBlend[LENGTH / 2] = Positions[LENGTH / 2];
+	TrajectoryPositionsBlend[halfLength] = Positions[halfLength];
 
 	const float BiasPosition = Responsive ? glm::mix(2.0f, 2.0f, StrafeAmount) : glm::mix(0.5f, 1.0f, StrafeAmount);
 	const float BiasDirection = Responsive ? glm::mix(5.0f, 3.0f, StrafeAmount) : glm::mix(2.0f, 0.5f, StrafeAmount);
 
-	for (int i = LENGTH / 2 + 1; i < LENGTH; i++)
+	for (int i = halfLength + 1; i < LENGTH; i++)
 	{
+		const float ScalePosition = 1.0f - powf(1.0f - (static_cast<float>(i - halfLength) / halfLength), BiasPosition);
+		const float ScaleDirection = 1.0f - powf(1.0f - (static_cast<float>(i - halfLength) / halfLength), BiasDirection);
 
-		const float ScalePosition = (1.0f - powf(1.0f - (static_cast<float>(i - LENGTH / 2) / (LENGTH / 2)), BiasPosition));
-		const float ScaleDirection = (1.0f - powf(1.0f - (static_cast<float>(i - LENGTH / 2) / (LENGTH / 2)), BiasDirection));
-
-		TrajectoryPositionsBlend[i] = TrajectoryPositionsBlend[i - 1] + glm::mix(Positions[i] - Positions[i], TargetVelocity, ScalePosition);
-		glm::vec3 DistanceFromPreviousNode = Positions[i] - Positions[i - 1];
-		//TrajectoryPositionsBlend[i] = TrajectoryPositionsBlend[i-1] + glm::mix(DistanceFromPreviousNode, TargetVelocity, ScalePosition);
+		const glm::vec3 DistanceFromPreviousNode = Positions[i] - Positions[i - 1];
+		TrajectoryPositionsBlend[i] = TrajectoryPositionsBlend[i - 1] + glm::mix(DistanceFromPreviousNode, TargetVelocity, ScalePosition);
 
 		//TODO: Add wall colision for future trajectory - 1519
+		/*
+		for(int j = 0; j < areas->num_walls(); j++)
+		{
+			glm::vec2 trjpoint = glm::vec2(trajectory_positions_blend[i].x, trajectory_positions_blend[i].z);
+			if(glm::length(trjpoint - ((areas->wall_start[j] + areas->wall_stop[j]) / 2.0f)) >
+			   glm::length(areas->wall_start[j] - areas->wall_stop[j]))
+			{
+				continue;
+			}
+			glm::vec2 segpoint = segment_nearest(areas->wall_start[j], areas->wall_stop[j], trjpoint);
+			float segdist = glm::length(segpoint - trjpoint);
+			if(segdist < areas->wall_width[j] + 100.0)
+			{
+				glm::vec2 prjpoint0 = (areas->wall_width[j] + 0.0f) * glm::normalize(trjpoint - segpoint) + segpoint;
+				glm::vec2 prjpoint1 = (areas->wall_width[j] + 100.0f) * glm::normalize(trjpoint - segpoint) + segpoint;
+				glm::vec2 prjpoint = glm::mix(prjpoint0, prjpoint1, glm::clamp((segdist - areas->wall_width[j]) / 100.0f, 0.0f, 1.0f));
+				trajectory_positions_blend[i].x = prjpoint.x;
+				trajectory_positions_blend[i].z = prjpoint.y;
+			}
+		}
+		*/
 
 		Directions[i] = MixDirections(Directions[i], TargetDirection, ScaleDirection);
 
-		/*Heights[i] = Heights[LENGTH / 2];*/
+		Heights[i] = Heights[halfLength];
 
-		GaitStand[i]= GaitStand[LENGTH / 2];
-		GaitWalk[i] = GaitWalk[LENGTH / 2];
-		GaitJog[i]	= GaitJog [LENGTH / 2];
-		GaitJump[i] = GaitJump[LENGTH / 2];
-		GaitBump[i] = GaitBump[LENGTH / 2];
-		
+		GaitStand[i] = GaitStand[halfLength];
+		GaitWalk[i] = GaitWalk[halfLength];
+		GaitJog[i] = GaitJog[halfLength];
+		GaitJump[i] = GaitJump[halfLength];
+		GaitBump[i] = GaitBump[halfLength];
+		GaitCrouch[i] = GaitCrouch[halfLength];
 	}
 
-	for (int i = LENGTH / 2 + 1; i < LENGTH; i++)
-	{
+	for (int i = halfLength + 1; i < LENGTH; i++)
 		Positions[i] = TrajectoryPositionsBlend[i];
-	}
-
-
 }
 
 void UTrajectoryComponent::TickRotations()
 {
+	const auto v = glm::vec3(0.0f, 1.0f, 0.0f);
+
 	for (int i = 0; i < LENGTH; i++)
-	{
-		Rotations[i] = glm::mat3(glm::rotate(atan2f(Directions[i].x, Directions[i].z), glm::vec3(0.0f, 1.0f, 0.0f)));
-	}
+		Rotations[i] = glm::mat3(glm::rotate(atan2f(Directions[i].x, Directions[i].z), v));
 }
 
 void UTrajectoryComponent::TickHeights()
 {
+	/*
+	
+	for(int i = Trajectory::LENGTH / 2; i < Trajectory::LENGTH; i++)
+	{
+		trajectory->positions[i].y = heightmap->sample(glm::vec2(trajectory->positions[i].x, trajectory->positions[i].z));
+	}
+
+	trajectory->heights[Trajectory::LENGTH / 2] = 0.0;
+	for(int i = 0; i < Trajectory::LENGTH; i += 10)
+	{
+		trajectory->heights[Trajectory::LENGTH / 2] += (trajectory->positions[i].y / ((Trajectory::LENGTH) / 10));
+	}
+
+	glm::vec3 root_position = glm::vec3(
+		trajectory->positions[Trajectory::LENGTH / 2].x,
+		trajectory->heights[Trajectory::LENGTH / 2],
+		trajectory->positions[Trajectory::LENGTH / 2].z);
+
+	glm::mat3 root_rotation = trajectory->rotations[Trajectory::LENGTH / 2];
+	
+	*/
+
 	const float DistanceOffsetHeight = 100.f;
 	const float DistanceOffsetFloor = 450.f;
 	//Trajectory height
@@ -248,6 +305,23 @@ void UTrajectoryComponent::TickHeights()
 	//}
 }
 
+void UTrajectoryComponent::ResetTrajectory(const glm::vec3& arg_RootPosition, const glm::mat3& arg_RootRotation)
+{
+	for (int i = 0; i < LENGTH; i++)
+	{
+		Positions[i] = arg_RootPosition;
+		Rotations[i] = arg_RootRotation;
+		Directions[i] = glm::vec3(0, 0, 1);
+		Heights[i] = arg_RootPosition.y;
+		GaitStand[i] = 0.0;
+		GaitWalk[i] = 0.0;
+		GaitJog[i] = 0.0;
+		GaitBump[i] = 0.0;
+		GaitCrouch[i] = 0.0;
+		GaitJump[i] = 0.0;
+	}
+}
+
 void UTrajectoryComponent::UpdatePastTrajectory()
 {
 	for (int i = 0; i < LENGTH / 2; i++)
@@ -263,8 +337,46 @@ void UTrajectoryComponent::UpdatePastTrajectory()
 	}
 }
 
-glm::vec3 UTrajectoryComponent::MixDirections(const glm::vec3 arg_XDirection, const glm::vec3 arg_YDirection,
-	const float arg_Scalar)
+void UTrajectoryComponent::UpdateCurrentTrajectory(const float StandAmount, Eigen::ArrayXf& PFNN_Yp)
+{
+	const int32 halfLength = UTrajectoryComponent::LENGTH / 2;
+
+	const glm::vec3 TrajectoryUpdate = Rotations[halfLength] * glm::vec3(PFNN_Yp(0), 0, PFNN_Yp(1)); //TODEBUG: Rot
+	Positions[halfLength] = Positions[halfLength] + StandAmount * TrajectoryUpdate;
+	// Directions[halfLength] = UPFNNHelperFunctions::XZYTranslationToXYZ(glm::vec3( GetOwner()->GetActorForwardVector().X,  GetOwner()->GetActorForwardVector().Y, 0.0f));
+	Directions[halfLength] = glm::mat3(glm::rotate(StandAmount * -PFNN_Yp(2), glm::vec3(0, 1, 0))) * Directions[halfLength]; //TODEBUG: Rot
+	Rotations[halfLength] = glm::mat3(glm::rotate(atan2f(Directions[halfLength].x, Directions[halfLength].z), glm::vec3(0, 1, 0)));
+
+}
+
+void UTrajectoryComponent::UpdateFutureTrajectory(Eigen::ArrayXf& PFNN_Yp)
+{
+	const int32 halfLength = UTrajectoryComponent::LENGTH / 2;
+	const int32 W = halfLength / 10;
+	const int32 FirstFutureNode = halfLength + 1;
+	const auto trajectoryFeatureCalc = [&PFNN_Yp, &W](const auto M, const auto i, const auto ft) -> float
+	{
+		const auto iYp = 8 + (W * ft) + (i / 10) - W;
+		return (1 - M) * PFNN_Yp(iYp) + M * PFNN_Yp(iYp + 1);
+	};
+	for (int32 i = FirstFutureNode; i < UTrajectoryComponent::LENGTH; i++)
+	{
+		const float M = fmod((static_cast<float>(i) - (halfLength)) / 10.0, 1.0);
+
+		Positions[i].x = trajectoryFeatureCalc(M, i, 0);
+		Positions[i].z = trajectoryFeatureCalc(M, i, 1);
+		Directions[i].x = trajectoryFeatureCalc(M, i, 2);
+		Directions[i].z = trajectoryFeatureCalc(M, i, 3);
+
+		Positions[i] = (Rotations[halfLength] * Positions[i]) + Positions[halfLength];
+		Directions[i] = glm::normalize(Rotations[halfLength] * Directions[i]);
+		Rotations[i] = glm::mat3(glm::rotate(atan2f(Directions[i].x, Directions[i].z), glm::vec3(0, 1, 0)));
+	}
+}
+
+glm::vec3 UTrajectoryComponent::MixDirections(const glm::vec3 arg_XDirection
+	, const glm::vec3 arg_YDirection
+	, const float arg_Scalar)
 {
 	const glm::quat XQuat = glm::angleAxis(atan2f(arg_XDirection.x, arg_XDirection.z), glm::vec3(0.0f, 1.0f, 0.0f));
 	const glm::quat YQuat = glm::angleAxis(atan2f(arg_YDirection.x, arg_YDirection.z), glm::vec3(0.0f, 1.0f, 0.0f));
@@ -276,12 +388,14 @@ glm::vec3 UTrajectoryComponent::MixDirections(const glm::vec3 arg_XDirection, co
 //USES NATIVE CPP TO ENSURE IT CAN BE USED IN REFERENCE PROJECT
 void UTrajectoryComponent::LogTrajectoryData(int arg_FrameCount)
 {
-	try 
+	try
 	{
-		std::ofstream fs;
-		fs.open("UE5_Trajectory.txt", std::ios::out);
+		FString RelativePath = FPaths::ProjectDir();
+		const FString FullPath = RelativePath += "PFNN_Trajectory.log";
 
-		if (fs.is_open()) 
+		std::fstream fs;
+		fs.open(*FullPath, std::ios::out);
+		if (fs.is_open())
 		{
 			fs << "UE5_Implementation" << std::endl;
 			fs << "TrajectoryLog Frame[" << arg_FrameCount << "]" << std::endl << std::endl;
@@ -312,7 +426,7 @@ void UTrajectoryComponent::LogTrajectoryData(int arg_FrameCount)
 				fs << "	Direction: " << Directions[i].x << "X, " << Directions[i].y << "Y, " << Directions[i].z << "Z" << std::endl;
 				for (size_t x = 0; x < 3; x++)
 				{
-				fs << "	Rotation:  " << Rotations[i][x].x << "X, " << Rotations[i][x].y << ", " << Rotations[i][x].z << std::endl;
+					fs << "	Rotation:  " << Rotations[i][x].x << "X, " << Rotations[i][x].y << ", " << Rotations[i][x].z << std::endl;
 				}
 			}
 			fs << "#End Positional Data" << std::endl << std::endl;
@@ -329,14 +443,14 @@ void UTrajectoryComponent::LogTrajectoryData(int arg_FrameCount)
 			}
 			fs << "#End Gaits" << std::endl << std::endl;
 		}
-		else 
+		else
 		{
 			throw std::exception();
 		}
 		fs.close();
 		return;
 	}
-	catch (std::exception e) 
+	catch (std::exception e)
 	{
 #ifdef WITH_EDITOR
 		UE_LOG(LogTemp, Error, TEXT("Failed to Log Trajectory output data"));
@@ -352,118 +466,134 @@ void UTrajectoryComponent::TickTrajectory()
 	PredictFutureTrajectory();
 	TickRotations();
 	TickHeights();
-
-
 }
 
 void UTrajectoryComponent::TickInput()
 {
-	APFNNCharacter* PFNNCharacter = Cast<APFNNCharacter>(GetOwner());
-	if (PFNNCharacter)
+	if (APFNNCharacter* PFNNCharacter = Cast<APFNNCharacter>(GetOwner()))
 	{
 		UPawnMovementComponent* MovementComponent = PFNNCharacter->GetMovementComponent();
 		glm::vec3 FlippedVelocity = UPFNNHelperFunctions::XZYTranslationToXYZ(MovementComponent->Velocity);
-		CurrentFrameInput = glm::vec2(FlippedVelocity.x, FlippedVelocity.z);
-		CurrentFrameInput = glm::normalize(CurrentFrameInput);
+		CurrentFrameInput = glm::normalize(glm::vec2(FlippedVelocity.x, FlippedVelocity.z));
 	}
 
 	if (glm::abs(CurrentFrameInput.x) + glm::abs(CurrentFrameInput.y) < 0.305f)
-	{
 		CurrentFrameInput = glm::vec2(0.0f);
-	}
 }
 
 void UTrajectoryComponent::CalculateTargetDirection()
 {
-	glm::vec3 FlippedForward = UPFNNHelperFunctions::XZYTranslationToXYZ(glm::vec3(OwnerPawn->GetActorForwardVector().X, OwnerPawn->GetActorForwardVector().Y, 0.0f));
+	const auto actorForwardVector = OwnerPawn->GetActorForwardVector();
+
+	glm::vec3 FlippedForward = UPFNNHelperFunctions::XZYTranslationToXYZ(glm::vec3(actorForwardVector.X, actorForwardVector.Y, 0.0f));
 	glm::vec3 TrajectoryTargetDirectionNew = glm::normalize(FlippedForward);
 	const glm::mat3 TrajectoryTargetRotation = glm::mat3(glm::rotate(atan2f(TrajectoryTargetDirectionNew.x, TrajectoryTargetDirectionNew.z), glm::vec3(0.0f, 1.0f, 0.0f)));
 
-	const float TargetVelocitySpeed = OwnerPawn->GetVelocity().SizeSquared() / (OwnerPawn->GetMovementComponent()->GetMaxSpeed() * OwnerPawn->GetMovementComponent()->GetMaxSpeed()) / 7.5f; //7.5 is current training walking speed
+	const float currentWalkingSpeed = 7.5f;
+	const float maxWalkSpeed = 500;
+	const float TargetVelocitySpeed = OwnerPawn->GetVelocity().SizeSquared() / (pow(maxWalkSpeed/*OwnerPawn->GetMovementComponent()->GetMaxSpeed()*/, 2) * currentWalkingSpeed); //7.5 is current training walking speed
 
-	const glm::vec3 TrajectoryTargetVelocityNew = TargetVelocitySpeed * (glm::vec3(CurrentFrameInput.x, 0.0f, CurrentFrameInput.y));
+	const glm::vec3 TrajectoryTargetVelocityNew = TargetVelocitySpeed * (TrajectoryTargetRotation * /*glm::vec3(x_vel / 32768.0, 0, y_vel / 32768.0)*/ glm::vec3(CurrentFrameInput.x, 0.0f, CurrentFrameInput.y));
 	TargetVelocity = glm::mix(TargetVelocity, TrajectoryTargetVelocityNew, ExtraVelocitySmooth);
+
+	//StrafeTarget = ((SDL_JoystickGetAxis(stick, GAMEPAD_TRIGGER_L) / 32768.0) + 1.0) / 2.0; // TODO: strafe target
 	StrafeAmount = glm::mix(StrafeAmount, StrafeTarget, ExtraStrafeSmooth);
+
 	const glm::vec3 TrajectoryTargetVelocityDirection = glm::length(TargetVelocity) < 1e-05 ? TargetDirection : glm::normalize(TargetVelocity);
 	TrajectoryTargetDirectionNew = MixDirections(TrajectoryTargetVelocityDirection, TrajectoryTargetDirectionNew, StrafeAmount);
-	TargetDirection = TrajectoryTargetDirectionNew; MixDirections(TargetDirection, TrajectoryTargetDirectionNew, ExtraDirectionSmooth);
-	
-	if (bIsTrajectoryDebuggingEnabled)
+	TargetDirection = MixDirections(TargetDirection, TrajectoryTargetDirectionNew, ExtraDirectionSmooth);
+
+#pragma region Debug
+	if (!bIsTrajectoryDebuggingEnabled)
+		return;
+
+	FVector FlippedCurrentFrameInput = UPFNNHelperFunctions::XYZTranslationToXZY(glm::vec3(CurrentFrameInput.x, 0.0f, CurrentFrameInput.y));
+	FVector FlippedTargetDirectionNew = UPFNNHelperFunctions::XYZTranslationToXZY(TrajectoryTargetDirectionNew);
+	FVector FlippedTargetDirection = UPFNNHelperFunctions::XYZTranslationToXZY(TargetDirection);
+	FVector FlippedTargetVelocityNew = UPFNNHelperFunctions::XYZTranslationToXZY(TrajectoryTargetVelocityNew);
+	FVector FlippedTargetVelocity = UPFNNHelperFunctions::XYZTranslationToXZY(TargetVelocity);
+
+	GEngine->AddOnScreenDebugMessage(-1, 0.0f, FColor::White, FString::Printf(TEXT("%s Current frame input"), *FlippedCurrentFrameInput.ToString()));
+	GEngine->AddOnScreenDebugMessage(-1, 0.0f, FColor::Blue, FString::Printf(TEXT("%s TrajectoryTargetDirectionNew"), *FlippedTargetDirectionNew.ToString()));
+	GEngine->AddOnScreenDebugMessage(-1, 0.0f, FColor::Green, FString::Printf(TEXT("%s TargetDirection"), *FlippedTargetDirection.ToString()));
+	GEngine->AddOnScreenDebugMessage(-1, 0.0f, FColor::Red, FString::Printf(TEXT("%s TargetVelocityNew"), *FlippedTargetVelocityNew.ToString()));
+	GEngine->AddOnScreenDebugMessage(-1, 0.0f, FColor::Yellow, FString::Printf(TEXT("%s TargetVelocity"), *FlippedTargetVelocity.ToString()));
+
+	GEngine->AddOnScreenDebugMessage(-1, 0.0f, FColor::Yellow, FString::Printf(TEXT("%s Pawn velocity vector"), *OwnerPawn->GetVelocity().ToString()));
+	const auto SizeSquared = OwnerPawn->GetVelocity().SizeSquared();
+	FString stri = FString::SanitizeFloat(SizeSquared, 8);
+	GEngine->AddOnScreenDebugMessage(-1, 0.0f, FColor::Yellow, FString::Printf(TEXT("%s Pawn velocity Squared"), *stri));
+
+#if 0 // unexpect throws
+	FVector ActorLoc = GetOwner()->GetActorLocation();
+	const auto drawDebugArrow = [&](const auto& actor, const auto& appendix, const auto color)
 	{
-		FVector FlippedTargetDirectionNew = UPFNNHelperFunctions::XYZTranslationToXZY(TrajectoryTargetDirectionNew);
-		FVector FlippedTargetDirection = UPFNNHelperFunctions::XYZTranslationToXZY(TargetDirection);
-		FVector FlippedCurrentFrameInput = UPFNNHelperFunctions::XYZTranslationToXZY(glm::vec3(CurrentFrameInput.x, 0.0f, CurrentFrameInput.y));
-		FVector FlippedTargetVelocityNew = UPFNNHelperFunctions::XYZTranslationToXZY(TrajectoryTargetVelocityNew);
-		FVector FlippedTargetVelocity = UPFNNHelperFunctions::XYZTranslationToXZY(TargetVelocity);
+		const float lifeTime = -1.f;
+		const uint8 depthPrior = 0;
+		const float thickness = 2.f;
+		const bool bPersistentLine = false;
+		DrawDebugDirectionalArrow(GetWorld(), actor, actor + appendix + rand() % 5, 0.0f, color, bPersistentLine, lifeTime, depthPrior, thickness);
+	};
 
-		GEngine->AddOnScreenDebugMessage(-1, 0.0f, FColor::White, FString::Printf(TEXT("%s Current frame input"), *FlippedCurrentFrameInput.ToString()));
-		GEngine->AddOnScreenDebugMessage(-1, 0.0f, FColor::Blue, FString::Printf(TEXT("%s TrajectoryTargetDirectionNew"), *FlippedTargetDirectionNew.ToString()));
-		GEngine->AddOnScreenDebugMessage(-1, 0.0f, FColor::Green, FString::Printf(TEXT("%s TargetDirection"), *FlippedTargetDirection.ToString()));
-		GEngine->AddOnScreenDebugMessage(-1, 0.0f, FColor::Red, FString::Printf(TEXT("%s TargetVelocityNew"), *FlippedTargetVelocityNew.ToString()));
-		GEngine->AddOnScreenDebugMessage(-1, 0.0f, FColor::Yellow, FString::Printf(TEXT("%s TargetVelocity"), *FlippedTargetVelocity.ToString()));
-		
-		FVector ActorLoc = GetOwner()->GetActorLocation();
+	FVector FrameInputActor = ActorLoc + FVector(0.0f, 0.0f, 200.0f);
+	drawDebugArrow(FrameInputActor, FlippedCurrentFrameInput * 100, FColor::White);
 
-		FVector FrameInputActor = ActorLoc + FVector(0.0f, 0.0f, 200.0f);
-		FVector TargetDirectionActor = ActorLoc + FVector(0.0f, 0.0f, 250.0f);
-		FVector TargetVelocityActor = ActorLoc + FVector(0.0f, 0.0f, 225.0f);
+	FVector TargetDirectionActor = ActorLoc + FVector(0.0f, 0.0f, 250.0f);
+	drawDebugArrow(TargetDirectionActor, FlippedTargetDirectionNew * 100.0f, FColor::Blue);
+	drawDebugArrow(TargetDirectionActor, FlippedTargetDirection * 100.0f, FColor::Green);
 
-		//DrawDebugDirectionalArrow(GetWorld(), FrameInputActor, FrameInputActor + FlippedCurrentFrameInput * 100, 0.0f, FColor::White, false, -1, 0, 2);
-		
-		//DrawDebugDirectionalArrow(GetWorld(),TargetDirectionActor, TargetDirectionActor + FlippedTargetDirectionNew * 100.0f, 0.0f, FColor::Blue, false, -1, 0, 2);
-		//DrawDebugDirectionalArrow(GetWorld(), TargetDirectionActor, TargetDirectionActor + FlippedTargetDirection * 100.0f, 0.0f, FColor::Green, false, -1, 0, 2);
-		
-		//DrawDebugDirectionalArrow(GetWorld(), TargetVelocityActor, TargetVelocityActor + FlippedTargetVelocityNew * 1000.0f, 0.0f, FColor::Red, false, -1, 0, 2);
-		//DrawDebugDirectionalArrow(GetWorld(), TargetVelocityActor, TargetVelocityActor + FlippedTargetVelocity * 1000.0f, 0.0f, FColor::Yellow, false, -1, 0, 2);
-	}
+	FVector TargetVelocityActor = ActorLoc + FVector(0.0f, 0.0f, 225.0f);
+	drawDebugArrow(TargetVelocityActor, FlippedTargetVelocityNew * 1000.0f, FColor::Red);
+	drawDebugArrow(TargetVelocityActor, FlippedTargetVelocity * 1000.0f, FColor::Yellow);
+#endif // 0
+#pragma endregion
 }
 
 void UTrajectoryComponent::DrawDebugTrajectory()
 {
-	if (bIsTrajectoryDebuggingEnabled)
+	if (!bIsTrajectoryDebuggingEnabled)
+		return;
+
+	const glm::vec3 StartingPoint = Positions[0] * 100.0f;			//Get the leading point of the trajectory
+	const glm::vec3 MidPoint = Positions[LENGTH / 2] * 100.0f;		//Get the mid point/player point of the trajectory
+	const glm::vec3 EndingPoint = Positions[LENGTH - 1] * 100.0f;	//Get the ending point of the trajectory
+
+	for (size_t i = 0; i < LENGTH; i++)
 	{
-		const glm::vec3 StartingPoint = Positions[0] * 100.0f;			//Get the leading point of the trajectory
-		const glm::vec3 MidPoint = Positions[LENGTH / 2] * 100.0f;		//Get the mid point/player point of the trajectory
-		const glm::vec3 EndingPoint = Positions[LENGTH - 1] * 100.0f;	//Get the ending point of the trajectory
-
-		for (size_t i = 0; i < LENGTH; i++)
+		if (i % 10 == 0 || i == LENGTH - 1)
 		{
-			if (i % 10 == 0 || i == LENGTH-1) 
-			{
-				FVector DebugLocation = (UPFNNHelperFunctions::XYZTranslationToXZY(Positions[i]) * 100.0f);
-				DrawDebugPoint(GetWorld(), DebugLocation, 7.5f, FColor::Red);
+			FVector DebugLocation = (UPFNNHelperFunctions::XYZTranslationToXZY(Positions[i]) * 100.0f);
+			DrawDebugPoint(GetWorld(), DebugLocation, 7.5f, FColor::Red);
 
-				FVector CrossProduct = FVector::CrossProduct(FVector(0.0f,0.0f,1.0f), UPFNNHelperFunctions::XYZTranslationToXZY(Directions[i])) * 50.0f;
+			FVector CrossProduct = FVector::CrossProduct(FVector(0.0f, 0.0f, 1.0f), UPFNNHelperFunctions::XYZTranslationToXZY(Directions[i])) * 50.0f;
 
-				DrawDebugPoint(GetWorld(), DebugLocation + CrossProduct, 10.0f, FColor::Black);
-				DrawDebugPoint(GetWorld(), DebugLocation - CrossProduct, 10.0f, FColor::Black);
+			DrawDebugPoint(GetWorld(), DebugLocation + CrossProduct, 10.0f, FColor::Black);
+			DrawDebugPoint(GetWorld(), DebugLocation - CrossProduct, 10.0f, FColor::Black);
 
-			}
 		}
-
-		FVector DebugStartingPoint = UPFNNHelperFunctions::XYZTranslationToXZY(StartingPoint);
-		FVector DebugMidPoint = UPFNNHelperFunctions::XYZTranslationToXZY(MidPoint);
-		FVector DebugEndPoint = UPFNNHelperFunctions::XYZTranslationToXZY(EndingPoint);
-
-		DrawDebugPoint(GetWorld(), DebugStartingPoint, 10.0f, FColor::Red);
-		DrawDebugPoint(GetWorld(), DebugMidPoint, 10.0f, FColor::Red);
-		DrawDebugPoint(GetWorld(), DebugEndPoint, 10.0f, FColor::Red);
-
-		DrawDebugString(GetWorld(), DebugStartingPoint, TEXT("Past"), nullptr, FColor::Black, 0.001f);
-		DrawDebugString(GetWorld(), DebugMidPoint, TEXT("Current"), nullptr, FColor::Blue, 0.001f);
-		DrawDebugString(GetWorld(), DebugEndPoint, TEXT("Future"), nullptr, FColor::Red, 0.001f);
-		
-		const FVector StartingDirection = UPFNNHelperFunctions::XYZTranslationToXZY(Directions[0]);
-		const FVector MidDirection = UPFNNHelperFunctions::XYZTranslationToXZY(Directions[LENGTH / 2]);
-		const FVector EndDirection = UPFNNHelperFunctions::XYZTranslationToXZY(Directions[LENGTH - 1]);
-
-		//GEngine->AddOnScreenDebugMessage(-1, 0.0f, FColor::Black, FString::Printf(TEXT("%s Past Direction"), *StartingDirection.ToString()));
-		//GEngine->AddOnScreenDebugMessage(-1, 0.0f, FColor::Purple, FString::Printf(TEXT("%s Past Position"), *DebugStartingPoint.ToString()));
-		//GEngine->AddOnScreenDebugMessage(-1, 0.0f, FColor::Black, FString::Printf(TEXT("%s Present Direction"), *MidDirection.ToString()));
-		//GEngine->AddOnScreenDebugMessage(-1, 0.0f, FColor::Purple, FString::Printf(TEXT("%s Present Position"), *DebugMidPoint.ToString()));
-		//GEngine->AddOnScreenDebugMessage(-1, 0.0f, FColor::Black, FString::Printf(TEXT("%s Future Direction"), *EndDirection.ToString()));
-		//GEngine->AddOnScreenDebugMessage(-1, 0.0f, FColor::Purple, FString::Printf(TEXT("%s Future Position"), *DebugEndPoint.ToString()));
-
 	}
+
+	FVector DebugStartingPoint = UPFNNHelperFunctions::XYZTranslationToXZY(StartingPoint);
+	FVector DebugMidPoint = UPFNNHelperFunctions::XYZTranslationToXZY(MidPoint);
+	FVector DebugEndPoint = UPFNNHelperFunctions::XYZTranslationToXZY(EndingPoint);
+
+	DrawDebugPoint(GetWorld(), DebugStartingPoint, 10.0f, FColor::Red);
+	DrawDebugPoint(GetWorld(), DebugMidPoint, 10.0f, FColor::Red);
+	DrawDebugPoint(GetWorld(), DebugEndPoint, 10.0f, FColor::Red);
+
+	DrawDebugString(GetWorld(), DebugStartingPoint, TEXT("Past"), nullptr, FColor::Blue, 0.001f);
+	DrawDebugString(GetWorld(), DebugMidPoint, TEXT("Current"), nullptr, FColor::Blue, 0.001f);
+	DrawDebugString(GetWorld(), DebugEndPoint, TEXT("Future"), nullptr, FColor::Blue, 0.001f);
+
+	const FVector StartingDirection = UPFNNHelperFunctions::XYZTranslationToXZY(Directions[0]);
+	const FVector MidDirection = UPFNNHelperFunctions::XYZTranslationToXZY(Directions[LENGTH / 2]);
+	const FVector EndDirection = UPFNNHelperFunctions::XYZTranslationToXZY(Directions[LENGTH - 1]);
+
+	GEngine->AddOnScreenDebugMessage(-1, 0.0f, FColor::Black, FString::Printf(TEXT("%s Past Direction"), *StartingDirection.ToString()));
+	GEngine->AddOnScreenDebugMessage(-1, 0.0f, FColor::Purple, FString::Printf(TEXT("%s Past Position"), *DebugStartingPoint.ToString()));
+	GEngine->AddOnScreenDebugMessage(-1, 0.0f, FColor::Black, FString::Printf(TEXT("%s Present Direction"), *MidDirection.ToString()));
+	GEngine->AddOnScreenDebugMessage(-1, 0.0f, FColor::Purple, FString::Printf(TEXT("%s Present Position"), *DebugMidPoint.ToString()));
+	GEngine->AddOnScreenDebugMessage(-1, 0.0f, FColor::Black, FString::Printf(TEXT("%s Future Direction"), *EndDirection.ToString()));
+	GEngine->AddOnScreenDebugMessage(-1, 0.0f, FColor::Purple, FString::Printf(TEXT("%s Future Position"), *DebugEndPoint.ToString()));
 }
 

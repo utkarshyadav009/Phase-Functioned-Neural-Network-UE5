@@ -14,7 +14,8 @@ void UPFNNAnimInstance::NativeInitializeAnimation()
 	{
 		OwningTrajectoryComponent = OwningCharacter->GetTrajectoryComponent();
 	}
-
+	LeftLegJointTransform.SetNum(5);
+	RightLegJointTransform.SetNum(5);
 }
 
 void UPFNNAnimInstance::NativeUpdateAnimation(float arg_DeltaTimeX)
@@ -32,3 +33,12 @@ UTrajectoryComponent * UPFNNAnimInstance::GetOwningTrajectoryComponent()
 {
 	return OwningTrajectoryComponent;
 }
+
+void UPFNNAnimInstance::SetLeftLegJointTransform(FTransform Arg_JointTransform)
+{
+	for (int i = 0; i < LeftLegJointTransform.Num(); i++)
+	{
+		LeftLegJointTransform[i] = Arg_JointTransform;
+	}
+}
+
