@@ -347,13 +347,17 @@ void FAnimNode_PFNN::ApplyPFNN()
 		
 		//Funtion which takes all the values in the array and then creates a node in the blueprint editor 
 		// The node has 30 output pins 
-		if(i>1 && i <7) PFNNAnimInstance->SetLeftLegJointTransform(FTransform(FinalBoneRotations[i], FinalBoneLocations[i] ,FVector3d(0)));
+		//if (i > 1 && i < 7)
+		//	PFNNAnimInstance->SetLeftLegJointPositions(FinalBoneLocations[i]);
+		//if(i>1 && i <7) PFNNAnimInstance->SetLeftLegJointTransform(FTransform(FinalBoneRotations[i], FinalBoneLocations[i] ,FVector3d(1)));
 	}
 	
 	//Phase update
 	Phase = fmod(Phase + (StandAmount * 0.9f + 0.1f) * 2.0f * PI * PFNN->Yp(3), 2.0f * PI);
 
+
 	VisualizePhase();
+
 
 	FrameCounter++;
 	if (FrameCounter >= 1)
@@ -361,6 +365,32 @@ void FAnimNode_PFNN::ApplyPFNN()
 		Trajectory->LogTrajectoryData(FrameCounter);
 		LogNetworkData(FrameCounter);
 	}
+}
+
+
+void FAnimNode_PFNN::SendDatatoContrlRig()
+{
+	LeftLegBoneLocations.Empty();
+	LeftLegBoneLocations.Empty();
+
+	LeftLegBoneLocations.SetNum(LeftLEG_JOINT_NUM);
+	LeftLegBoneLocations.SetNum(LeftLEG_JOINT_NUM);
+
+	/// <summary>
+	/// Sending a type of bone i.e., left leg bone hierarchy, joint poistions 
+	/// the jont position array fills from index 2 to 6 i.e., these indexes have the jont 
+	/// position for the left leg bone hierarchy 
+	/// </summary>
+	/// 
+	
+	for (int32 i = 0; i < LeftLEG_JOINT_NUM; i++)	
+	{
+		LeftLegBoneLocations[i] = UPFNNHelperFunctions::XYZTranslationToXZY(JointPosition[i+2]);
+
+		//if (GEngine)
+		//	GEngine->AddOnScreenDebugMessage(-1, 0.0f, FColor::Red, FString::Printf(TEXT("AnimeNode %s %d: (%f, %f, %f)"), *JointNameByIndex[i+2].ToString(), i, LeftLegBoneLocations[i].X, LeftLegBoneLocations[i].Y, LeftLegBoneLocations[i].Z));
+	}
+	PFNNAnimInstance->SetLeftLegJointPositions(LeftLegBoneLocations);
 }
 
 glm::quat FAnimNode_PFNN::QuaternionExpression(const glm::vec3 arg_Vector)
@@ -401,10 +431,10 @@ void FAnimNode_PFNN::Initialize_AnyThread(const FAnimationInitializeContext& arg
 	FAnimNode_Base::Initialize_AnyThread(arg_Context);
 	
 	PFNNAnimInstance = GetPFNNInstanceFromContext(arg_Context);
-	if (!PFNNAnimInstance) 
-	{
-		UE_LOG(LogTemp, Error, TEXT("PFNN Animation node should only be added to a PFNNAnimInstance child class!"));
-	}
+if (!PFNNAnimInstance)
+{
+	UE_LOG(LogTemp, Error, TEXT("PFNN Animation node should only be added to a PFNNAnimInstance child class!"));
+}
 }
 
 void FAnimNode_PFNN::Update_AnyThread(const FAnimationUpdateContext& arg_Context)
@@ -416,14 +446,17 @@ void FAnimNode_PFNN::Update_AnyThread(const FAnimationUpdateContext& arg_Context
 		LoadData(arg_Context.AnimInstanceProxy);
 	}
 
-	if (PFNNAnimInstance) 
+	if (PFNNAnimInstance)
 	{
 		Trajectory = PFNNAnimInstance->GetOwningTrajectoryComponent();
 	}
-	
-	if(Trajectory != nullptr && bIsPFNNLoaded)
-		ApplyPFNN();
 
+	if (Trajectory != nullptr && bIsPFNNLoaded)
+
+	{
+		ApplyPFNN();
+		SendDatatoContrlRig();
+	}
 
 }
 
@@ -440,46 +473,46 @@ void FAnimNode_PFNN::Evaluate_AnyThread(FPoseContext& arg_Output)
 		return;
 	}
 
-	const auto Bones = arg_Output.Pose.GetBoneContainer();
-	for (int32 i = 0; i < JOINT_NUM; i++)
-	{
-		const FCompactPoseBoneIndex CurrentBoneIndex(i);
-		const FCompactPoseBoneIndex ParentBoneIndex(Bones.GetParentBoneIndex(CurrentBoneIndex));
+	//const auto Bones = arg_Output.Pose.GetBoneContainer();
+	//for (int32 i = 0; i < JOINT_NUM; i++)
+	//{
+	//	const FCompactPoseBoneIndex CurrentBoneIndex(i);
+	//	const FCompactPoseBoneIndex ParentBoneIndex(Bones.GetParentBoneIndex(CurrentBoneIndex));
 
-		if (ParentBoneIndex.GetInt() == -1)
-		{
-			//Do nothing first UE4 root bone skips
-			arg_Output.Pose[CurrentBoneIndex].SetRotation(FQuat::MakeFromEuler(FVector::DegreesToRadians(FVector(90.0f, 0.0f, 0.0f))));
-		}
-		else if (ParentBoneIndex.GetInt() == 0)
-		{
-			//Root Bone No conversion needed
-			arg_Output.Pose[CurrentBoneIndex].SetRotation(FinalBoneRotations[CurrentBoneIndex.GetInt() - 1]);
-			arg_Output.Pose[CurrentBoneIndex].SetLocation(FinalBoneLocations[CurrentBoneIndex.GetInt() - 1]);
+	//	if (ParentBoneIndex.GetInt() == -1)
+	//	{
+	//		//Do nothing first UE4 root bone skips
+	//		arg_Output.Pose[CurrentBoneIndex].SetRotation(FQuat::MakeFromEuler(FVector::DegreesToRadians(FVector(90.0f, 0.0f, 0.0f))));
+	//	}
+	//	else if (ParentBoneIndex.GetInt() == 0)
+	//	{
+	//		//Root Bone No conversion needed
+	//		arg_Output.Pose[CurrentBoneIndex].SetRotation(FinalBoneRotations[CurrentBoneIndex.GetInt() - 1]);
+	//		arg_Output.Pose[CurrentBoneIndex].SetLocation(FinalBoneLocations[CurrentBoneIndex.GetInt() - 1]);
 
-		}
-		else
-		{	//Conversion to LocalSpace (hopefully)
-			FTransform CurrentBoneTransform = FTransform(FinalBoneRotations[CurrentBoneIndex.GetInt() - 1], FinalBoneLocations[CurrentBoneIndex.GetInt() - 1], FVector::OneVector);
-			FTransform ParentBoneTransform = FTransform(FinalBoneRotations[ParentBoneIndex.GetInt() - 1], FinalBoneLocations[ParentBoneIndex.GetInt() - 1], FVector::OneVector);
+	//	}
+	//	else
+	//	{	//Conversion to LocalSpace (hopefully)
+	//		FTransform CurrentBoneTransform = FTransform(FinalBoneRotations[CurrentBoneIndex.GetInt() - 1], FinalBoneLocations[CurrentBoneIndex.GetInt() - 1], FVector::OneVector);
+	//		FTransform ParentBoneTransform = FTransform(FinalBoneRotations[ParentBoneIndex.GetInt() - 1], FinalBoneLocations[ParentBoneIndex.GetInt() - 1], FVector::OneVector);
 
-			FTransform LocalBoneTransform = CurrentBoneTransform.GetRelativeTransform(ParentBoneTransform);
+	//		FTransform LocalBoneTransform = CurrentBoneTransform.GetRelativeTransform(ParentBoneTransform);
 
-			arg_Output.Pose[CurrentBoneIndex].SetComponents(LocalBoneTransform.GetRotation(), LocalBoneTransform.GetLocation(), LocalBoneTransform.GetScale3D());
-			//arg_Output.Pose[CurrentBoneIndex].SetRotation(LocalBoneTransform.GetRotation());
-			LocalBoneTransform.SetLocation(LocalBoneTransform.GetRotation().Inverse() * LocalBoneTransform.GetLocation());
-		}
-	}
-	arg_Output.Pose.NormalizeRotations();
+	//		arg_Output.Pose[CurrentBoneIndex].SetComponents(LocalBoneTransform.GetRotation(), LocalBoneTransform.GetLocation(), LocalBoneTransform.GetScale3D());
+	//		//arg_Output.Pose[CurrentBoneIndex].SetRotation(LocalBoneTransform.GetRotation());
+	//		LocalBoneTransform.SetLocation(LocalBoneTransform.GetRotation().Inverse() * LocalBoneTransform.GetLocation());
+	//	}
+	//}
+	//arg_Output.Pose.NormalizeRotations();
 #ifdef WITH_EDITOR
 	DrawDebugSkeleton(arg_Output);
 	DrawDebugBoneVelocity(arg_Output);
 #endif
 }
 
-void FAnimNode_PFNN::LogNetworkData(int arg_FrameCounter) 
+void FAnimNode_PFNN::LogNetworkData(int arg_FrameCounter)
 {
-	try 
+	try
 	{
 		FString RelativePath = FPaths::ProjectDir();
 		const FString FullPath = RelativePath += "PFNN_Network.log";
@@ -487,17 +520,36 @@ void FAnimNode_PFNN::LogNetworkData(int arg_FrameCounter)
 		std::fstream fs;
 		fs.open(*FullPath, std::ios::out);
 
-		if (fs.is_open()) 
+		if (fs.is_open())
 		{
 			fs << "UE5_Network" << std::endl;
 			fs << "Network Frame[" << arg_FrameCounter << "]" << std::endl << std::endl;
-			
+
 			fs << "Current Phase: " << Phase << std::endl << std::endl;
 
+			fs << "Control Rig " << std::endl;
+
+			for (size_t i = 2; i < 7; i++)
+			{
+
+				FString JointNameStr = JointNameByIndex[i].ToString(); // Convert FName to FString
+				JointNameStr.AppendInt(int(i));
+				fs << "Joint[" << i << "]" << TCHAR_TO_UTF8(*JointNameStr) << std::endl;
+				fs << "	JointPosition: " << "X: " << JointPosition[i].x << ", Y: " << JointPosition[i].y << ", Z: " << JointPosition[i].z << std::endl;
+				fs << "	JointVelocitys: " << "X: " << JointVelocitys[i].x << ", Y: " << JointVelocitys[i].y << ", Z: " << JointVelocitys[i].z << std::endl;
+			}
+
+
 			fs << "Joints" << std::endl;
+
 			for (size_t i = 0; i < JOINT_NUM; i++)
 			{
+
 				FString JointNameStr = JointNameByIndex[i].ToString(); // Convert FName to FString
+				JointNameStr.AppendInt(int(i));
+
+				
+			
 				fs << "Joint[" << i << "]" << TCHAR_TO_UTF8(*JointNameStr) <<std::endl;
 				fs << "	JointPosition: " << JointPosition[i].x << "X, " << JointPosition[i].y << "Y, " << JointPosition[i].z << "Z" << std::endl;
 				fs << "	JointVelocitys: " << JointVelocitys[i].x << "X, " << JointVelocitys[i].y << "Y, " << JointVelocitys[i].z << "Z" << std::endl;

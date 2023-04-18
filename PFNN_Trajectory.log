@@ -1,8 +1,8 @@
 UE5_Implementation
-TrajectoryLog Frame[2668]
+TrajectoryLog Frame[0]
 
 #Basic Variables
-TargetDirection: -0.98393X, 0Y, -0.178556Z
+TargetDirection: 0X, 0Y, 1Z
 TargetVelocity:  0X, 0Y, 0Z
 Width:           25
 StrafeAmount:    0
@@ -21,1445 +21,1445 @@ Responsive:      0
 
 #Positional Data
 TrajectoryNode[0]
- Position:  11.83X, -1.43137e-08Y, 32.3582Z
+ Position:  0X, 0Y, 0Z
 	Direction: 0X, 0Y, 0Z
 	Rotation:  1X, 0, 0
-	Rotation:  0X, 1, 0
-	Rotation:  0X, 0, 1
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[1]
- Position:  11.6563X, -1.43137e-08Y, 32.4538Z
+ Position:  0X, 0Y, 0Z
 	Direction: 0X, 0Y, 0Z
-	Rotation:  1X, 0, 0
-	Rotation:  0X, 1, 0
-	Rotation:  0X, 0, 1
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[2]
- Position:  11.5467X, -1.43137e-08Y, 32.5263Z
+ Position:  0X, 0Y, 0Z
 	Direction: 0X, 0Y, 0Z
-	Rotation:  1X, 0, 0
-	Rotation:  0X, 1, 0
-	Rotation:  0X, 0, 1
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[3]
- Position:  11.4978X, -1.43137e-08Y, 32.584Z
+ Position:  0X, 0Y, 0Z
 	Direction: 0X, 0Y, 0Z
-	Rotation:  1X, 0, 0
-	Rotation:  0X, 1, 0
-	Rotation:  0X, 0, 1
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[4]
- Position:  11.4902X, -1.43137e-08Y, 32.6305Z
+ Position:  0X, 0Y, 0Z
 	Direction: 0X, 0Y, 0Z
-	Rotation:  1X, 0, 0
-	Rotation:  0X, 1, 0
-	Rotation:  0X, 0, 1
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[5]
- Position:  11.4957X, -1.43137e-08Y, 32.6667Z
+ Position:  0X, 0Y, 0Z
 	Direction: 0X, 0Y, 0Z
-	Rotation:  1X, 0, 0
-	Rotation:  0X, 1, 0
-	Rotation:  0X, 0, 1
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[6]
- Position:  11.508X, -1.43137e-08Y, 32.6891Z
+ Position:  0X, 0Y, 0Z
 	Direction: 0X, 0Y, 0Z
-	Rotation:  1X, 0, 0
-	Rotation:  0X, 1, 0
-	Rotation:  0X, 0, 1
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[7]
- Position:  11.5203X, -1.43137e-08Y, 32.7037Z
+ Position:  0X, 0Y, 0Z
 	Direction: 0X, 0Y, 0Z
-	Rotation:  1X, 0, 0
-	Rotation:  0X, 1, 0
-	Rotation:  0X, 0, 1
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[8]
- Position:  11.5289X, -1.43137e-08Y, 32.7177Z
+ Position:  0X, 0Y, 0Z
 	Direction: 0X, 0Y, 0Z
-	Rotation:  1X, 0, 0
-	Rotation:  0X, 1, 0
-	Rotation:  0X, 0, 1
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[9]
- Position:  11.533X, -1.43137e-08Y, 32.7354Z
+ Position:  0X, 0Y, 0Z
 	Direction: 0X, 0Y, 0Z
-	Rotation:  1X, 0, 0
-	Rotation:  0X, 1, 0
-	Rotation:  0X, 0, 1
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[10]
- Position:  11.5336X, -1.43137e-08Y, 32.7577Z
+ Position:  0X, 0Y, 0Z
 	Direction: 0X, 0Y, 0Z
-	Rotation:  1X, 0, 0
-	Rotation:  0X, 1, 0
-	Rotation:  0X, 0, 1
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[11]
- Position:  11.5326X, -1.43137e-08Y, 32.7768Z
+ Position:  0X, 0Y, 0Z
 	Direction: 0X, 0Y, 0Z
-	Rotation:  1X, 0, 0
-	Rotation:  0X, 1, 0
-	Rotation:  0X, 0, 1
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[12]
- Position:  11.5276X, -1.43137e-08Y, 32.7813Z
+ Position:  0X, 0Y, 0Z
 	Direction: 0X, 0Y, 0Z
-	Rotation:  1X, 0, 0
-	Rotation:  0X, 1, 0
-	Rotation:  0X, 0, 1
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[13]
- Position:  11.5201X, -1.43137e-08Y, 32.7712Z
+ Position:  0X, 0Y, 0Z
 	Direction: 0X, 0Y, 0Z
-	Rotation:  1X, 0, 0
-	Rotation:  0X, 1, 0
-	Rotation:  0X, 0, 1
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[14]
- Position:  11.5123X, -1.43137e-08Y, 32.7549Z
+ Position:  0X, 0Y, 0Z
 	Direction: 0X, 0Y, 0Z
-	Rotation:  1X, 0, 0
-	Rotation:  0X, 1, 0
-	Rotation:  0X, 0, 1
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[15]
- Position:  11.5082X, -1.43137e-08Y, 32.7396Z
+ Position:  0X, 0Y, 0Z
 	Direction: 0X, 0Y, 0Z
-	Rotation:  1X, 0, 0
-	Rotation:  0X, 1, 0
-	Rotation:  0X, 0, 1
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[16]
- Position:  11.5117X, -1.43137e-08Y, 32.7291Z
+ Position:  0X, 0Y, 0Z
 	Direction: 0X, 0Y, 0Z
-	Rotation:  1X, 0, 0
-	Rotation:  0X, 1, 0
-	Rotation:  0X, 0, 1
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[17]
- Position:  11.5227X, -1.43137e-08Y, 32.7225Z
+ Position:  0X, 0Y, 0Z
 	Direction: 0X, 0Y, 0Z
-	Rotation:  1X, 0, 0
-	Rotation:  0X, 1, 0
-	Rotation:  0X, 0, 1
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[18]
- Position:  11.5406X, -1.43137e-08Y, 32.7196Z
+ Position:  0X, 0Y, 0Z
 	Direction: 0X, 0Y, 0Z
-	Rotation:  1X, 0, 0
-	Rotation:  0X, 1, 0
-	Rotation:  0X, 0, 1
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[19]
- Position:  11.5632X, -1.43137e-08Y, 32.7213Z
+ Position:  0X, 0Y, 0Z
 	Direction: 0X, 0Y, 0Z
-	Rotation:  1X, 0, 0
-	Rotation:  0X, 1, 0
-	Rotation:  0X, 0, 1
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[20]
- Position:  11.5861X, -1.43137e-08Y, 32.7249Z
+ Position:  0X, 0Y, 0Z
 	Direction: 0X, 0Y, 0Z
-	Rotation:  1X, 0, 0
-	Rotation:  0X, 1, 0
-	Rotation:  0X, 0, 1
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[21]
- Position:  11.6083X, -1.43137e-08Y, 32.728Z
+ Position:  0X, 0Y, 0Z
 	Direction: 0X, 0Y, 0Z
-	Rotation:  1X, 0, 0
-	Rotation:  0X, 1, 0
-	Rotation:  0X, 0, 1
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[22]
- Position:  11.6315X, -1.43137e-08Y, 32.7271Z
+ Position:  0X, 0Y, 0Z
 	Direction: 0X, 0Y, 0Z
-	Rotation:  1X, 0, 0
-	Rotation:  0X, 1, 0
-	Rotation:  0X, 0, 1
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[23]
- Position:  11.6556X, -1.43137e-08Y, 32.7223Z
+ Position:  0X, 0Y, 0Z
 	Direction: 0X, 0Y, 0Z
-	Rotation:  1X, 0, 0
-	Rotation:  0X, 1, 0
-	Rotation:  0X, 0, 1
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[24]
- Position:  11.6809X, -1.43137e-08Y, 32.7158Z
+ Position:  0X, 0Y, 0Z
 	Direction: 0X, 0Y, 0Z
-	Rotation:  1X, 0, 0
-	Rotation:  0X, 1, 0
-	Rotation:  0X, 0, 1
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[25]
- Position:  11.7059X, -1.43137e-08Y, 32.7089Z
+ Position:  0X, 0Y, 0Z
 	Direction: 0X, 0Y, 0Z
-	Rotation:  1X, 0, 0
-	Rotation:  0X, 1, 0
-	Rotation:  0X, 0, 1
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[26]
- Position:  11.7281X, -1.43137e-08Y, 32.7015Z
+ Position:  0X, 0Y, 0Z
 	Direction: 0X, 0Y, 0Z
-	Rotation:  1X, 0, 0
-	Rotation:  0X, 1, 0
-	Rotation:  0X, 0, 1
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[27]
- Position:  11.7447X, -1.43137e-08Y, 32.6922Z
+ Position:  0X, 0Y, 0Z
 	Direction: 0X, 0Y, 0Z
-	Rotation:  1X, 0, 0
-	Rotation:  0X, 1, 0
-	Rotation:  0X, 0, 1
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[28]
- Position:  11.7548X, -1.43137e-08Y, 32.6808Z
+ Position:  0X, 0Y, 0Z
 	Direction: 0X, 0Y, 0Z
-	Rotation:  1X, 0, 0
-	Rotation:  0X, 1, 0
-	Rotation:  0X, 0, 1
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[29]
- Position:  11.759X, -1.43137e-08Y, 32.6683Z
+ Position:  0X, 0Y, 0Z
 	Direction: 0X, 0Y, 0Z
-	Rotation:  1X, 0, 0
-	Rotation:  0X, 1, 0
-	Rotation:  0X, 0, 1
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[30]
- Position:  11.7615X, -1.43137e-08Y, 32.6535Z
+ Position:  0X, 0Y, 0Z
 	Direction: 0X, 0Y, 0Z
-	Rotation:  1X, 0, 0
-	Rotation:  0X, 1, 0
-	Rotation:  0X, 0, 1
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[31]
- Position:  11.7638X, -1.43137e-08Y, 32.6362Z
+ Position:  0X, 0Y, 0Z
 	Direction: 0X, 0Y, 0Z
-	Rotation:  1X, 0, 0
-	Rotation:  0X, 1, 0
-	Rotation:  0X, 0, 1
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[32]
- Position:  11.7644X, -1.43137e-08Y, 32.6158Z
+ Position:  0X, 0Y, 0Z
 	Direction: 0X, 0Y, 0Z
-	Rotation:  1X, 0, 0
-	Rotation:  0X, 1, 0
-	Rotation:  0X, 0, 1
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[33]
- Position:  11.7626X, -1.43137e-08Y, 32.5936Z
+ Position:  0X, 0Y, 0Z
 	Direction: 0X, 0Y, 0Z
-	Rotation:  1X, 0, 0
-	Rotation:  0X, 1, 0
-	Rotation:  0X, 0, 1
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[34]
- Position:  11.7596X, -1.43137e-08Y, 32.5692Z
+ Position:  0X, 0Y, 0Z
 	Direction: 0X, 0Y, 0Z
-	Rotation:  1X, 0, 0
-	Rotation:  0X, 1, 0
-	Rotation:  0X, 0, 1
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[35]
- Position:  11.7563X, -1.43137e-08Y, 32.5419Z
+ Position:  0X, 0Y, 0Z
 	Direction: 0X, 0Y, 0Z
-	Rotation:  1X, 0, 0
-	Rotation:  0X, 1, 0
-	Rotation:  0X, 0, 1
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[36]
- Position:  11.7539X, -1.43137e-08Y, 32.512Z
+ Position:  0X, 0Y, 0Z
 	Direction: 0X, 0Y, 0Z
-	Rotation:  1X, 0, 0
-	Rotation:  0X, 1, 0
-	Rotation:  0X, 0, 1
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[37]
- Position:  11.753X, -1.43137e-08Y, 32.4797Z
+ Position:  0X, 0Y, 0Z
 	Direction: 0X, 0Y, 0Z
-	Rotation:  1X, 0, 0
-	Rotation:  0X, 1, 0
-	Rotation:  0X, 0, 1
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[38]
- Position:  11.7534X, -1.43137e-08Y, 32.4464Z
+ Position:  0X, 0Y, 0Z
 	Direction: 0X, 0Y, 0Z
-	Rotation:  1X, 0, 0
-	Rotation:  0X, 1, 0
-	Rotation:  0X, 0, 1
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[39]
- Position:  11.755X, -1.43137e-08Y, 32.414Z
+ Position:  0X, 0Y, 0Z
 	Direction: 0X, 0Y, 0Z
-	Rotation:  1X, 0, 0
-	Rotation:  0X, 1, 0
-	Rotation:  0X, 0, 1
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[40]
- Position:  11.7582X, -1.43137e-08Y, 32.3834Z
+ Position:  0X, 0Y, 0Z
 	Direction: 0X, 0Y, 0Z
-	Rotation:  1X, 0, 0
-	Rotation:  0X, 1, 0
-	Rotation:  0X, 0, 1
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[41]
- Position:  11.7628X, -1.43137e-08Y, 32.3551Z
+ Position:  0X, 0Y, 0Z
 	Direction: 0X, 0Y, 0Z
-	Rotation:  1X, 0, 0
-	Rotation:  0X, 1, 0
-	Rotation:  0X, 0, 1
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[42]
- Position:  11.7684X, -1.43137e-08Y, 32.3289Z
+ Position:  0X, 0Y, 0Z
 	Direction: 0X, 0Y, 0Z
-	Rotation:  1X, 0, 0
-	Rotation:  0X, 1, 0
-	Rotation:  0X, 0, 1
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[43]
- Position:  11.7742X, -1.43137e-08Y, 32.3057Z
+ Position:  0X, 0Y, 0Z
 	Direction: 0X, 0Y, 0Z
-	Rotation:  1X, 0, 0
-	Rotation:  0X, 1, 0
-	Rotation:  0X, 0, 1
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[44]
- Position:  11.7802X, -1.43137e-08Y, 32.2853Z
+ Position:  0X, 0Y, 0Z
 	Direction: 0X, 0Y, 0Z
-	Rotation:  1X, 0, 0
-	Rotation:  0X, 1, 0
-	Rotation:  0X, 0, 1
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[45]
- Position:  11.7861X, -1.43137e-08Y, 32.2674Z
+ Position:  0X, 0Y, 0Z
 	Direction: 0X, 0Y, 0Z
-	Rotation:  1X, 0, 0
-	Rotation:  0X, 1, 0
-	Rotation:  0X, 0, 1
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[46]
- Position:  11.7917X, -1.43137e-08Y, 32.252Z
+ Position:  0X, 0Y, 0Z
 	Direction: 0X, 0Y, 0Z
-	Rotation:  1X, 0, 0
-	Rotation:  0X, 1, 0
-	Rotation:  0X, 0, 1
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[47]
- Position:  11.7968X, -1.43137e-08Y, 32.2395Z
+ Position:  0X, 0Y, 0Z
 	Direction: 0X, 0Y, 0Z
-	Rotation:  1X, 0, 0
-	Rotation:  0X, 1, 0
-	Rotation:  0X, 0, 1
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[48]
- Position:  11.8014X, -1.43137e-08Y, 32.2295Z
+ Position:  0X, 0Y, 0Z
 	Direction: 0X, 0Y, 0Z
-	Rotation:  1X, 0, 0
-	Rotation:  0X, 1, 0
-	Rotation:  0X, 0, 1
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[49]
- Position:  11.8054X, -1.43137e-08Y, 32.2221Z
+ Position:  0X, 0Y, 0Z
 	Direction: 0X, 0Y, 0Z
-	Rotation:  1X, 0, 0
-	Rotation:  0X, 1, 0
-	Rotation:  0X, 0, 1
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[50]
- Position:  11.8087X, -1.43137e-08Y, 32.2168Z
+ Position:  0X, 0Y, 0Z
 	Direction: 0X, 0Y, 0Z
-	Rotation:  1X, 0, 0
-	Rotation:  0X, 1, 0
-	Rotation:  0X, 0, 1
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[51]
- Position:  11.8111X, -1.43137e-08Y, 32.2136Z
+ Position:  0X, 0Y, 0Z
 	Direction: 0X, 0Y, 0Z
-	Rotation:  1X, 0, 0
-	Rotation:  0X, 1, 0
-	Rotation:  0X, 0, 1
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[52]
- Position:  11.8126X, -1.43137e-08Y, 32.2123Z
+ Position:  0X, 0Y, 0Z
 	Direction: 0X, 0Y, 0Z
-	Rotation:  1X, 0, 0
-	Rotation:  0X, 1, 0
-	Rotation:  0X, 0, 1
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[53]
- Position:  11.8134X, -1.43137e-08Y, 32.2116Z
+ Position:  0X, 0Y, 0Z
 	Direction: 0X, 0Y, 0Z
-	Rotation:  1X, 0, 0
-	Rotation:  0X, 1, 0
-	Rotation:  0X, 0, 1
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[54]
- Position:  11.8138X, -1.43137e-08Y, 32.2113Z
+ Position:  0X, 0Y, 0Z
 	Direction: 0X, 0Y, 0Z
-	Rotation:  1X, 0, 0
-	Rotation:  0X, 1, 0
-	Rotation:  0X, 0, 1
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[55]
- Position:  11.814X, -1.43137e-08Y, 32.2116Z
+ Position:  0X, 0Y, 0Z
 	Direction: 0X, 0Y, 0Z
-	Rotation:  1X, 0, 0
-	Rotation:  0X, 1, 0
-	Rotation:  0X, 0, 1
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[56]
- Position:  11.8145X, -1.43137e-08Y, 32.2121Z
+ Position:  0X, 0Y, 0Z
 	Direction: 0X, 0Y, 0Z
-	Rotation:  1X, 0, 0
-	Rotation:  0X, 1, 0
-	Rotation:  0X, 0, 1
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[57]
- Position:  11.8156X, -1.43137e-08Y, 32.2126Z
+ Position:  0X, 0Y, 0Z
 	Direction: 0X, 0Y, 0Z
-	Rotation:  1X, 0, 0
-	Rotation:  0X, 1, 0
-	Rotation:  0X, 0, 1
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[58]
- Position:  11.8174X, -1.43137e-08Y, 32.2129Z
+ Position:  0X, 0Y, 0Z
 	Direction: 0X, 0Y, 0Z
-	Rotation:  1X, 0, 0
-	Rotation:  0X, 1, 0
-	Rotation:  0X, 0, 1
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[59]
- Position:  11.8198X, -1.43137e-08Y, 32.2133Z
+ Position:  0X, 0Y, 0Z
 	Direction: 0X, 0Y, 0Z
-	Rotation:  1X, 0, 0
-	Rotation:  0X, 1, 0
-	Rotation:  0X, 0, 1
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[60]
- Position:  11.8227X, 0Y, 32.2139Z
+ Position:  0X, 0Y, 0Z
 	Direction: 0X, 0Y, 0Z
-	Rotation:  1X, 0, 0
-	Rotation:  0X, 1, 0
-	Rotation:  0X, 0, 1
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[61]
- Position:  12.3214X, -1.43137e-08Y, 32.5779Z
-	Direction: -0.047227X, 0Y, 0.998884Z
-	Rotation:  0.998884X, 0, 0.047227
-	Rotation:  0X, 1, 0
-	Rotation:  -0.047227X, 0, 0.998884
+ Position:  0X, 0Y, 0Z
+	Direction: 0X, 0Y, 0Z
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[62]
- Position:  12.7707X, -1.43137e-08Y, 32.9853Z
-	Direction: -0.0992234X, 0Y, 0.995065Z
-	Rotation:  0.995065X, 0, 0.0992234
-	Rotation:  0X, 1, 0
-	Rotation:  -0.0992234X, 0, 0.995065
+ Position:  0X, 0Y, 0Z
+	Direction: 0X, 0Y, 0Z
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[63]
- Position:  13.22X, -1.43137e-08Y, 33.3927Z
-	Direction: -0.151967X, 0Y, 0.988386Z
-	Rotation:  0.988385X, 0, 0.151967
-	Rotation:  0X, 1, 0
-	Rotation:  -0.151967X, 0, 0.988385
+ Position:  0X, 0Y, 0Z
+	Direction: 0X, 0Y, 0Z
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[64]
- Position:  13.6694X, -1.43137e-08Y, 33.8002Z
-	Direction: -0.205017X, 0Y, 0.978758Z
-	Rotation:  0.978758X, 0, 0.205017
-	Rotation:  0X, 1, 0
-	Rotation:  -0.205017X, 0, 0.978758
+ Position:  0X, 0Y, 0Z
+	Direction: 0X, 0Y, 0Z
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[65]
- Position:  14.1187X, -1.43137e-08Y, 34.2076Z
-	Direction: -0.257905X, 0Y, 0.96617Z
-	Rotation:  0.96617X, 0, 0.257905
-	Rotation:  0X, 1, 0
-	Rotation:  -0.257905X, 0, 0.96617
+ Position:  0X, 0Y, 0Z
+	Direction: 0X, 0Y, 0Z
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[66]
- Position:  14.568X, -1.43137e-08Y, 34.615Z
-	Direction: -0.310156X, 0Y, 0.950686Z
-	Rotation:  0.950686X, 0, 0.310156
-	Rotation:  0X, 1, 0
-	Rotation:  -0.310156X, 0, 0.950686
+ Position:  0X, 0Y, 0Z
+	Direction: 0X, 0Y, 0Z
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[67]
- Position:  15.0173X, -1.43137e-08Y, 35.0224Z
-	Direction: -0.361307X, 0Y, 0.932447Z
-	Rotation:  0.932447X, 0, 0.361307
-	Rotation:  0X, 1, 0
-	Rotation:  -0.361307X, 0, 0.932447
+ Position:  0X, 0Y, 0Z
+	Direction: 0X, 0Y, 0Z
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[68]
- Position:  15.4667X, -1.20344e-08Y, 35.4299Z
-	Direction: -0.410931X, 0Y, 0.911667Z
-	Rotation:  0.911666X, 0, 0.410931
-	Rotation:  0X, 1, 0
-	Rotation:  -0.410931X, 0, 0.911666
+ Position:  0X, 0Y, 0Z
+	Direction: 0X, 0Y, 0Z
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[69]
- Position:  15.916X, -1.2033e-08Y, 35.8373Z
-	Direction: -0.458649X, 0Y, 0.888617Z
-	Rotation:  0.888617X, 0, 0.458649
-	Rotation:  0X, 1, 0
-	Rotation:  -0.458649X, 0, 0.888617
+ Position:  0X, 0Y, 0Z
+	Direction: 0X, 0Y, 0Z
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[70]
- Position:  16.3653X, -1.20285e-08Y, 36.2447Z
-	Direction: -0.50415X, 0Y, 0.863616Z
-	Rotation:  0.863616X, 0, 0.50415
-	Rotation:  0X, 1, 0
-	Rotation:  -0.50415X, 0, 0.863616
+ Position:  0X, 0Y, 0Z
+	Direction: 0X, 0Y, 0Z
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[71]
- Position:  16.2736X, -1.20285e-08Y, 36.5189Z
-	Direction: -0.544014X, 0Y, 0.839076Z
-	Rotation:  0.839076X, 0, 0.544015
-	Rotation:  0X, 1, 0
-	Rotation:  -0.544015X, 0, 0.839076
+ Position:  0X, 0Y, 0Z
+	Direction: 0X, 0Y, 0Z
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[72]
- Position:  16.1819X, -1.20285e-08Y, 36.7931Z
-	Direction: -0.583921X, 0Y, 0.81181Z
-	Rotation:  0.81181X, 0, 0.583921
-	Rotation:  0X, 1, 0
-	Rotation:  -0.583921X, 0, 0.81181
+ Position:  0X, 0Y, 0Z
+	Direction: 0X, 0Y, 0Z
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[73]
- Position:  16.0902X, -1.20285e-08Y, 37.0673Z
-	Direction: -0.623526X, 0Y, 0.781803Z
-	Rotation:  0.781803X, 0, 0.623526
-	Rotation:  0X, 1, 0
-	Rotation:  -0.623526X, 0, 0.781803
+ Position:  0X, 0Y, 0Z
+	Direction: 0X, 0Y, 0Z
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[74]
- Position:  15.9985X, -1.20285e-08Y, 37.3415Z
-	Direction: -0.662461X, 0Y, 0.749096Z
-	Rotation:  0.749096X, 0, 0.662461
-	Rotation:  0X, 1, 0
-	Rotation:  -0.662461X, 0, 0.749096
+ Position:  0X, 0Y, 0Z
+	Direction: 0X, 0Y, 0Z
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[75]
- Position:  15.9069X, -1.20285e-08Y, 37.6157Z
-	Direction: -0.700349X, 0Y, 0.713801Z
-	Rotation:  0.7138X, 0, 0.700349
-	Rotation:  0X, 1, 0
-	Rotation:  -0.700349X, 0, 0.7138
+ Position:  0X, 0Y, 0Z
+	Direction: 0X, 0Y, 0Z
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[76]
- Position:  15.8152X, -1.20285e-08Y, 37.8899Z
-	Direction: -0.736814X, 0Y, 0.676095Z
-	Rotation:  0.676095X, 0, 0.736814
-	Rotation:  0X, 1, 0
-	Rotation:  -0.736814X, 0, 0.676095
+ Position:  0X, 0Y, 0Z
+	Direction: 0X, 0Y, 0Z
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[77]
- Position:  15.7235X, -1.20284e-08Y, 38.1641Z
-	Direction: -0.771503X, 0Y, 0.636226Z
-	Rotation:  0.636226X, 0, 0.771503
-	Rotation:  0X, 1, 0
-	Rotation:  -0.771503X, 0, 0.636226
+ Position:  0X, 0Y, 0Z
+	Direction: 0X, 0Y, 0Z
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[78]
- Position:  15.6318X, -1.20284e-08Y, 38.4383Z
-	Direction: -0.804096X, 0Y, 0.594499Z
-	Rotation:  0.594499X, 0, 0.804096
-	Rotation:  0X, 1, 0
-	Rotation:  -0.804096X, 0, 0.594499
+ Position:  0X, 0Y, 0Z
+	Direction: 0X, 0Y, 0Z
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[79]
- Position:  15.5401X, -1.20284e-08Y, 38.7125Z
-	Direction: -0.834328X, 0Y, 0.551268Z
-	Rotation:  0.551268X, 0, 0.834328
-	Rotation:  0X, 1, 0
-	Rotation:  -0.834328X, 0, 0.551268
+ Position:  0X, 0Y, 0Z
+	Direction: 0X, 0Y, 0Z
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[80]
- Position:  15.4484X, -1.20284e-08Y, 38.9867Z
-	Direction: -0.861993X, 0Y, 0.50692Z
-	Rotation:  0.50692X, 0, 0.861993
-	Rotation:  0X, 1, 0
-	Rotation:  -0.861993X, 0, 0.50692
+ Position:  0X, 0Y, 0Z
+	Direction: 0X, 0Y, 0Z
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[81]
- Position:  14.9843X, -1.20284e-08Y, 38.7555Z
-	Direction: -0.882012X, 0Y, 0.471228Z
-	Rotation:  0.471228X, 0, 0.882012
-	Rotation:  0X, 1, 0
-	Rotation:  -0.882012X, 0, 0.471228
+ Position:  0X, 0Y, 0Z
+	Direction: 0X, 0Y, 0Z
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[82]
- Position:  14.5202X, -1.20284e-08Y, 38.5243Z
-	Direction: -0.900922X, 0Y, 0.43398Z
-	Rotation:  0.43398X, 0, 0.900922
-	Rotation:  0X, 1, 0
-	Rotation:  -0.900922X, 0, 0.43398
+ Position:  0X, 0Y, 0Z
+	Direction: 0X, 0Y, 0Z
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[83]
- Position:  14.0561X, -1.20284e-08Y, 38.293Z
-	Direction: -0.918549X, 0Y, 0.395308Z
-	Rotation:  0.395308X, 0, 0.918549
-	Rotation:  0X, 1, 0
-	Rotation:  -0.918549X, 0, 0.395308
+ Position:  0X, 0Y, 0Z
+	Direction: 0X, 0Y, 0Z
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[84]
- Position:  13.5919X, -1.20284e-08Y, 38.0618Z
-	Direction: -0.934726X, 0Y, 0.35537Z
-	Rotation:  0.35537X, 0, 0.934726
-	Rotation:  0X, 1, 0
-	Rotation:  -0.934726X, 0, 0.35537
+ Position:  0X, 0Y, 0Z
+	Direction: 0X, 0Y, 0Z
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[85]
- Position:  13.1278X, -1.20284e-08Y, 37.8306Z
-	Direction: -0.949305X, 0Y, 0.314356Z
-	Rotation:  0.314356X, 0, 0.949305
-	Rotation:  0X, 1, 0
-	Rotation:  -0.949305X, 0, 0.314356
+ Position:  0X, 0Y, 0Z
+	Direction: 0X, 0Y, 0Z
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[86]
- Position:  12.6637X, -1.20284e-08Y, 37.5993Z
-	Direction: -0.962162X, 0Y, 0.272478Z
-	Rotation:  0.272478X, 0, 0.962162
-	Rotation:  0X, 1, 0
-	Rotation:  -0.962162X, 0, 0.272478
+ Position:  0X, 0Y, 0Z
+	Direction: 0X, 0Y, 0Z
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[87]
- Position:  12.1996X, -1.20284e-08Y, 37.3681Z
-	Direction: -0.973198X, 0Y, 0.229968Z
-	Rotation:  0.229968X, 0, 0.973198
-	Rotation:  0X, 1, 0
-	Rotation:  -0.973198X, 0, 0.229968
+ Position:  0X, 0Y, 0Z
+	Direction: 0X, 0Y, 0Z
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[88]
- Position:  11.7355X, -1.20284e-08Y, 37.1369Z
-	Direction: -0.982347X, 0Y, 0.18707Z
-	Rotation:  0.18707X, 0, 0.982347
-	Rotation:  0X, 1, 0
-	Rotation:  -0.982347X, 0, 0.18707
+ Position:  0X, 0Y, 0Z
+	Direction: 0X, 0Y, 0Z
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[89]
- Position:  11.2714X, -1.20284e-08Y, 36.9057Z
-	Direction: -0.989573X, 0Y, 0.144034Z
-	Rotation:  0.144034X, 0, 0.989573
-	Rotation:  0X, 1, 0
-	Rotation:  -0.989573X, 0, 0.144034
+ Position:  0X, 0Y, 0Z
+	Direction: 0X, 0Y, 0Z
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[90]
- Position:  10.8073X, -1.20284e-08Y, 36.6744Z
-	Direction: -0.994875X, 0Y, 0.101109Z
-	Rotation:  0.101109X, 0, 0.994875
-	Rotation:  0X, 1, 0
-	Rotation:  -0.994875X, 0, 0.101109
+ Position:  0X, 0Y, 0Z
+	Direction: 0X, 0Y, 0Z
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[91]
- Position:  10.059X, -1.20284e-08Y, 36.1379Z
-	Direction: -0.997328X, 0Y, 0.0730546Z
-	Rotation:  0.0730546X, 0, 0.997328
-	Rotation:  0X, 1, 0
-	Rotation:  -0.997328X, 0, 0.0730546
+ Position:  0X, 0Y, 0Z
+	Direction: 0X, 0Y, 0Z
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[92]
- Position:  9.31064X, -1.20284e-08Y, 35.6014Z
-	Direction: -0.999006X, 0Y, 0.044572Z
-	Rotation:  0.044572X, 0, 0.999006
-	Rotation:  0X, 1, 0
-	Rotation:  -0.999006X, 0, 0.044572
+ Position:  0X, 0Y, 0Z
+	Direction: 0X, 0Y, 0Z
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[93]
- Position:  8.5623X, -1.20284e-08Y, 35.0648Z
-	Direction: -0.999876X, 0Y, 0.0157226Z
-	Rotation:  0.0157225X, 0, 0.999876
-	Rotation:  0X, 1, 0
-	Rotation:  -0.999876X, 0, 0.0157225
+ Position:  0X, 0Y, 0Z
+	Direction: 0X, 0Y, 0Z
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[94]
- Position:  7.81396X, -1.20284e-08Y, 34.5283Z
-	Direction: -0.99991X, 0Y, -0.0134274Z
-	Rotation:  -0.0134274X, 0, 0.99991
-	Rotation:  0X, 1, 0
-	Rotation:  -0.99991X, 0, -0.0134274
+ Position:  0X, 0Y, 0Z
+	Direction: 0X, 0Y, 0Z
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[95]
- Position:  7.06562X, -1.43137e-08Y, 33.9918Z
-	Direction: -0.999083X, 0Y, -0.0428072Z
-	Rotation:  -0.0428072X, 0, 0.999083
-	Rotation:  0X, 1, 0
-	Rotation:  -0.999083X, 0, -0.0428072
+ Position:  0X, 0Y, 0Z
+	Direction: 0X, 0Y, 0Z
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[96]
- Position:  6.31728X, -1.43137e-08Y, 33.4552Z
-	Direction: -0.99738X, 0Y, -0.0723428Z
-	Rotation:  -0.0723429X, 0, 0.99738
-	Rotation:  0X, 1, 0
-	Rotation:  -0.99738X, 0, -0.0723429
+ Position:  0X, 0Y, 0Z
+	Direction: 0X, 0Y, 0Z
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[97]
- Position:  5.56894X, -1.43137e-08Y, 32.9187Z
-	Direction: -0.994789X, 0Y, -0.101957Z
-	Rotation:  -0.101957X, 0, 0.994789
-	Rotation:  0X, 1, 0
-	Rotation:  -0.994789X, 0, -0.101957
+ Position:  0X, 0Y, 0Z
+	Direction: 0X, 0Y, 0Z
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[98]
- Position:  4.82061X, -1.43137e-08Y, 32.3822Z
-	Direction: -0.991307X, 0Y, -0.131572Z
-	Rotation:  -0.131572X, 0, 0.991307
-	Rotation:  0X, 1, 0
-	Rotation:  -0.991307X, 0, -0.131572
+ Position:  0X, 0Y, 0Z
+	Direction: 0X, 0Y, 0Z
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[99]
- Position:  4.07226X, -1.43137e-08Y, 31.8456Z
-	Direction: -0.986937X, 0Y, -0.161107Z
-	Rotation:  -0.161107X, 0, 0.986937
-	Rotation:  0X, 1, 0
-	Rotation:  -0.986937X, 0, -0.161107
+ Position:  0X, 0Y, 0Z
+	Direction: 0X, 0Y, 0Z
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[100]
- Position:  3.32393X, -1.43137e-08Y, 31.3091Z
-	Direction: -0.98169X, 0Y, -0.190485Z
-	Rotation:  -0.190485X, 0, 0.98169
-	Rotation:  0X, 1, 0
-	Rotation:  -0.98169X, 0, -0.190485
+ Position:  0X, 0Y, 0Z
+	Direction: 0X, 0Y, 0Z
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[101]
- Position:  2.22761X, -1.43137e-08Y, 30.4249Z
-	Direction: -0.978668X, 0Y, -0.20545Z
-	Rotation:  -0.20545X, 0, 0.978667
-	Rotation:  0X, 1, 0
-	Rotation:  -0.978667X, 0, -0.20545
+ Position:  0X, 0Y, 0Z
+	Direction: 0X, 0Y, 0Z
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[102]
- Position:  1.13129X, -1.43137e-08Y, 29.5406Z
-	Direction: -0.975359X, 0Y, -0.220625Z
-	Rotation:  -0.220625X, 0, 0.975359
-	Rotation:  0X, 1, 0
-	Rotation:  -0.975359X, 0, -0.220625
+ Position:  0X, 0Y, 0Z
+	Direction: 0X, 0Y, 0Z
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[103]
- Position:  0.034977X, -1.43137e-08Y, 28.6564Z
-	Direction: -0.971753X, 0Y, -0.236002Z
-	Rotation:  -0.236002X, 0, 0.971753
-	Rotation:  0X, 1, 0
-	Rotation:  -0.971753X, 0, -0.236002
+ Position:  0X, 0Y, 0Z
+	Direction: 0X, 0Y, 0Z
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[104]
- Position:  -1.06134X, -1.43137e-08Y, 27.7722Z
-	Direction: -0.967838X, 0Y, -0.251572Z
-	Rotation:  -0.251572X, 0, 0.967839
-	Rotation:  0X, 1, 0
-	Rotation:  -0.967839X, 0, -0.251572
+ Position:  0X, 0Y, 0Z
+	Direction: 0X, 0Y, 0Z
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[105]
- Position:  -2.15765X, -1.43137e-08Y, 26.8879Z
-	Direction: -0.963606X, 0Y, -0.267328Z
-	Rotation:  -0.267328X, 0, 0.963606
-	Rotation:  0X, 1, 0
-	Rotation:  -0.963606X, 0, -0.267328
+ Position:  0X, 0Y, 0Z
+	Direction: 0X, 0Y, 0Z
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[106]
- Position:  -3.25397X, -1.43137e-08Y, 26.0037Z
-	Direction: -0.959044X, 0Y, -0.283259Z
-	Rotation:  -0.283259X, 0, 0.959044
-	Rotation:  0X, 1, 0
-	Rotation:  -0.959044X, 0, -0.283259
+ Position:  0X, 0Y, 0Z
+	Direction: 0X, 0Y, 0Z
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[107]
- Position:  -4.35029X, -1.43137e-08Y, 25.1194Z
-	Direction: -0.954142X, 0Y, -0.299354Z
-	Rotation:  -0.299354X, 0, 0.954142
-	Rotation:  0X, 1, 0
-	Rotation:  -0.954142X, 0, -0.299354
+ Position:  0X, 0Y, 0Z
+	Direction: 0X, 0Y, 0Z
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[108]
- Position:  -5.4466X, -1.43137e-08Y, 24.2352Z
-	Direction: -0.948892X, 0Y, -0.315601Z
-	Rotation:  -0.315601X, 0, 0.948892
-	Rotation:  0X, 1, 0
-	Rotation:  -0.948892X, 0, -0.315601
+ Position:  0X, 0Y, 0Z
+	Direction: 0X, 0Y, 0Z
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[109]
- Position:  -6.54292X, -1.43137e-08Y, 23.351Z
-	Direction: -0.943284X, 0Y, -0.331987Z
-	Rotation:  -0.331987X, 0, 0.943284
-	Rotation:  0X, 1, 0
-	Rotation:  -0.943284X, 0, -0.331987
+ Position:  0X, 0Y, 0Z
+	Direction: 0X, 0Y, 0Z
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[110]
- Position:  -7.63923X, -1.43137e-08Y, 22.4667Z
-	Direction: -0.937309X, 0Y, -0.348499Z
-	Rotation:  -0.348499X, 0, 0.937309
-	Rotation:  0X, 1, 0
-	Rotation:  -0.937309X, 0, -0.348499
+ Position:  0X, 0Y, 0Z
+	Direction: 0X, 0Y, 0Z
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[111]
- Position:  -5.69739X, -1.43137e-08Y, 23.4418Z
-	Direction: -0.920917X, 0Y, -0.38976Z
-	Rotation:  -0.38976X, 0, 0.920917
-	Rotation:  0X, 1, 0
-	Rotation:  -0.920917X, 0, -0.38976
+ Position:  0X, 0Y, 0Z
+	Direction: 0X, 0Y, 0Z
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[112]
- Position:  -3.75553X, -1.43137e-08Y, 24.4169Z
-	Direction: -0.887534X, 0Y, -0.460742Z
-	Rotation:  -0.460743X, 0, 0.887534
-	Rotation:  0X, 1, 0
-	Rotation:  -0.887534X, 0, -0.460743
+ Position:  0X, 0Y, 0Z
+	Direction: 0X, 0Y, 0Z
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[113]
- Position:  -1.81368X, -1.43137e-08Y, 25.392Z
-	Direction: -0.79572X, 0Y, -0.605664Z
-	Rotation:  -0.605664X, 0, 0.79572
-	Rotation:  0X, 1, 0
-	Rotation:  -0.79572X, 0, -0.605664
+ Position:  0X, 0Y, 0Z
+	Direction: 0X, 0Y, 0Z
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[114]
- Position:  0.128166X, -1.43137e-08Y, 26.367Z
-	Direction: -0.364812X, 0Y, -0.931081Z
-	Rotation:  -0.931081X, 0, 0.364812
-	Rotation:  0X, 1, 0
-	Rotation:  -0.364812X, 0, -0.931081
+ Position:  0X, 0Y, 0Z
+	Direction: 0X, 0Y, 0Z
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[115]
- Position:  2.07001X, -1.43137e-08Y, 27.3421Z
-	Direction: 0.755576X, 0Y, -0.655061Z
-	Rotation:  -0.655061X, 0, -0.755576
-	Rotation:  0X, 1, 0
-	Rotation:  0.755576X, 0, -0.655061
+ Position:  0X, 0Y, 0Z
+	Direction: 0X, 0Y, 0Z
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[116]
- Position:  4.01186X, -1.43137e-08Y, 28.3172Z
-	Direction: 0.973735X, 0Y, -0.227684Z
-	Rotation:  -0.227683X, 0, -0.973735
-	Rotation:  0X, 1, 0
-	Rotation:  0.973735X, 0, -0.227683
+ Position:  0X, 0Y, 0Z
+	Direction: 0X, 0Y, 0Z
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[117]
- Position:  5.95372X, -1.43137e-08Y, 29.2923Z
-	Direction: 0.997428X, 0Y, -0.0716697Z
-	Rotation:  -0.0716699X, 0, -0.997428
-	Rotation:  0X, 1, 0
-	Rotation:  0.997428X, 0, -0.0716699
+ Position:  0X, 0Y, 0Z
+	Direction: 0X, 0Y, 0Z
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[118]
- Position:  7.89556X, -1.43137e-08Y, 30.2673Z
-	Direction: 0.999997X, 0Y, 0.00226747Z
-	Rotation:  0.00226751X, 0, -0.999997
-	Rotation:  0X, 1, 0
-	Rotation:  0.999997X, 0, 0.00226751
+ Position:  0X, 0Y, 0Z
+	Direction: 0X, 0Y, 0Z
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 TrajectoryNode[119]
- Position:  9.83741X, -1.43137e-08Y, 31.2424Z
-	Direction: 0.999X, 0Y, 0.0447195Z
-	Rotation:  0.0447192X, 0, -0.999
-	Rotation:  0X, 1, 0
-	Rotation:  0.999X, 0, 0.0447192
+ Position:  0X, 0Y, 0Z
+	Direction: 0X, 0Y, 0Z
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
+	Rotation:  0X, 0, 0
 #End Positional Data
 
 #Gaits
 Gait[0]
-	GaitStand: 0.120911
-	GaitWalk:  0.878423
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[1]
-	GaitStand: 0.10882
-	GaitWalk:  0.890581
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[2]
-	GaitStand: 0.18853
-	GaitWalk:  0.801523
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[3]
-	GaitStand: 0.268736
-	GaitWalk:  0.721371
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[4]
-	GaitStand: 0.341768
-	GaitWalk:  0.649234
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[5]
-	GaitStand: 0.407582
-	GaitWalk:  0.58431
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[6]
-	GaitStand: 0.466823
-	GaitWalk:  0.525879
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[7]
-	GaitStand: 0.520141
-	GaitWalk:  0.473291
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[8]
-	GaitStand: 0.568126
-	GaitWalk:  0.425962
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[9]
-	GaitStand: 0.611314
-	GaitWalk:  0.383366
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[10]
-	GaitStand: 0.650182
-	GaitWalk:  0.345029
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[11]
-	GaitStand: 0.685164
-	GaitWalk:  0.310526
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[12]
-	GaitStand: 0.716648
-	GaitWalk:  0.279474
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[13]
-	GaitStand: 0.744983
-	GaitWalk:  0.251526
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[14]
-	GaitStand: 0.770485
-	GaitWalk:  0.226374
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[15]
-	GaitStand: 0.793436
-	GaitWalk:  0.203736
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[16]
-	GaitStand: 0.814093
-	GaitWalk:  0.183363
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[17]
-	GaitStand: 0.832683
-	GaitWalk:  0.165026
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[18]
-	GaitStand: 0.849415
-	GaitWalk:  0.148524
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[19]
-	GaitStand: 0.864474
-	GaitWalk:  0.133671
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[20]
-	GaitStand: 0.878026
-	GaitWalk:  0.120304
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[21]
-	GaitStand: 0.890224
-	GaitWalk:  0.108274
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[22]
-	GaitStand: 0.901201
-	GaitWalk:  0.0974464
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[23]
-	GaitStand: 0.911081
-	GaitWalk:  0.0877018
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[24]
-	GaitStand: 0.919973
-	GaitWalk:  0.0789316
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[25]
-	GaitStand: 0.927976
-	GaitWalk:  0.0710384
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[26]
-	GaitStand: 0.935178
-	GaitWalk:  0.0639346
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[27]
-	GaitStand: 0.94166
-	GaitWalk:  0.0575411
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[28]
-	GaitStand: 0.947494
-	GaitWalk:  0.051787
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[29]
-	GaitStand: 0.952745
-	GaitWalk:  0.0466083
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[30]
-	GaitStand: 0.95747
-	GaitWalk:  0.0419475
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[31]
-	GaitStand: 0.961723
-	GaitWalk:  0.0377527
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[32]
-	GaitStand: 0.965551
-	GaitWalk:  0.0339775
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[33]
-	GaitStand: 0.968996
-	GaitWalk:  0.0305797
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[34]
-	GaitStand: 0.972096
-	GaitWalk:  0.0275217
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[35]
-	GaitStand: 0.974887
-	GaitWalk:  0.0247696
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[36]
-	GaitStand: 0.977398
-	GaitWalk:  0.0222926
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[37]
-	GaitStand: 0.979658
-	GaitWalk:  0.0200633
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[38]
-	GaitStand: 0.981692
-	GaitWalk:  0.018057
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[39]
-	GaitStand: 0.983523
-	GaitWalk:  0.0162513
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[40]
-	GaitStand: 0.985171
-	GaitWalk:  0.0146262
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[41]
-	GaitStand: 0.986654
-	GaitWalk:  0.0131636
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[42]
-	GaitStand: 0.987988
-	GaitWalk:  0.0118472
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[43]
-	GaitStand: 0.98919
-	GaitWalk:  0.0106625
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[44]
-	GaitStand: 0.990271
-	GaitWalk:  0.00959624
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[45]
-	GaitStand: 0.991244
-	GaitWalk:  0.00863661
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[46]
-	GaitStand: 0.992119
-	GaitWalk:  0.00777295
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[47]
-	GaitStand: 0.992907
-	GaitWalk:  0.00699565
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[48]
-	GaitStand: 0.993617
-	GaitWalk:  0.00629609
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[49]
-	GaitStand: 0.994255
-	GaitWalk:  0.00566648
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[50]
-	GaitStand: 0.994829
-	GaitWalk:  0.00509983
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[51]
-	GaitStand: 0.995347
-	GaitWalk:  0.00458985
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[52]
-	GaitStand: 0.995812
-	GaitWalk:  0.00413086
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[53]
-	GaitStand: 0.996231
-	GaitWalk:  0.00371778
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[54]
-	GaitStand: 0.996608
-	GaitWalk:  0.003346
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[55]
-	GaitStand: 0.996947
-	GaitWalk:  0.0030114
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[56]
-	GaitStand: 0.997252
-	GaitWalk:  0.00271026
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[57]
-	GaitStand: 0.997527
-	GaitWalk:  0.00243923
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[58]
-	GaitStand: 0.997774
-	GaitWalk:  0.00219531
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[59]
-	GaitStand: 0.997997
-	GaitWalk:  0.00197578
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[60]
-	GaitStand: 0.997997
-	GaitWalk:  0.00197578
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[61]
-	GaitStand: 0.997997
-	GaitWalk:  0.00197578
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[62]
-	GaitStand: 0.997997
-	GaitWalk:  0.00197578
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[63]
-	GaitStand: 0.997997
-	GaitWalk:  0.00197578
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[64]
-	GaitStand: 0.997997
-	GaitWalk:  0.00197578
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[65]
-	GaitStand: 0.997997
-	GaitWalk:  0.00197578
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[66]
-	GaitStand: 0.997997
-	GaitWalk:  0.00197578
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[67]
-	GaitStand: 0.997997
-	GaitWalk:  0.00197578
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[68]
-	GaitStand: 0.997997
-	GaitWalk:  0.00197578
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[69]
-	GaitStand: 0.997997
-	GaitWalk:  0.00197578
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[70]
-	GaitStand: 0.997997
-	GaitWalk:  0.00197578
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[71]
-	GaitStand: 0.997997
-	GaitWalk:  0.00197578
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[72]
-	GaitStand: 0.997997
-	GaitWalk:  0.00197578
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[73]
-	GaitStand: 0.997997
-	GaitWalk:  0.00197578
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[74]
-	GaitStand: 0.997997
-	GaitWalk:  0.00197578
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[75]
-	GaitStand: 0.997997
-	GaitWalk:  0.00197578
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[76]
-	GaitStand: 0.997997
-	GaitWalk:  0.00197578
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[77]
-	GaitStand: 0.997997
-	GaitWalk:  0.00197578
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[78]
-	GaitStand: 0.997997
-	GaitWalk:  0.00197578
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[79]
-	GaitStand: 0.997997
-	GaitWalk:  0.00197578
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[80]
-	GaitStand: 0.997997
-	GaitWalk:  0.00197578
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[81]
-	GaitStand: 0.997997
-	GaitWalk:  0.00197578
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[82]
-	GaitStand: 0.997997
-	GaitWalk:  0.00197578
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[83]
-	GaitStand: 0.997997
-	GaitWalk:  0.00197578
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[84]
-	GaitStand: 0.997997
-	GaitWalk:  0.00197578
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[85]
-	GaitStand: 0.997997
-	GaitWalk:  0.00197578
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[86]
-	GaitStand: 0.997997
-	GaitWalk:  0.00197578
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[87]
-	GaitStand: 0.997997
-	GaitWalk:  0.00197578
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[88]
-	GaitStand: 0.997997
-	GaitWalk:  0.00197578
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[89]
-	GaitStand: 0.997997
-	GaitWalk:  0.00197578
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[90]
-	GaitStand: 0.997997
-	GaitWalk:  0.00197578
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[91]
-	GaitStand: 0.997997
-	GaitWalk:  0.00197578
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[92]
-	GaitStand: 0.997997
-	GaitWalk:  0.00197578
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[93]
-	GaitStand: 0.997997
-	GaitWalk:  0.00197578
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[94]
-	GaitStand: 0.997997
-	GaitWalk:  0.00197578
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[95]
-	GaitStand: 0.997997
-	GaitWalk:  0.00197578
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[96]
-	GaitStand: 0.997997
-	GaitWalk:  0.00197578
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[97]
-	GaitStand: 0.997997
-	GaitWalk:  0.00197578
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[98]
-	GaitStand: 0.997997
-	GaitWalk:  0.00197578
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[99]
-	GaitStand: 0.997997
-	GaitWalk:  0.00197578
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[100]
-	GaitStand: 0.997997
-	GaitWalk:  0.00197578
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[101]
-	GaitStand: 0.997997
-	GaitWalk:  0.00197578
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[102]
-	GaitStand: 0.997997
-	GaitWalk:  0.00197578
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[103]
-	GaitStand: 0.997997
-	GaitWalk:  0.00197578
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[104]
-	GaitStand: 0.997997
-	GaitWalk:  0.00197578
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[105]
-	GaitStand: 0.997997
-	GaitWalk:  0.00197578
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[106]
-	GaitStand: 0.997997
-	GaitWalk:  0.00197578
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[107]
-	GaitStand: 0.997997
-	GaitWalk:  0.00197578
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[108]
-	GaitStand: 0.997997
-	GaitWalk:  0.00197578
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[109]
-	GaitStand: 0.997997
-	GaitWalk:  0.00197578
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[110]
-	GaitStand: 0.997997
-	GaitWalk:  0.00197578
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[111]
-	GaitStand: 0.997997
-	GaitWalk:  0.00197578
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[112]
-	GaitStand: 0.997997
-	GaitWalk:  0.00197578
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[113]
-	GaitStand: 0.997997
-	GaitWalk:  0.00197578
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[114]
-	GaitStand: 0.997997
-	GaitWalk:  0.00197578
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[115]
-	GaitStand: 0.997997
-	GaitWalk:  0.00197578
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[116]
-	GaitStand: 0.997997
-	GaitWalk:  0.00197578
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[117]
-	GaitStand: 0.997997
-	GaitWalk:  0.00197578
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[118]
-	GaitStand: 0.997997
-	GaitWalk:  0.00197578
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
 Gait[119]
-	GaitStand: 0.997997
-	GaitWalk:  0.00197578
+	GaitStand: 0
+	GaitWalk:  0
 	GaitJog:   0
 	GaitJump:  0
 	GaitBump:  0
