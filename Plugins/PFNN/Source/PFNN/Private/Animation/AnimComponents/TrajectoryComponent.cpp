@@ -20,6 +20,8 @@
 
 #include <fstream>
 
+#define print(msg, ...) GEngine->AddOnScreenDebugMessage(-1, 0.0f, FColor::Green, FString::Printf(TEXT(msg), __VA_ARGS__))
+
 UTrajectoryComponent::UTrajectoryComponent(): ExtraStrafeSmooth(0), ExtraGaitSmooth(0), ExtraJointSmooth(0)
 {
 	PrimaryComponentTick.bCanEverTick = true;
@@ -83,10 +85,9 @@ void UTrajectoryComponent::TickComponent(float DeltaTime, ELevelTick TickType, F
 	
 	glm::vec3 Mixed = MixDirections(Direction1, Direction2, 0.5f);
 
-#ifdef WITH_EDITOR
-	DrawDebugTrajectory();
+//	DrawDebugTrajectory();
 	LogTrajectoryData(DeltaTime);
-#endif
+
 
 }
 
@@ -120,11 +121,19 @@ void UTrajectoryComponent::TickGaits()
 {
 	// TODO: crouch amount update
 	//character->crouched_amount = glm::mix(character->crouched_amount, character->crouched_target, options->extra_crouched_smooth);
-
+	print("Press 'W' 'A' 'S' 'D' to move around\nPress 'Left Shift' while moving to activate the jog animation \nPress 'C' to activate the couch animation");
 	//Updating of the gaits
+	const float local_crouched = 0/*character->crouched_amount*/;
 	const float MovementCutOff = 0.01f;
 	const float JogCuttoff = 0.5f;
 	const auto TrajectoryLength = glm::length(TargetVelocity);
+	float jog = 0;
+	if (JogActivated > 0)
+	{
+		jog = glm::abs(TrajectoryLength) + JogActivated;
+	}
+	//print("Jog Pressed: %f", jog);
+
 	//const auto NormalizedTrajectoryLength = glm::normalize(TrajectoryLength);
 	const int32 MedianLength = LENGTH / 2;
 
@@ -140,17 +149,27 @@ void UTrajectoryComponent::TickGaits()
 		updateValue(GaitCrouch[MedianLength], 0.0f);
 		updateValue(GaitJump[MedianLength], 0.0f);
 		updateValue(GaitBump[MedianLength], 0.0f);
+
+		if (CrouchActivated > 0.1) // crouched
+		{
+			updateValue(GaitStand[MedianLength], 0.0f);
+			updateValue(GaitWalk[MedianLength], 0.0f);
+			updateValue(GaitJog[MedianLength], 0.0f);
+			updateValue(GaitCrouch[MedianLength], 1);
+			updateValue(GaitJump[MedianLength], 0.0f);
+			updateValue(GaitBump[MedianLength], 0.0f);
+		}
 	}
-	else if (const float crouched = 0/*character->crouched_amount*/; crouched > 0.1) // crouched
+	else if (CrouchActivated > 0.1) // crouched
 	{
 		updateValue(GaitStand[MedianLength], 0.0f);
 		updateValue(GaitWalk[MedianLength], 0.0f);
 		updateValue(GaitJog[MedianLength], 0.0f);
-		updateValue(GaitCrouch[MedianLength], crouched);
-		updateValue(GaitJump[MedianLength], 0.0f);
+		updateValue(GaitCrouch[MedianLength], 1);
+		updateValue(GaitJump[MedianLength], 0.0f);	
 		updateValue(GaitBump[MedianLength], 0.0f);
 	}
-	else if (glm::abs(TrajectoryLength) > JogCuttoff) //Jog old
+	else if (jog > JogCuttoff) //Jog old
 		// else if((SDL_JoystickGetAxis(stick, GAMEPAD_TRIGGER_R) / 32768.0) + 1.0) // jog original
 		// else if(glm::abs(TargetVelocity.x) > JogCuttoff || glm::abs(TargetVelocity.y) > JogCuttoff) //Jog old
 	{
@@ -178,6 +197,7 @@ void UTrajectoryComponent::TickGaits()
 		GEngine->AddOnScreenDebugMessage(-1, 0.0f, FColor::Yellow, FString::Printf(TEXT("%f Gait Jog "), GaitJog[LENGTH / 2]));
 		GEngine->AddOnScreenDebugMessage(-1, 0.0f, FColor::Yellow, FString::Printf(TEXT("%f Gait Jump "), GaitJump[LENGTH / 2]));
 		GEngine->AddOnScreenDebugMessage(-1, 0.0f, FColor::Yellow, FString::Printf(TEXT("%f Gait Bump "), GaitBump[LENGTH / 2]));
+		GEngine->AddOnScreenDebugMessage(-1, 0.0f, FColor::Yellow, FString::Printf(TEXT("%f Gait Crouch "), GaitCrouch[LENGTH / 2]));
 		GEngine->AddOnScreenDebugMessage(-1, 0.0f, FColor::Yellow, FString::Printf(TEXT("%f TrajectoryLength "), TrajectoryLength));
 	}
 
@@ -187,14 +207,15 @@ void UTrajectoryComponent::PredictFutureTrajectory()
 {
 	const auto halfLength = LENGTH / 2;
 	//Predicting future trajectory
-	glm::vec3 TrajectoryPositionsBlend[LENGTH] = { glm::vec3(0.0f) };
-	TrajectoryPositionsBlend[halfLength] = Positions[halfLength];
+	glm::vec3 TrajectoryPositionsBlend[LENGTH];
 
-	const float BiasPosition = Responsive ? glm::mix(2.0f, 2.0f, StrafeAmount) : glm::mix(0.5f, 1.0f, StrafeAmount);
-	const float BiasDirection = Responsive ? glm::mix(5.0f, 3.0f, StrafeAmount) : glm::mix(2.0f, 0.5f, StrafeAmount);
+	TrajectoryPositionsBlend[halfLength] = Positions[halfLength];
 
 	for (int i = halfLength + 1; i < LENGTH; i++)
 	{
+		const float BiasPosition = Responsive ? glm::mix(2.0f, 2.0f, StrafeAmount) : glm::mix(0.5f, 1.0f, StrafeAmount);
+		const float BiasDirection = Responsive ? glm::mix(5.0f, 3.0f, StrafeAmount) : glm::mix(2.0f, 0.5f, StrafeAmount);
+
 		const float ScalePosition = 1.0f - powf(1.0f - (static_cast<float>(i - halfLength) / halfLength), BiasPosition);
 		const float ScaleDirection = 1.0f - powf(1.0f - (static_cast<float>(i - halfLength) / halfLength), BiasDirection);
 
@@ -235,6 +256,7 @@ void UTrajectoryComponent::PredictFutureTrajectory()
 		GaitBump[i] = GaitBump[halfLength];
 		GaitCrouch[i] = GaitCrouch[halfLength];
 	}
+
 
 	for (int i = halfLength + 1; i < LENGTH; i++)
 		Positions[i] = TrajectoryPositionsBlend[i];
@@ -357,7 +379,7 @@ void UTrajectoryComponent::UpdateFutureTrajectory(Eigen::ArrayXf& PFNN_Yp)
 	const auto trajectoryFeatureCalc = [&PFNN_Yp, &W](const auto M, const auto i, const auto ft) -> float
 	{
 		const auto iYp = 8 + (W * ft) + (i / 10) - W;
-		return (1 - M) * PFNN_Yp(iYp) + M * PFNN_Yp(iYp + 1);
+		return (1 - M) * PFNN_Yp(iYp) + M * PFNN_Yp(iYp + 1); 
 	};
 	for (int32 i = FirstFutureNode; i < UTrajectoryComponent::LENGTH; i++)
 	{
@@ -452,9 +474,7 @@ void UTrajectoryComponent::LogTrajectoryData(int arg_FrameCount)
 	}
 	catch (std::exception e)
 	{
-#ifdef WITH_EDITOR
 		UE_LOG(LogTemp, Error, TEXT("Failed to Log Trajectory output data"));
-#endif
 	}
 }
 
@@ -491,7 +511,7 @@ void UTrajectoryComponent::CalculateTargetDirection()
 
 	const float currentWalkingSpeed = 7.5f;
 	const float maxWalkSpeed = 500;
-	const float TargetVelocitySpeed = OwnerPawn->GetVelocity().SizeSquared() / (pow(maxWalkSpeed/*OwnerPawn->GetMovementComponent()->GetMaxSpeed()*/, 2) * currentWalkingSpeed); //7.5 is current training walking speed
+	const float TargetVelocitySpeed = OwnerPawn->GetVelocity().SizeSquared() / (pow(maxWalkSpeed, 2) * currentWalkingSpeed); //7.5 is current training walking speed
 
 	const glm::vec3 TrajectoryTargetVelocityNew = TargetVelocitySpeed * (TrajectoryTargetRotation * /*glm::vec3(x_vel / 32768.0, 0, y_vel / 32768.0)*/ glm::vec3(CurrentFrameInput.x, 0.0f, CurrentFrameInput.y));
 	TargetVelocity = glm::mix(TargetVelocity, TrajectoryTargetVelocityNew, ExtraVelocitySmooth);
@@ -558,20 +578,20 @@ void UTrajectoryComponent::DrawDebugTrajectory()
 	const glm::vec3 MidPoint = Positions[LENGTH / 2] * 100.0f;		//Get the mid point/player point of the trajectory
 	const glm::vec3 EndingPoint = Positions[LENGTH - 1] * 100.0f;	//Get the ending point of the trajectory
 
-	for (size_t i = 0; i < LENGTH; i++)
-	{
-		if (i % 10 == 0 || i == LENGTH - 1)
-		{
-			FVector DebugLocation = (UPFNNHelperFunctions::XYZTranslationToXZY(Positions[i]) * 100.0f);
-			DrawDebugPoint(GetWorld(), DebugLocation, 7.5f, FColor::Red);
+	//for (size_t i = 0; i < LENGTH; i++)
+	//{
+	//	if (i % 10 == 0 || i == LENGTH - 1)
+	//	{
+	//		FVector DebugLocation = (UPFNNHelperFunctions::XYZTranslationToXZY(Positions[i]) * 100.0f);
+	//		DrawDebugPoint(GetWorld(), DebugLocation, 7.5f, FColor::Red);
 
-			FVector CrossProduct = FVector::CrossProduct(FVector(0.0f, 0.0f, 1.0f), UPFNNHelperFunctions::XYZTranslationToXZY(Directions[i])) * 50.0f;
+	//		FVector CrossProduct = FVector::CrossProduct(FVector(0.0f, 0.0f, 1.0f), UPFNNHelperFunctions::XYZTranslationToXZY(Directions[i])) * 50.0f;
 
-			DrawDebugPoint(GetWorld(), DebugLocation + CrossProduct, 10.0f, FColor::Black);
-			DrawDebugPoint(GetWorld(), DebugLocation - CrossProduct, 10.0f, FColor::Black);
+	//		DrawDebugPoint(GetWorld(), DebugLocation + CrossProduct, 10.0f, FColor::Black);
+	//		DrawDebugPoint(GetWorld(), DebugLocation - CrossProduct, 10.0f, FColor::Black);
 
-		}
-	}
+	//	}
+	//}
 
 	FVector DebugStartingPoint = UPFNNHelperFunctions::XYZTranslationToXZY(StartingPoint);
 	FVector DebugMidPoint = UPFNNHelperFunctions::XYZTranslationToXZY(MidPoint);
@@ -579,21 +599,21 @@ void UTrajectoryComponent::DrawDebugTrajectory()
 
 	DrawDebugPoint(GetWorld(), DebugStartingPoint, 10.0f, FColor::Red);
 	DrawDebugPoint(GetWorld(), DebugMidPoint, 10.0f, FColor::Red);
-	DrawDebugPoint(GetWorld(), DebugEndPoint, 10.0f, FColor::Red);
+	//DrawDebugPoint(GetWorld(), DebugEndPoint, 10.0f, FColor::Red);
 
 	DrawDebugString(GetWorld(), DebugStartingPoint, TEXT("Past"), nullptr, FColor::Blue, 0.001f);
 	DrawDebugString(GetWorld(), DebugMidPoint, TEXT("Current"), nullptr, FColor::Blue, 0.001f);
-	DrawDebugString(GetWorld(), DebugEndPoint, TEXT("Future"), nullptr, FColor::Blue, 0.001f);
+	//DrawDebugString(GetWorld(), DebugEndPoint, TEXT("Future"), nullptr, FColor::Blue, 0.001f);
 
 	const FVector StartingDirection = UPFNNHelperFunctions::XYZTranslationToXZY(Directions[0]);
 	const FVector MidDirection = UPFNNHelperFunctions::XYZTranslationToXZY(Directions[LENGTH / 2]);
 	const FVector EndDirection = UPFNNHelperFunctions::XYZTranslationToXZY(Directions[LENGTH - 1]);
 
-	GEngine->AddOnScreenDebugMessage(-1, 0.0f, FColor::Black, FString::Printf(TEXT("%s Past Direction"), *StartingDirection.ToString()));
-	GEngine->AddOnScreenDebugMessage(-1, 0.0f, FColor::Purple, FString::Printf(TEXT("%s Past Position"), *DebugStartingPoint.ToString()));
-	GEngine->AddOnScreenDebugMessage(-1, 0.0f, FColor::Black, FString::Printf(TEXT("%s Present Direction"), *MidDirection.ToString()));
-	GEngine->AddOnScreenDebugMessage(-1, 0.0f, FColor::Purple, FString::Printf(TEXT("%s Present Position"), *DebugMidPoint.ToString()));
-	GEngine->AddOnScreenDebugMessage(-1, 0.0f, FColor::Black, FString::Printf(TEXT("%s Future Direction"), *EndDirection.ToString()));
-	GEngine->AddOnScreenDebugMessage(-1, 0.0f, FColor::Purple, FString::Printf(TEXT("%s Future Position"), *DebugEndPoint.ToString()));
+	GEngine->AddOnScreenDebugMessage(4, 0.0f, FColor::Purple, FString::Printf(TEXT("%s Past Direction"), *StartingDirection.ToString()));
+	GEngine->AddOnScreenDebugMessage(3, 0.0f, FColor::Purple, FString::Printf(TEXT("%s Past Position"), *DebugStartingPoint.ToString()));
+	GEngine->AddOnScreenDebugMessage(6, 0.0f, FColor::Red, FString::Printf(TEXT("%s Present Direction"), *MidDirection.ToString()));
+	GEngine->AddOnScreenDebugMessage(5, 0.0f, FColor::Red, FString::Printf(TEXT("%s Present Position"), *DebugMidPoint.ToString()));
+	GEngine->AddOnScreenDebugMessage(2, 0.0f, FColor::Black, FString::Printf(TEXT("%s Future Direction"), *EndDirection.ToString()));
+	GEngine->AddOnScreenDebugMessage(1, 0.0f, FColor::Black, FString::Printf(TEXT("%s Future Position"), *DebugEndPoint.ToString()));
 }
 

@@ -26,6 +26,7 @@ UPhaseFunctionNeuralNetwork::UPhaseFunctionNeuralNetwork() : Mode(EPFNNMode::PM_
 	b1p = Eigen::ArrayXf(static_cast<int>(HDIM));
 	b2p = Eigen::ArrayXf(static_cast<int>(YDIM));
 
+
 }
 
 UPhaseFunctionNeuralNetwork::~UPhaseFunctionNeuralNetwork()
@@ -62,7 +63,7 @@ bool UPhaseFunctionNeuralNetwork::LoadNetworkData(UObject* arg_ContextObject)
 	{
 		//GEngine->AddOnScreenDebugMessage(-1, 1.0f, FColor::Green, TEXT("Invalid Shitty Code..."));
 		
-		UE_LOG(PFNN_Logging, Error, TEXT("Invalid GameInstance for PFNN"));
+		UE_LOG(PFNN_Logging, Warning, TEXT("Invalid GameInstance for PFNN"));
 	}
 	return false;
 }

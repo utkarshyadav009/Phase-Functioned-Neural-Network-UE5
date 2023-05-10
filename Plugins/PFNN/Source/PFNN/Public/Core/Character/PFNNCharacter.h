@@ -37,6 +37,28 @@ public:
 	/** Returns FollowCamera subobject **/
 	FORCEINLINE class UCameraComponent* GetFollowCamera() const { return FollowCamera; }
 
+	
+	UFUNCTION(BlueprintCallable, Category = "PFNN")
+		void GetPFNNLoaded(bool& bPFNNLoaded);
+	
+	UFUNCTION(BlueprintCallable, Category = "PFNN")
+		void GetLeftLegJointTransform(FTransform& LeftUpLeg, FTransform& LeftLeg, FTransform& LeftFoot, FTransform& LeftToeBase);
+
+	UFUNCTION(BlueprintCallable, Category = "PFNN")
+		void GetRightLegJointTransform(FTransform& RightUpLeg, FTransform& RightLeg, FTransform& RightFoot, FTransform& RightToeBase);
+
+	UFUNCTION(BlueprintCallable, Category = "PFNN")
+		void GetLeftArmJointTransform(FTransform& LeftArm, FTransform& LeftForeArm, FTransform& LeftHand);
+
+	UFUNCTION(BlueprintCallable, Category = "PFNN")
+		void GetRightArmJointTransform(FTransform& RightArm, FTransform& RightForeArm, FTransform& RightHand);
+
+	UFUNCTION(BlueprintCallable, Category = "PFNN")
+		void GetSpineJointTransform(FTransform& Spine, FTransform& Spine1, FTransform& Neck, FTransform& Head);
+	
+	void SetJointTransformForControlRig(FTransform JointTransform, int index, FName JointName);
+
+	void SetPFNNLoaded(bool bPFNNLoaded);
 protected:
 
 	/** Called for forwards/backward input */
@@ -67,6 +89,12 @@ protected:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 	// End of APawn interface
 
+	void OnJogPressed();
+	void OnJogReleased();
+
+	void OnCrouchPressed();
+	void OnCrouchReleased();
+
 private:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "True"))
@@ -75,4 +103,14 @@ private:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = PFNNDebugging ,meta = (AllowPrivateAccess = "True"))
 	bool bIsSkeletonDebuggingEnabled;
 
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = PFNNControlRig, meta = (AllowPrivateAccess = "True"))
+	TArray<FTransform> PFNNJointTransformControlRig;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = PFNNControlRig, meta = (AllowPrivateAccess = "True"))
+	TArray<FName> JointNameByIndex;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "True"))
+	class UPFNNAnimInstance* PFNNAnimInstance;
+
+	bool bIsPFNNLoaded;
 };

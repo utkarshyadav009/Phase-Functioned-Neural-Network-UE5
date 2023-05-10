@@ -10,6 +10,14 @@
 
 #include "TrajectoryComponent.generated.h"
 
+/*
+
+	The UTrajectoryComponent class is responsible for managing and calculating trajectories
+	of objects in 3D space. It provides utility functions to interpolate between positions,
+	directions, and rotations, as well as visualize trajectories using debug lines and strings.
+	This component is useful for implementing movement and rotation animations, predicting
+	future positions, or visualizing motion paths in a 3D environment.
+*/
 
 UCLASS(BlueprintType)
 class PFNN_API UTrajectoryComponent : public UActorComponent
@@ -126,6 +134,9 @@ public:
 	float GaitBump[LENGTH];
 	UPROPERTY(VisibleAnywhere, Category = Gaits)
 	float GaitCrouch[LENGTH];
+
+	float JogActivated = 0;
+	float CrouchActivated = 0;
 private:
 
 	UPROPERTY()

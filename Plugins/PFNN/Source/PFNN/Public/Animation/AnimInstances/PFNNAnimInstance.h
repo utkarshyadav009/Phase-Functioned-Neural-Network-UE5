@@ -23,6 +23,17 @@ public:
 	class UTrajectoryComponent* GetOwningTrajectoryComponent();
 	
 	void SetLeftLegJointPositions(TArray<FVector>& Arg_JointPoistions);
+
+	void SetJointTransformForControlRig(FTransform JointTransform, int index, FName JointName);
+
+	FVector GetRootLocation();
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "PFNN AnimInstance")
+	TArray<FTransform> PFNNJointTransformControlRig;
+	
+	
+	TArray<FName> JointNameByIndex;
+
 //	void SetRightLegJointTransform(FTransform);
 
 	/*
@@ -35,9 +46,24 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "PFNN")
 		void GetPositionArrayLeftLegJoints(TArray<FVector>& LeftLegBonePositionArray);
 
+	UFUNCTION(BlueprintCallable, Category = "PFNN")
+		void GetLeftLegJointTransform(FTransform& LeftUpLeg, FTransform& LeftLeg, FTransform& LeftFoot, FTransform& LeftToeBase);
+
+	UFUNCTION(BlueprintCallable, Category = "PFNN")
+		void GetRightLegJointTransform(FTransform& RightUpLeg, FTransform& RightLeg, FTransform& RightFoot, FTransform& RightToeBase);
+
+	UFUNCTION(BlueprintCallable, Category = "PFNN")
+		void GetLeftArmJointTransform(FTransform& LeftArm, FTransform& LeftForeArm, FTransform& LeftHand);
+
+	UFUNCTION(BlueprintCallable, Category = "PFNN")
+		void GetRightArmJointTransform(FTransform& RightArm, FTransform& RightForeArm, FTransform& RightHand);
+	
+	UFUNCTION(BlueprintCallable, Category = "PFNN")
+		void GetSpineJointTransform(FTransform& Spine, FTransform& Spine1, FTransform& Neck, FTransform& Head);
+
 	//UFUNCTION(BlueprintCallable, Category = "PFNN")
 	//	void GetTransformForRightLegJoints(FTransform& RHipJoint, FTransform& RightUpLeg, FTransform& RightLeg, FTransform& RightFoot, FTransform& RightToeBase);
-
+	void LogJointTransform();
 private:
 
 	//Amount of joints
@@ -52,5 +78,7 @@ private:
 
 	TArray<FVector> LeftLegJointPosition;
 	//TArray<FTransform> RightLegJointTransform;
-	
+
+
+
 };

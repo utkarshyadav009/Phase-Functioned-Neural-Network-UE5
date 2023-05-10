@@ -19,12 +19,14 @@
 #include <ThirdParty/glm/gtx/quaternion.hpp>
 
 #include <fstream>
+#define print(msg, ...) GEngine->AddOnScreenDebugMessage(-1, 0.0f, FColor::Green, FString::Printf(TEXT(msg), __VA_ARGS__))
 
 UPhaseFunctionNeuralNetwork* FAnimNode_PFNN::PFNN = nullptr;
 
 FAnimNode_PFNN::FAnimNode_PFNN(): PFNNAnimInstance(nullptr), Trajectory(nullptr), Phase(0),  FrameCounter(0),
 								  bIsPFNNLoaded(false)
 {
+	Log_LocalBoneTransform.SetNum(JOINT_NUM-2);
 }
 
 void FAnimNode_PFNN::LoadData(FAnimInstanceProxy* arg_Context)
@@ -88,6 +90,11 @@ void FAnimNode_PFNN::LoadPFNN()
 		}
 
 		bIsPFNNLoaded = PFNN->LoadNetworkData(Trajectory->GetOwner());
+		APFNNCharacter* Character = Cast<APFNNCharacter>(Trajectory->GetOwner());
+		if (Character)
+		{
+			Character->SetPFNNLoaded(bIsPFNNLoaded);
+		}
 	}
 }
 
@@ -342,16 +349,21 @@ void FAnimNode_PFNN::ApplyPFNN()
 	{
 		FinalBoneLocations[i] = UPFNNHelperFunctions::XYZTranslationToXZY(JointPosition[i]);
 		FQuat UnrealJointRotation = CalculateRotation(JointRotations[i]);
-		FinalBoneRotations[i] = FQuat(FQuat::MakeFromEuler(FVector::RadiansToDegrees(UnrealJointRotation.Vector())));	
-		//FinalBoneLocations[i].Normalize();
-		
-		//Funtion which takes all the values in the array and then creates a node in the blueprint editor 
-		// The node has 30 output pins 
-		//if (i > 1 && i < 7)
-		//	PFNNAnimInstance->SetLeftLegJointPositions(FinalBoneLocations[i]);
-		//if(i>1 && i <7) PFNNAnimInstance->SetLeftLegJointTransform(FTransform(FinalBoneRotations[i], FinalBoneLocations[i] ,FVector3d(1)));
+		FinalBoneRotations[i] = FQuat::MakeFromEuler(FVector::RadiansToDegrees(UnrealJointRotation.Vector()));	
+
+		if (FMath::IsNaN(FinalBoneRotations[i].X) || FMath::IsNaN(FinalBoneRotations[i].Y) || FMath::IsNaN(FinalBoneRotations[i].Z) || FMath::IsNaN(FinalBoneRotations[i].W))
+		{
+			// Add logging statements to help identify the source of the issue
+			UE_LOG(PFNN_Logging, Warning, TEXT("Found NaN in FinalBoneRotations at index %d"), i);
+		}
+
+		if (FMath::IsNaN(FinalBoneLocations[i].X) || FMath::IsNaN(FinalBoneLocations[i].Y) || FMath::IsNaN(FinalBoneLocations[i].Z))
+		{
+			// Add logging statements to help identify the source of the issue
+			UE_LOG(PFNN_Logging, Warning, TEXT("Found NaN in FinalBoneLocations at index %d"), i);
+		}
 	}
-	
+
 	//Phase update
 	Phase = fmod(Phase + (StandAmount * 0.9f + 0.1f) * 2.0f * PI * PFNN->Yp(3), 2.0f * PI);
 
@@ -365,32 +377,7 @@ void FAnimNode_PFNN::ApplyPFNN()
 		Trajectory->LogTrajectoryData(FrameCounter);
 		LogNetworkData(FrameCounter);
 	}
-}
-
-
-void FAnimNode_PFNN::SendDatatoContrlRig()
-{
-	LeftLegBoneLocations.Empty();
-	LeftLegBoneLocations.Empty();
-
-	LeftLegBoneLocations.SetNum(LeftLEG_JOINT_NUM);
-	LeftLegBoneLocations.SetNum(LeftLEG_JOINT_NUM);
-
-	/// <summary>
-	/// Sending a type of bone i.e., left leg bone hierarchy, joint poistions 
-	/// the jont position array fills from index 2 to 6 i.e., these indexes have the jont 
-	/// position for the left leg bone hierarchy 
-	/// </summary>
-	/// 
-	
-	for (int32 i = 0; i < LeftLEG_JOINT_NUM; i++)	
-	{
-		LeftLegBoneLocations[i] = UPFNNHelperFunctions::XYZTranslationToXZY(JointPosition[i+2]);
-
-		//if (GEngine)
-		//	GEngine->AddOnScreenDebugMessage(-1, 0.0f, FColor::Red, FString::Printf(TEXT("AnimeNode %s %d: (%f, %f, %f)"), *JointNameByIndex[i+2].ToString(), i, LeftLegBoneLocations[i].X, LeftLegBoneLocations[i].Y, LeftLegBoneLocations[i].Z));
-	}
-	PFNNAnimInstance->SetLeftLegJointPositions(LeftLegBoneLocations);
+	//PFNNAnimInstance->LogJointTransform();
 }
 
 glm::quat FAnimNode_PFNN::QuaternionExpression(const glm::vec3 arg_Vector)
@@ -455,17 +442,19 @@ void FAnimNode_PFNN::Update_AnyThread(const FAnimationUpdateContext& arg_Context
 
 	{
 		ApplyPFNN();
-		SendDatatoContrlRig();
+		//SendDatatoContrlRig();
 	}
 
 }
-
 void FAnimNode_PFNN::Evaluate_AnyThread(FPoseContext& arg_Output)
 {
 	if (!bIsPFNNLoaded)
 		return;
 
 	const FTransform& CharacterTransform = arg_Output.AnimInstanceProxy->GetActorTransform();
+	FVector RootLocation = PFNNAnimInstance->GetRootLocation();
+	
+	//print("Root Location: %.2f , %.2f, %.2f", RootLocation.X, RootLocation.Y, RootLocation.Z);
 	if (FinalBoneLocations.Num() < JOINT_NUM
 		|| FinalBoneRotations.Num() < JOINT_NUM)
 	{
@@ -473,42 +462,91 @@ void FAnimNode_PFNN::Evaluate_AnyThread(FPoseContext& arg_Output)
 		return;
 	}
 
-	//const auto Bones = arg_Output.Pose.GetBoneContainer();
-	//for (int32 i = 0; i < JOINT_NUM; i++)
-	//{
-	//	const FCompactPoseBoneIndex CurrentBoneIndex(i);
-	//	const FCompactPoseBoneIndex ParentBoneIndex(Bones.GetParentBoneIndex(CurrentBoneIndex));
+	const auto &Bones = arg_Output.Pose.GetBoneContainer();
+	for (int32 i = 0; i < JOINT_NUM; i++)
+	{
+		const FCompactPoseBoneIndex CurrentBoneIndex(i);
+		const FCompactPoseBoneIndex ParentBoneIndex(Bones.GetParentBoneIndex(CurrentBoneIndex));
 
-	//	if (ParentBoneIndex.GetInt() == -1)
-	//	{
-	//		//Do nothing first UE4 root bone skips
-	//		arg_Output.Pose[CurrentBoneIndex].SetRotation(FQuat::MakeFromEuler(FVector::DegreesToRadians(FVector(90.0f, 0.0f, 0.0f))));
-	//	}
-	//	else if (ParentBoneIndex.GetInt() == 0)
-	//	{
-	//		//Root Bone No conversion needed
-	//		arg_Output.Pose[CurrentBoneIndex].SetRotation(FinalBoneRotations[CurrentBoneIndex.GetInt() - 1]);
-	//		arg_Output.Pose[CurrentBoneIndex].SetLocation(FinalBoneLocations[CurrentBoneIndex.GetInt() - 1]);
+		if (ParentBoneIndex.GetInt() == -1)
+		{
+			//Do nothing first UE4 root bone skips
+			FVector RootOffSet = FVector(0,0,0);
+			int scale = 2;
+			//RootOffSet.Normalize(90);
+			arg_Output.Pose[CurrentBoneIndex].SetRotation(FQuat::MakeFromEuler(FVector::DegreesToRadians(FVector(90.0f, 0.0f, 0.0f))));
+			arg_Output.Pose[CurrentBoneIndex].SetLocation(RootOffSet);
+			arg_Output.Pose[CurrentBoneIndex].SetScale3D(FVector(scale, scale, scale));
 
-	//	}
-	//	else
-	//	{	//Conversion to LocalSpace (hopefully)
-	//		FTransform CurrentBoneTransform = FTransform(FinalBoneRotations[CurrentBoneIndex.GetInt() - 1], FinalBoneLocations[CurrentBoneIndex.GetInt() - 1], FVector::OneVector);
-	//		FTransform ParentBoneTransform = FTransform(FinalBoneRotations[ParentBoneIndex.GetInt() - 1], FinalBoneLocations[ParentBoneIndex.GetInt() - 1], FVector::OneVector);
+		}
+		else if (ParentBoneIndex.GetInt() == 0)
+		{
+			//Root Bone No conversion needed
+			//print("Index:%d", CurrentBoneIndex);
+			//FinalBoneLocations[0].Normalize(90);
+			//FinalBoneLocations[0].Z += 10;
+			//FinalBoneRotations[0].X -= 0.4;
+			int scale = 2;
 
-	//		FTransform LocalBoneTransform = CurrentBoneTransform.GetRelativeTransform(ParentBoneTransform);
+			arg_Output.Pose[CurrentBoneIndex].SetRotation(FinalBoneRotations[0]);
+			arg_Output.Pose[CurrentBoneIndex].SetLocation(FinalBoneLocations[0]);
+		}
+		else
+		{	//Conversion to LocalSpace (hopefully)
+			int ChildBoneTransformIndex = CurrentBoneIndex.GetInt() - 1;
+			int ParentBoneTransformIndex = ParentBoneIndex.GetInt() - 1;
 
-	//		arg_Output.Pose[CurrentBoneIndex].SetComponents(LocalBoneTransform.GetRotation(), LocalBoneTransform.GetLocation(), LocalBoneTransform.GetScale3D());
-	//		//arg_Output.Pose[CurrentBoneIndex].SetRotation(LocalBoneTransform.GetRotation());
-	//		LocalBoneTransform.SetLocation(LocalBoneTransform.GetRotation().Inverse() * LocalBoneTransform.GetLocation());
-	//	}
-	//}
-	//arg_Output.Pose.NormalizeRotations();
-#ifdef WITH_EDITOR
-	DrawDebugSkeleton(arg_Output);
-	DrawDebugBoneVelocity(arg_Output);
-#endif
+			//FinalBoneLocations[ChildBoneTransformIndex].Normalize(50);
+			//FinalBoneLocations[ParentBoneTransformIndex].Normalize(50);
+			//FVector ScaleVector = arg_Output.Pose[CurrentBoneIndex].GetScale3D();
+			int scale = 1;
+			FVector ScaleVector = FVector(scale, scale, scale);
+
+			//FVector ControlRigPositions = FinalBoneLocations[i];
+			//FQuat ControlRigRotations = FinalBoneRotations[i];
+			//
+			//FTransform ControlRigTransform = FTransform(ControlRigRotations, ControlRigPositions, ScaleVector);
+
+			//Child Bone Transform Variables 
+			FQuat ChildBoneRotation = FinalBoneRotations[ChildBoneTransformIndex];
+			FVector ChildBoneLocation = FinalBoneLocations[ChildBoneTransformIndex];
+
+			//Parent Bone Transform Variables
+			FQuat ParentBoneRotation = FinalBoneRotations[ParentBoneTransformIndex];
+			FVector ParentBoneLocation = FinalBoneLocations[ParentBoneTransformIndex];
+
+
+			FTransform ChildBoneTransform = FTransform(ChildBoneRotation, ChildBoneLocation, ScaleVector);
+			FTransform ParentBoneTransform = FTransform(ParentBoneRotation, ParentBoneLocation, ScaleVector);
+
+
+			FTransform LocalBoneTransform = ChildBoneTransform.GetRelativeTransform(ParentBoneTransform);
+			
+			arg_Output.Pose[CurrentBoneIndex].SetComponents(LocalBoneTransform.GetRotation(), LocalBoneTransform.GetTranslation(), LocalBoneTransform.GetScale3D());
+			
+			if (LocalBoneTransform.GetRotation().ContainsNaN())
+			{
+				UE_LOG(PFNN_Logging, Warning, TEXT("Found NaN in rotation at index %d"), i);
+			}
+
+			if (LocalBoneTransform.GetLocation().ContainsNaN())
+			{
+				UE_LOG(PFNN_Logging, Warning, TEXT("Found NaN in location at index %d"), i);
+			}
+			
+		/*	LocalBoneTransform.NormalizeRotation();
+			APFNNCharacter* Character = Cast<APFNNCharacter>(Trajectory->GetOwner());
+			if (Character)
+			{
+				Character->SetJointTransformForControlRig(LocalBoneTransform, i, JointNameByIndex[i]);
+			}*/
+			//print("CurrentIndex: %d", CurrentBoneIndex.GetInt());
+		}
+	}
+	arg_Output.Pose.NormalizeRotations();
+	//LogLocalTransformData(LocalBoneTransform, JointNameByIndex[0]);
 }
+
 
 void FAnimNode_PFNN::LogNetworkData(int arg_FrameCounter)
 {
@@ -527,19 +565,6 @@ void FAnimNode_PFNN::LogNetworkData(int arg_FrameCounter)
 
 			fs << "Current Phase: " << Phase << std::endl << std::endl;
 
-			fs << "Control Rig " << std::endl;
-
-			for (size_t i = 2; i < 7; i++)
-			{
-
-				FString JointNameStr = JointNameByIndex[i].ToString(); // Convert FName to FString
-				JointNameStr.AppendInt(int(i));
-				fs << "Joint[" << i << "]" << TCHAR_TO_UTF8(*JointNameStr) << std::endl;
-				fs << "	JointPosition: " << "X: " << JointPosition[i].x << ", Y: " << JointPosition[i].y << ", Z: " << JointPosition[i].z << std::endl;
-				fs << "	JointVelocitys: " << "X: " << JointVelocitys[i].x << ", Y: " << JointVelocitys[i].y << ", Z: " << JointVelocitys[i].z << std::endl;
-			}
-
-
 			fs << "Joints" << std::endl;
 
 			for (size_t i = 0; i < JOINT_NUM; i++)
@@ -556,7 +581,7 @@ void FAnimNode_PFNN::LogNetworkData(int arg_FrameCounter)
 
 				for (size_t x = 0; x < 3; x++)
 				{
-				//fs << "	JointRotations:  " << JointRotations[i][x].x << "X, " << JointRotations[i][x].y << ", " << JointRotations[i][x].z << std::endl;
+				fs << "	JointRotations:  " << JointRotations[i][x].x << "X, " << JointRotations[i][x].y << ", " << JointRotations[i][x].z << std::endl;
 				}
 
 				for (size_t x = 0; x < 3; x++)
@@ -591,11 +616,24 @@ void FAnimNode_PFNN::LogNetworkData(int arg_FrameCounter)
 			fs << "FinalLocations" << std::endl;
 			for (size_t i = 0; i < FinalBoneLocations.Num(); i++)
 			{
-				fs << "Bone[" << i << "]" << std::endl;
+				FString JointNameStr = JointNameByIndex[i].ToString(); // Convert FName to FString
+				fs << "Joint[" << i << "]" << TCHAR_TO_UTF8(*JointNameStr) << std::endl;
 				fs << "	FinalBoneLocation: " << FinalBoneLocations[i].X << "X, " << FinalBoneLocations[i].Y << "Y, " << FinalBoneLocations[i].Z << "Z" << std::endl;
 				fs << "	FinalBoneRotation: " << FinalBoneRotations[i].X << "X, " << FinalBoneRotations[i].Y << "Y, " << FinalBoneRotations[i].Z << "Z, " << FinalBoneRotations[i].W << "W"<< std::endl;
 			}
 			fs << "End FinalLocations" << std::endl;
+
+			//fs << "LocalBoneTransform" << std::endl;
+			//for (int32 i = 0; i < JOINT_NUM-2; i++)
+			//{
+			//	FString JointNameStr = JointNameByIndex[i+2].ToString(); // Convert FName to FString
+			//	fs << "Joint[" << i+2 << "]" << TCHAR_TO_UTF8(*JointNameStr) << std::endl;
+			//	fs << "	LocalTransformLocation: " << Log_LocalBoneTransform[i].GetLocation().X << "X, " << Log_LocalBoneTransform[i].GetLocation().Y << "Y, " << Log_LocalBoneTransform[i].GetLocation().Z << "Z" << std::endl;
+			//	fs << "	LocalTransformRotation: " << Log_LocalBoneTransform[i].GetRotation().X << "X, " << Log_LocalBoneTransform[i].GetRotation().Y << "Y, " << Log_LocalBoneTransform[i].GetRotation().Z << "Z, " << Log_LocalBoneTransform[i].GetRotation().W << "W" << std::endl;
+			//	fs << "	LocalTransformScale: " << Log_LocalBoneTransform[i].GetScale3D().X << "X, " << Log_LocalBoneTransform[i].GetScale3D().Y << "Y, " << Log_LocalBoneTransform[i].GetScale3D().Z << "Z " << std::endl;
+			//}
+			//fs << "End LocalBoneTransform" << std::endl;
+
 
 		}
 		else 
@@ -605,12 +643,12 @@ void FAnimNode_PFNN::LogNetworkData(int arg_FrameCounter)
 	}
 	catch (std::exception e) 
 	{
-#ifdef WITH_EDITOR
 		UE_LOG(LogTemp, Log, TEXT("Failed to log network data"));
-#endif
 	}
 	
 }
+
+
 
 void FAnimNode_PFNN::DrawDebugSkeleton(const FPoseContext& arg_Context) 
 {

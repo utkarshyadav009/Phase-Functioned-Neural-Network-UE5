@@ -75,7 +75,6 @@ struct PFNN_API FAnimNode_PFNN : public FAnimNode_Base
 	void LoadPFNN();
 
 	void ApplyPFNN();
-	void SendDatatoContrlRig();
 	glm::quat QuaternionExpression(const glm::vec3 arg_Length);
 
 	class UPFNNAnimInstance* GetPFNNInstanceFromContext(const FAnimationInitializeContext& Context);
@@ -106,12 +105,10 @@ struct PFNN_API FAnimNode_PFNN : public FAnimNode_Base
 
 	void LogNetworkData(int arg_FrameCounter);
 
-
 	//Amount of joints
 	enum
 	{
 		JOINT_NUM = 31, 
-		LeftLEG_JOINT_NUM = 5
 	};
 
 	// Joints utils
@@ -145,6 +142,8 @@ struct PFNN_API FAnimNode_PFNN : public FAnimNode_Base
 	TArray<FVector> LeftLegBoneLocations;
 
 	TArray<FQuat>	FinalBoneRotations;
+
+	TArray<FTransform> Log_LocalBoneTransform;
 
 	//END LOG THESE VARIABLES
 

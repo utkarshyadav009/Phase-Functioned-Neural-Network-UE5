@@ -1,24 +1,29 @@
 {
-	"FileVersion": 3,
-	"Version": 1,
-	"VersionName": "1.0",
-	"FriendlyName": "PFNN",
-	"Description": "Phase Function Neural Network Animation Plugin for Unreal Engine 5",
-	"Category": "Other",
-	"CreatedBy": "Yishu_utkarsh ",
-	"CreatedByURL": "",
-	"DocsURL": "",
-	"MarketplaceURL": "",
-	"SupportURL": "",
-	"CanContainContent": true,
-	"IsBetaVersion": false,
-	"IsExperimentalVersion": false,
-	"Installed": false,
-	"Modules": [
-		{
-			"Name": "PFNN",
-			"Type": "Runtime",
-			"LoadingPhase": "Default"
-		}
-	]
+    "FileVersion": 3,
+    "Version": 1,
+    "VersionName": "1.0",
+    "FriendlyName": "PFNN",
+    "Description": "Phase Function Neural Network Animation Plugin for Unreal Engine 5",
+    "Category": "Animation",
+    "CreatedBy": "Yishu_Utkarsh",
+    "CreatedByURL": "",
+    "DocsURL": "",
+    "MarketplaceURL": "",
+    "SupportURL": "",
+    "CanContainContent": true,
+    "IsBetaVersion": true,
+    "IsExperimentalVersion": true,
+    "Installed": true,
+    "Modules": [
+      {
+        "Name": "PFNN",
+        "Type": "Runtime",
+        "LoadingPhase": "PreDefault"
+      },
+      {
+        "Name": "PFNN_AnimEditor",
+        "Type": "Editor",
+        "LoadingPhase": "Default"
+      }
+    ]
 }

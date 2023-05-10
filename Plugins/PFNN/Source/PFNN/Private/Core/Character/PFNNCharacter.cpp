@@ -8,9 +8,11 @@
 #include "GameFramework/Controller.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "Animation/AnimComponents/TrajectoryComponent.h"
+#include "Animation/AnimInstances/PFNNAnimInstance.h"
+#define print(msg, ...) GEngine->AddOnScreenDebugMessage(-1, 0.0f, FColor::Green, FString::Printf(TEXT(msg), __VA_ARGS__))
 
 // Sets default values
-APFNNCharacter::APFNNCharacter()
+APFNNCharacter::APFNNCharacter() : PFNNAnimInstance(nullptr)
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	//PrimaryActorTick.bCanEverTick = true;
@@ -28,13 +30,13 @@ APFNNCharacter::APFNNCharacter()
 
 	// Configure character movement
 	GetCharacterMovement()->bOrientRotationToMovement = true; // Character moves in the direction of input...	
-	GetCharacterMovement()->RotationRate = FRotator(0.0f, 500.0f, 0.0f); // ...at this rotation rate
+	//GetCharacterMovement()->RotationRate = FRotator(0.0f, 300.0f, 0.0f); // ...at this rotation rate
 
 	// Note: For faster iteration times these variables, and many more, can be tweaked in the Character Blueprint
 	// instead of recompiling to adjust them
 	GetCharacterMovement()->JumpZVelocity = 700.f;
 	GetCharacterMovement()->AirControl = 0.35f;
-	GetCharacterMovement()->MaxWalkSpeed = 500.f;
+	GetCharacterMovement()->MaxWalkSpeed = 200.f;
 	GetCharacterMovement()->MinAnalogWalkSpeed = 20.f;
 	GetCharacterMovement()->BrakingDecelerationWalking = 2000.f;
 
@@ -54,6 +56,11 @@ APFNNCharacter::APFNNCharacter()
 
 	bIsSkeletonDebuggingEnabled = false;
 
+    PFNNJointTransformControlRig.SetNum(18);
+    JointNameByIndex.SetNum(18);
+
+    bIsPFNNLoaded = false;
+
 }
 
 
@@ -63,8 +70,13 @@ void APFNNCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompo
 {
 	// Set up gameplay key bindings
 	check(PlayerInputComponent);
-	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
-	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
+
+    PlayerInputComponent->BindAction("Jog", IE_Pressed, this, &APFNNCharacter::OnJogPressed);
+    PlayerInputComponent->BindAction("Jog", IE_Released, this, &APFNNCharacter::OnJogReleased);
+
+    PlayerInputComponent->BindAction("Crouch", IE_Pressed, this, &APFNNCharacter::OnCrouchPressed);
+    PlayerInputComponent->BindAction("Crouch", IE_Released, this, &APFNNCharacter::OnCrouchReleased);
+
 
 	PlayerInputComponent->BindAxis("Move Forward / Backward", this, &APFNNCharacter::MoveForward);
 	PlayerInputComponent->BindAxis("Move Right / Left", this, &APFNNCharacter::MoveRight);
@@ -81,6 +93,37 @@ void APFNNCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompo
 	PlayerInputComponent->BindTouch(IE_Pressed, this, &APFNNCharacter::TouchStarted);
 	PlayerInputComponent->BindTouch(IE_Released, this, &APFNNCharacter::TouchStopped);
 }
+
+void APFNNCharacter::OnJogPressed()
+{
+    TrajectoryComponent->JogActivated = 1.0f;
+    if (GetCharacterMovement())
+    {
+        GetCharacterMovement()->MaxWalkSpeed *= 2.0f; // Increase the movement speed by a factor, for example, 2
+    }
+}
+
+void APFNNCharacter::OnJogReleased()
+{
+    TrajectoryComponent->JogActivated = 0.0f;
+    if (GetCharacterMovement())
+    {
+        GetCharacterMovement()->MaxWalkSpeed /= 2.0f; // Reset the movement speed back to normal
+    }
+}
+
+void APFNNCharacter::OnCrouchPressed()
+{
+    TrajectoryComponent->CrouchActivated = 1.0f;
+}
+
+void APFNNCharacter::OnCrouchReleased()
+{
+    TrajectoryComponent->CrouchActivated = 0.0f;
+}
+
+
+
 
 void APFNNCharacter::TouchStarted(ETouchIndex::Type FingerIndex, FVector Location)
 {
@@ -141,4 +184,135 @@ UTrajectoryComponent* APFNNCharacter::GetTrajectoryComponent()
 bool APFNNCharacter::HasDebuggingEnabled()
 {
 	return bIsSkeletonDebuggingEnabled;
+}
+
+void APFNNCharacter::SetJointTransformForControlRig(FTransform JointTransform, int index, FName JointName)
+{
+    switch (index)
+    {
+    case 3:
+        PFNNJointTransformControlRig[0] = JointTransform;
+        JointNameByIndex[0] = JointName;
+        break;
+    case 4:
+        PFNNJointTransformControlRig[1] = JointTransform;
+        JointNameByIndex[1] = JointName;
+        break;
+    case 5:
+        PFNNJointTransformControlRig[2] = JointTransform;
+        JointNameByIndex[2] = JointName;
+        break;
+    case 6:
+        PFNNJointTransformControlRig[3] = JointTransform;
+        JointNameByIndex[3] = JointName;
+        break;
+    case 8:
+        PFNNJointTransformControlRig[4] = JointTransform;
+        JointNameByIndex[4] = JointName;
+        break;
+    case 9:
+        PFNNJointTransformControlRig[5] = JointTransform;
+        JointNameByIndex[5] = JointName;
+        break;
+    case 10:
+        PFNNJointTransformControlRig[6] = JointTransform;
+        JointNameByIndex[6] = JointName;
+        break;
+    case 11:
+        PFNNJointTransformControlRig[7] = JointTransform;
+        JointNameByIndex[7] = JointName;
+        break;
+    case 13:
+        PFNNJointTransformControlRig[8] = JointTransform;
+        JointNameByIndex[8] = JointName;
+        break;
+    case 14:
+        PFNNJointTransformControlRig[9] = JointTransform;
+        JointNameByIndex[9] = JointName;
+        break;
+    case 15:
+        PFNNJointTransformControlRig[10] = JointTransform;
+        JointNameByIndex[10] = JointName;
+        break;
+    case 17:
+        PFNNJointTransformControlRig[11] = JointTransform;
+        JointNameByIndex[11] = JointName;
+        break;
+    case 19:
+        PFNNJointTransformControlRig[12] = JointTransform;
+        JointNameByIndex[12] = JointName;
+        break;
+    case 20:
+        PFNNJointTransformControlRig[13] = JointTransform;
+        JointNameByIndex[13] = JointName;
+        break;
+    case 21:
+        PFNNJointTransformControlRig[14] = JointTransform;
+        JointNameByIndex[14] = JointName;
+        break;
+    case 26:
+        PFNNJointTransformControlRig[15] = JointTransform;
+        JointNameByIndex[15] = JointName;
+        break;
+    case 27:
+        PFNNJointTransformControlRig[16] = JointTransform;
+        JointNameByIndex[16] = JointName;
+        break;
+    case 28:
+        PFNNJointTransformControlRig[17] = JointTransform;
+        JointNameByIndex[17] = JointName;
+        break;
+    default:
+        // Do nothing for any other index value
+        break;
+    }
+}
+
+void APFNNCharacter::SetPFNNLoaded(bool bPFNNLoaded)
+{
+    bIsPFNNLoaded = bPFNNLoaded;
+}
+
+
+void APFNNCharacter::GetPFNNLoaded(bool& bPFNNLoaded)
+{
+    bPFNNLoaded = bIsPFNNLoaded;
+}
+
+void APFNNCharacter::GetLeftLegJointTransform(FTransform& LeftUpLeg, FTransform& LeftLeg, FTransform& LeftFoot, FTransform& LeftToeBase)
+{
+    LeftUpLeg = PFNNJointTransformControlRig[0];
+    LeftLeg = PFNNJointTransformControlRig[1];
+    LeftFoot = PFNNJointTransformControlRig[2];
+    LeftToeBase = PFNNJointTransformControlRig[3];
+}
+
+void APFNNCharacter::GetRightLegJointTransform(FTransform& RightUpLeg, FTransform& RightLeg, FTransform& RightFoot, FTransform& RightToeBase)
+{
+    RightUpLeg = PFNNJointTransformControlRig[4];
+    RightLeg = PFNNJointTransformControlRig[5];
+    RightFoot = PFNNJointTransformControlRig[6];
+    RightToeBase = PFNNJointTransformControlRig[7];
+}
+
+void APFNNCharacter::GetLeftArmJointTransform(FTransform& LeftArm, FTransform& LeftForeArm, FTransform& LeftHand)
+{
+    LeftArm = PFNNJointTransformControlRig[15];
+    LeftForeArm = PFNNJointTransformControlRig[16];
+    LeftHand = PFNNJointTransformControlRig[17];
+}
+
+void APFNNCharacter::GetRightArmJointTransform(FTransform& RightArm, FTransform& RightForeArm, FTransform& RightHand)
+{
+    RightArm = PFNNJointTransformControlRig[12];
+    RightForeArm = PFNNJointTransformControlRig[13];
+    RightHand = PFNNJointTransformControlRig[14];
+}
+
+void APFNNCharacter::GetSpineJointTransform(FTransform& Spine, FTransform& Spine1, FTransform& Neck, FTransform& Head)
+{
+    Spine = PFNNJointTransformControlRig[8];
+    Spine1 = PFNNJointTransformControlRig[9];
+    Neck = PFNNJointTransformControlRig[10];
+    Head = PFNNJointTransformControlRig[11];
 }

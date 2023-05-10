@@ -1,708 +1,785 @@
 UE5_Network
-Network Frame[362]
+Network Frame[1581]
 
-Current Phase: 1.7647
+Current Phase: 0.00402355
 
-Control Rig 
-Joint[2]LHipJoint2
-	JointPosition: X: 21.9444, Y: 88.715, Z: 13.6664
-	JointVelocitys: X: 0.0704726, Y: 0.134144, Z: 0.212283
-Joint[3]LeftUpLeg3
-	JointPosition: X: 26.7352, Y: 50.4841, Z: 21.4426
-	JointVelocitys: X: -0.205003, Y: 0.0387386, Z: 0.183516
-Joint[4]LeftLeg4
-	JointPosition: X: 25.6979, Y: 9.47283, Z: 13.0972
-	JointVelocitys: X: -0.0147377, Y: -0.143374, Z: 0.71964
-Joint[5]LeftFoot5
-	JointPosition: X: 29.1556, Y: 4.39271, Z: 24.4266
-	JointVelocitys: X: -0.245992, Y: -0.0862647, Z: 0.771408
-Joint[6]LeftToeBase6
-	JointPosition: X: 13.7164, Y: 99.3868, Z: 13.8877
-	JointVelocitys: X: 0.0816214, Y: 0.117003, Z: 0.204714
 Joints
 Joint[0]root0
-	JointPosition: 13.7573X, 99.3868Y, 13.9624Z
-	JointVelocitys: 0.0816213X, 0.117003Y, 0.204714Z
-	JointAnimXform:  0.998526X, 0.00652983, -0.0538909
-	JointAnimXform:  -0.000295185X, 0.993378, 0.114896
-	JointAnimXform:  0.0542842X, -0.114711, 0.991915
+	JointPosition: 22.3342X, 94.5487Y, 18.4233Z
+	JointVelocitys: -0.328362X, -0.0292367Y, 0.333073Z
+	JointRotations:  0.999212X, -0.00962278, 0.038513
+	JointRotations:  0.00500462X, 0.99297, 0.118258
+	JointRotations:  -0.0393803X, -0.117972, 0.992236
+	JointAnimXform:  0.999212X, -0.00962278, 0.038513
+	JointAnimXform:  0.00500462X, 0.99297, 0.118258
+	JointAnimXform:  -0.0393803X, -0.117972, 0.992236
 	JointRestXform:  0.999754X, -0.0111358, -0.0191967
 	JointRestXform:  0.0134095X, 0.992352, 0.122708
 	JointRestXform:  0.0176834X, -0.122936, 0.992257
-	JointMeshXform:  0.999236X, 0.0178205, -0.0347965
-	JointMeshXform:  -0.0180858X, 0.99981, -0.00732438
-	JointMeshXform:  0.0346593X, 0.00794809, 0.999368
+	JointMeshXform:  0.998336X, 0.00160872, 0.0576354
+	JointMeshXform:  -0.00131943X, 0.999986, -0.0050569
+	JointMeshXform:  -0.0576428X, 0.00497244, 0.998325
 	JointGlobalRestXform:  0.999754X, -0.0111358, -0.0191967
 	JointGlobalRestXform:  0.0134095X, 0.992352, 0.122708
 	JointGlobalRestXform:  0.0176834X, -0.122936, 0.992257
-	JointGlobalAnimXform:  0.998526X, 0.00652983, -0.0538909
-	JointGlobalAnimXform:  -0.000295185X, 0.993378, 0.114896
-	JointGlobalAnimXform:  0.0542842X, -0.114711, 0.991915
+	JointGlobalAnimXform:  0.999212X, -0.00962278, 0.038513
+	JointGlobalAnimXform:  0.00500462X, 0.99297, 0.118258
+	JointGlobalAnimXform:  -0.0393803X, -0.117972, 0.992236
 JoinParents: -1
 Joint[1]Hips1
-	JointPosition: 13.7225X, 99.3868Y, 13.9099Z
-	JointVelocitys: 0.0816213X, 0.117003Y, 0.204714Z
-	JointAnimXform:  0.920049X, -0.0525307, -0.388267
-	JointAnimXform:  0.0579795X, 0.998315, 0.00232264
-	JointAnimXform:  0.38749X, -0.0246485, 0.921544
+	JointPosition: 22.3462X, 94.5487Y, 18.4382Z
+	JointVelocitys: -0.328361X, -0.0292368Y, 0.333073Z
+	JointRotations:  0.942473X, -0.0284458, -0.333069
+	JointRotations:  0.0743449X, 0.989255, 0.125884
+	JointRotations:  0.325909X, -0.143404, 0.934462
+	JointAnimXform:  0.929177X, -0.062917, -0.364242
+	JointAnimXform:  0.0696151X, 0.99756, 0.0052747
+	JointAnimXform:  0.363021X, -0.0302578, 0.93129
 	JointRestXform:  0.960264X, -0.0332825, -0.277101
 	JointRestXform:  0.068612X, 0.990546, 0.118794
 	JointRestXform:  0.270527X, -0.133086, 0.953469
-	JointMeshXform:  0.986565X, 0.0452754, -0.156972
-	JointMeshXform:  -0.0630531X, 0.991908, -0.110191
-	JointMeshXform:  0.150713X, 0.118608, 0.981437
+	JointMeshXform:  0.999064X, 0.0149724, -0.04058
+	JointMeshXform:  -0.0193895X, 0.99366, -0.110739
+	JointMeshXform:  0.0386647X, 0.111423, 0.993021
 	JointGlobalRestXform:  0.954681X, -0.00965574, -0.297473
 	JointGlobalRestXform:  0.0839785X, 0.967602, 0.238105
 	JointGlobalRestXform:  0.285536X, -0.252296, 0.924562
-	JointGlobalAnimXform:  0.897631X, -0.00163677, -0.440745
-	JointGlobalAnimXform:  0.0577254X, 0.991816, 0.113882
-	JointGlobalAnimXform:  0.436952X, -0.127666, 0.890379
+	JointGlobalAnimXform:  0.942474X, -0.0284458, -0.333068
+	JointGlobalAnimXform:  0.0743449X, 0.989255, 0.125884
+	JointGlobalAnimXform:  0.325909X, -0.143404, 0.934462
 JoinParents: 0
 Joint[2]LHipJoint2
-	JointPosition: 21.9444X, 88.715Y, 13.6664Z
-	JointVelocitys: 0.0704726X, 0.134144Y, 0.212283Z
-	JointAnimXform:  0.944142X, -0.304999, 0.124788
-	JointAnimXform:  0.329441X, 0.882825, -0.334796
-	JointAnimXform:  -0.00805354X, 0.357205, 0.933991
+	JointPosition: 30.413X, 83.6171Y, 18.7809Z
+	JointVelocitys: -0.339052X, -0.0550805Y, 0.189828Z
+	JointRotations:  0.925392X, -0.268027, -0.267976
+	JointRotations:  0.205028X, 0.948665, -0.240827
+	JointRotations:  0.318767X, 0.167917, 0.93284
+	JointAnimXform:  0.969036X, -0.230082, 0.0896167
+	JointAnimXform:  0.24646X, 0.923399, -0.294266
+	JointAnimXform:  -0.0150466X, 0.307241, 0.951513
 	JointRestXform:  0.924097X, -0.288951, 0.250106
 	JointRestXform:  0.354491X, 0.892611, -0.278536
 	JointRestXform:  -0.142764X, 0.346054, 0.927289
-	JointMeshXform:  0.955246X, 0.0460661, -0.292203
-	JointMeshXform:  -0.0813941X, 0.990602, -0.109918
-	JointMeshXform:  0.284394X, 0.128782, 0.950019
+	JointMeshXform:  0.978697X, 0.0940752, -0.182487
+	JointMeshXform:  -0.101992X, 0.994188, -0.0344746
+	JointMeshXform:  0.178183X, 0.0523525, 0.982604
 	JointGlobalRestXform:  0.929366X, -0.351613, -0.112456
 	JointGlobalRestXform:  0.333854X, 0.930542, -0.15044
 	JointGlobalRestXform:  0.157542X, 0.10227, 0.982202
-	JointGlobalAnimXform:  0.884411X, -0.319979, -0.339751
-	JointGlobalAnimXform:  0.200388X, 0.917803, -0.342757
-	JointGlobalAnimXform:  0.4215X, 0.235056, 0.875835
+	JointGlobalAnimXform:  0.925392X, -0.268027, -0.267976
+	JointGlobalAnimXform:  0.205029X, 0.948665, -0.240827
+	JointGlobalAnimXform:  0.318767X, 0.167917, 0.93284
 JoinParents: 1
 Joint[3]LeftUpLeg3
-	JointPosition: 26.7352X, 50.4841Y, 21.4426Z
-	JointVelocitys: -0.205003X, 0.0387386Y, 0.183516Z
-	JointAnimXform:  0.998904X, 0.0389783, -0.0258919
-	JointAnimXform:  -0.0235813X, 0.897225, 0.440943
-	JointAnimXform:  0.0404182X, -0.43985, 0.897161
+	JointPosition: 35.1524X, 45.6251Y, 24.2622Z
+	JointVelocitys: 0.227583X, 0.0397089Y, 0.580395Z
+	JointRotations:  0.924476X, -0.178899, -0.336659
+	JointRotations:  0.314385X, 0.857255, 0.40777
+	JointRotations:  0.215653X, -0.482814, 0.848755
+	JointAnimXform:  0.993669X, 0.100905, -0.0493962
+	JointAnimXform:  -0.0481104X, 0.779504, 0.624547
+	JointAnimXform:  0.101525X, -0.618217, 0.779423
 	JointRestXform:  0.999451X, 0.0307085, -0.0124369
 	JointRestXform:  -0.0261928X, 0.962227, 0.270985
 	JointRestXform:  0.0202886X, -0.270511, 0.962503
-	JointMeshXform:  0.968218X, 0.0291927, -0.248398
-	JointMeshXform:  -0.0161328X, 0.998386, 0.0544518
-	JointMeshXform:  0.249586X, -0.0487137, 0.967126
+	JointMeshXform:  0.990425X, 0.0847511, -0.108971
+	JointMeshXform:  -0.0411272X, 0.93467, 0.353129
+	JointMeshXform:  0.13178X, -0.345267, 0.929207
 	JointGlobalRestXform:  0.937149X, -0.324117, -0.12923
 	JointGlobalRestXform:  0.339593X, 0.932316, 0.12435
 	JointGlobalRestXform:  0.0801791X, -0.16042, 0.983787
-	JointGlobalAnimXform:  0.88034X, -0.28994, -0.375416
-	JointGlobalAnimXform:  0.344795X, 0.934668, 0.0866748
-	JointGlobalAnimXform:  0.325759X, -0.205745, 0.922795
+	JointGlobalAnimXform:  0.924476X, -0.178899, -0.336659
+	JointGlobalAnimXform:  0.314385X, 0.857255, 0.40777
+	JointGlobalAnimXform:  0.215653X, -0.482814, 0.848755
 JoinParents: 2
 Joint[4]LeftLeg4
-	JointPosition: 25.6979X, 9.47283Y, 13.0972Z
-	JointVelocitys: -0.0147377X, -0.143374Y, 0.71964Z
-	JointAnimXform:  0.90777X, 0.405314, 0.108044
-	JointAnimXform:  -0.408106X, 0.912925, 0.00411765
-	JointAnimXform:  -0.0969668X, -0.0478311, 0.994138
+	JointPosition: 34.1427X, 10.6919Y, 2.81636Z
+	JointVelocitys: -0.492947X, 0.257997Y, 0.239413Z
+	JointRotations:  0.981388X, 0.181826, 0.0617844
+	JointRotations:  -0.189852X, 0.870252, 0.454552
+	JointRotations:  0.0288811X, -0.457821, 0.888575
+	JointAnimXform:  0.853941X, 0.489598, 0.176291
+	JointAnimXform:  -0.48423X, 0.871694, -0.0753089
+	JointAnimXform:  -0.190543X, -0.0210561, 0.981453
 	JointRestXform:  0.845892X, 0.531699, 0.0419856
 	JointRestXform:  -0.528656X, 0.846265, -0.0660212
 	JointRestXform:  -0.0706344X, 0.0336509, 0.996934
-	JointMeshXform:  0.966146X, -0.12144, -0.227629
-	JointMeshXform:  0.143884X, 0.985964, 0.0846883
-	JointMeshXform:  0.214149X, -0.114573, 0.970058
+	JointMeshXform:  0.999706X, -0.0195981, -0.0142691
+	JointMeshXform:  0.0234269X, 0.93238, 0.360719
+	JointMeshXform:  0.00623461X, -0.360947, 0.932565
 	JointGlobalRestXform:  0.976654X, 0.214808, -0.00189258
 	JointGlobalRestXform:  -0.213338X, 0.970924, 0.108601
 	JointGlobalRestXform:  0.025166X, -0.105662, 0.994084
-	JointGlobalAnimXform:  0.974093X, 0.0934053, -0.205959
-	JointGlobalAnimXform:  -0.0431579X, 0.970761, 0.236137
-	JointGlobalAnimXform:  0.221993X, -0.22113, 0.949642
+	JointGlobalAnimXform:  0.981388X, 0.181826, 0.0617845
+	JointGlobalAnimXform:  -0.189852X, 0.870252, 0.454552
+	JointGlobalAnimXform:  0.028881X, -0.457821, 0.888575
 JoinParents: 3
 Joint[5]LeftFoot5
-	JointPosition: 29.1556X, 4.39271Y, 24.4266Z
-	JointVelocitys: -0.245992X, -0.0862647Y, 0.771408Z
-	JointAnimXform:  0.992533X, -0.105539, -0.0611561
-	JointAnimXform:  0.0914376X, 0.975596, -0.19963
-	JointAnimXform:  0.0807323X, 0.192547, 0.977961
+	JointPosition: 36.2037X, 3.22598Y, 11.5965Z
+	JointVelocitys: -0.132893X, 0.111746Y, 0.166537Z
+	JointRotations:  0.989601X, 0.110115, -0.0925489
+	JointRotations:  -0.0828457X, 0.962294, 0.259089
+	JointRotations:  0.117589X, -0.248728, 0.961409
+	JointAnimXform:  0.985486X, -0.134118, -0.104069
+	JointAnimXform:  0.109674X, 0.970936, -0.212731
+	JointAnimXform:  0.129575X, 0.19823, 0.971553
 	JointRestXform:  0.945218X, -0.318632, -0.0709666
 	JointRestXform:  0.274197X, 0.892929, -0.357063
 	JointRestXform:  0.17714X, 0.318044, 0.93138
-	JointMeshXform:  0.984731X, 0.0692331, -0.159721
-	JointMeshXform:  -0.020698X, 0.957569, 0.287461
-	JointMeshXform:  0.172845X, -0.279766, 0.944381
+	JointMeshXform:  0.988514X, 0.142696, 0.0497676
+	JointMeshXform:  -0.148417X, 0.854584, 0.497652
+	JointMeshXform:  0.028482X, -0.499323, 0.865948
 	JointGlobalRestXform:  0.989342X, -0.0988284, -0.106939
 	JointGlobalRestXform:  0.068315X, 0.963593, -0.258497
 	JointGlobalRestXform:  0.128593X, 0.248436, 0.960075
-	JointGlobalAnimXform:  0.957797X, 0.0037782, -0.287419
-	JointGlobalAnimXform:  0.00264746X, 0.999755, 0.0219646
-	JointGlobalAnimXform:  0.287432X, -0.0217986, 0.957553
+	JointGlobalAnimXform:  0.989601X, 0.110115, -0.0925489
+	JointGlobalAnimXform:  -0.0828458X, 0.962294, 0.259089
+	JointGlobalAnimXform:  0.117589X, -0.248728, 0.961409
 JoinParents: 4
 Joint[6]LeftToeBase6
-	JointPosition: 13.7164X, 99.3868Y, 13.8877Z
-	JointVelocitys: 0.0816214X, 0.117003Y, 0.204714Z
-	JointAnimXform:  0.919988X, -0.0257716, 0.391098
-	JointAnimXform:  0.0498323X, 0.997429, -0.0514955
-	JointAnimXform:  -0.388766X, 0.0668646, 0.918907
+	JointPosition: 22.386X, 94.5487Y, 18.4073Z
+	JointVelocitys: -0.328362X, -0.0292368Y, 0.333073Z
+	JointRotations:  0.890701X, -0.0296864, 0.453618
+	JointRotations:  0.0167514X, 0.999331, 0.0325076
+	JointRotations:  -0.45428X, -0.0213558, 0.890603
+	JointAnimXform:  0.907755X, 0.0286237, 0.418523
+	JointAnimXform:  0.00837386X, 0.996234, -0.0862972
+	JointAnimXform:  -0.419417X, 0.0818414, 0.904097
 	JointRestXform:  0.923075X, -0.0220173, 0.383989
 	JointRestXform:  0.044555X, 0.99776, -0.0498965
 	JointRestXform:  -0.38203X, 0.0631668, 0.921989
-	JointMeshXform:  0.999541X, 0.0121187, -0.0277702
-	JointMeshXform:  -0.0123911X, 0.999877, -0.00965797
-	JointMeshXform:  0.0276497X, 0.00999764, 0.999568
+	JointMeshXform:  0.994437X, 0.0372045, 0.0985428
+	JointMeshXform:  -0.0329004X, 0.998448, -0.0449479
+	JointMeshXform:  -0.100062X, 0.0414557, 0.994117
 	JointGlobalRestXform:  0.929343X, -0.079334, 0.360594
 	JointGlobalRestXform:  0.0570412X, 0.995767, 0.0720682
 	JointGlobalRestXform:  -0.364785X, -0.0464073, 0.929935
-	JointGlobalAnimXform:  0.93987X, -0.0644566, 0.335396
-	JointGlobalAnimXform:  0.046669X, 0.997056, 0.0608359
-	JointGlobalAnimXform:  -0.33833X, -0.0415252, 0.940111
+	JointGlobalAnimXform:  0.890702X, -0.0296864, 0.453618
+	JointGlobalAnimXform:  0.0167514X, 0.999331, 0.0325076
+	JointGlobalAnimXform:  -0.45428X, -0.0213558, 0.890603
 JoinParents: 0
 Joint[7]RHipJoint7
-	JointPosition: 4.62881X, 89.5862Y, 15.0813Z
-	JointVelocitys: 0.135463X, 0.101721Y, 0.181536Z
-	JointAnimXform:  0.906656X, 0.417059, 0.0635329
-	JointAnimXform:  -0.409577X, 0.906287, -0.104355
-	JointAnimXform:  -0.101101X, 0.0685926, 0.992509
+	JointPosition: 13.5432X, 84.6615Y, 19.052Z
+	JointVelocitys: -0.31936X, -0.0366904Y, 0.503971Z
+	JointRotations:  0.854587X, 0.341727, 0.391029
+	JointRotations:  -0.200767X, 0.911842, -0.358101
+	JointRotations:  -0.47893X, 0.227523, 0.847856
+	JointAnimXform:  0.928415X, 0.368525, -0.047268
+	JointAnimXform:  -0.368334X, 0.896228, -0.247194
+	JointAnimXform:  -0.0487345X, 0.24691, 0.967812
 	JointRestXform:  0.899451X, 0.432465, 0.062935
 	JointRestXform:  -0.421009X, 0.896089, -0.140627
 	JointRestXform:  -0.117212X, 0.0999911, 0.98806
-	JointMeshXform:  0.999102X, 0.0116359, -0.0407555
-	JointMeshXform:  -0.0105197X, 0.999567, 0.0274944
-	JointMeshXform:  0.0410577X, -0.0270409, 0.998791
+	JointMeshXform:  0.99586X, -0.0826429, 0.0378534
+	JointMeshXform:  0.0871991X, 0.986154, -0.141058
+	JointMeshXform:  -0.025672X, 0.143775, 0.989278
 	JointGlobalRestXform:  0.83761X, 0.356357, 0.414029
 	JointGlobalRestXform:  -0.288849X, 0.932223, -0.218008
 	JointGlobalRestXform:  -0.463656X, 0.0630135, 0.883772
-	JointGlobalAnimXform:  0.850107X, 0.354753, 0.389189
-	JointGlobalAnimXform:  -0.307347X, 0.934353, -0.180341
-	JointGlobalAnimXform:  -0.427616X, 0.0336932, 0.903332
+	JointGlobalAnimXform:  0.854587X, 0.341727, 0.391029
+	JointGlobalAnimXform:  -0.200767X, 0.911842, -0.358101
+	JointGlobalAnimXform:  -0.47893X, 0.227523, 0.847856
 JoinParents: 6
 Joint[8]RightUpLeg8
-	JointPosition: 4.52795X, 47.9045Y, 16.6895Z
-	JointVelocitys: -0.0936332X, 0.126111Y, 0.135064Z
-	JointAnimXform:  0.995904X, -0.0841499, 0.0330888
-	JointAnimXform:  0.0649294X, 0.920211, 0.386
-	JointAnimXform:  -0.0629305X, -0.382271, 0.921905
+	JointPosition: 9.37181X, 45.4398Y, 28.0191Z
+	JointVelocitys: -0.153714X, -0.0831212Y, 0.321866Z
+	JointRotations:  0.839419X, 0.246334, 0.484454
+	JointRotations:  -0.362946X, 0.917563, 0.16232
+	JointRotations:  -0.404532X, -0.312085, 0.859626
+	JointAnimXform:  0.990971X, -0.117394, 0.0647715
+	JointAnimXform:  0.066859X, 0.851414, 0.520216
+	JointAnimXform:  -0.116217X, -0.511188, 0.851575
 	JointRestXform:  0.994378X, -0.105798, -0.00442337
 	JointRestXform:  0.10428X, 0.971139, 0.214511
 	JointRestXform:  -0.0183992X, -0.213767, 0.976712
-	JointMeshXform:  0.992058X, 0.118201, -0.0430109
-	JointMeshXform:  -0.108498X, 0.977145, 0.182798
-	JointMeshXform:  0.0636348X, -0.17668, 0.982209
+	JointMeshXform:  0.997185X, 0.0715721, 0.0223437
+	JointMeshXform:  -0.0741783X, 0.985142, 0.154895
+	JointMeshXform:  -0.0109254X, -0.156117, 0.987678
 	JointGlobalRestXform:  0.865511X, 0.255447, 0.430857
 	JointGlobalRestXform:  -0.292626X, 0.955996, 0.0210383
 	JointGlobalRestXform:  -0.406523X, -0.144289, 0.902175
-	JointGlobalAnimXform:  0.858339X, 0.275789, 0.43266
-	JointGlobalAnimXform:  -0.392687X, 0.895841, 0.208005
-	JointGlobalAnimXform:  -0.33023X, -0.348439, 0.877234
+	JointGlobalAnimXform:  0.839419X, 0.246334, 0.484454
+	JointGlobalAnimXform:  -0.362946X, 0.917563, 0.16232
+	JointGlobalAnimXform:  -0.404532X, -0.312085, 0.859626
 JoinParents: 7
 Joint[9]RightLeg9
-	JointPosition: 7.96872X, 8.7086Y, 2.30937Z
-	JointVelocitys: -0.101605X, 0.123393Y, 0.0826929Z
-	JointAnimXform:  0.827161X, -0.518242, -0.217322
-	JointAnimXform:  0.485258X, 0.853725, -0.188888
-	JointAnimXform:  0.283423X, 0.0507833, 0.95765
+	JointPosition: 11.294X, 6.75103Y, 15.5474Z
+	JointVelocitys: -0.0904343X, 0.0968746Y, 0.222053Z
+	JointRotations:  0.979295X, -0.177847, 0.0967068
+	JointRotations:  0.158003X, 0.970126, 0.184093
+	JointRotations:  -0.126558X, -0.165001, 0.97814
+	JointAnimXform:  0.825078X, -0.50292, -0.257521
+	JointAnimXform:  0.460791X, 0.862688, -0.208428
+	JointAnimXform:  0.326983X, 0.053306, 0.943526
 	JointRestXform:  0.658323X, -0.663537, -0.355428
 	JointRestXform:  0.632588X, 0.743604, -0.216531
 	JointRestXform:  0.407974X, -0.0822921, 0.909277
-	JointMeshXform:  0.954385X, 0.255765, 0.154054
-	JointMeshXform:  -0.26914X, 0.960332, 0.0729825
-	JointMeshXform:  -0.129277X, -0.111116, 0.985363
+	JointMeshXform:  0.954715X, 0.242645, 0.172172
+	JointMeshXform:  -0.250136X, 0.96794, 0.0229018
+	JointMeshXform:  -0.161095X, -0.0649311, 0.984801
 	JointGlobalRestXform:  0.908444X, -0.414888, -0.0509751
 	JointGlobalRestXform:  0.417939X, 0.903718, 0.0928501
 	JointGlobalRestXform:  0.00754463X, -0.105654, 0.994374
-	JointGlobalAnimXform:  0.985258X, -0.160417, 0.059441
-	JointGlobalAnimXform:  0.143645X, 0.964446, 0.221832
-	JointGlobalAnimXform:  -0.0929134X, -0.210023, 0.973271
+	JointGlobalAnimXform:  0.979295X, -0.177847, 0.0967067
+	JointGlobalAnimXform:  0.158003X, 0.970126, 0.184093
+	JointGlobalAnimXform:  -0.126558X, -0.165001, 0.97814
 JoinParents: 8
 Joint[10]RightFoot10
-	JointPosition: 5.57898X, 3.56958Y, 14.0311Z
-	JointVelocitys: -0.0522952X, 0.0272563Y, 0.0407113Z
-	JointAnimXform:  0.988512X, 0.12411, 0.0862609
-	JointAnimXform:  -0.106884X, 0.977543, -0.181621
-	JointAnimXform:  -0.106865X, 0.170315, 0.979578
+	JointPosition: 8.71159X, 2.13891Y, 27.3828Z
+	JointVelocitys: 0.0184239X, 0.129837Y, 0.134055Z
+	JointRotations:  0.974867X, -0.0850224, 0.205925
+	JointRotations:  0.0920536X, 0.995445, -0.0247901
+	JointRotations:  -0.202879X, 0.0431232, 0.978254
+	JointAnimXform:  0.989718X, 0.109459, 0.0920746
+	JointAnimXform:  -0.0892873X, 0.975689, -0.200148
+	JointAnimXform:  -0.111744X, 0.189869, 0.97543
 	JointRestXform:  0.924272X, 0.359521, 0.128317
 	JointRestXform:  -0.299555X, 0.89145, -0.339977
 	JointRestXform:  -0.236618X, 0.275793, 0.931638
-	JointMeshXform:  0.995787X, 0.0434709, 0.0807393
-	JointMeshXform:  -0.0635234X, 0.962016, 0.265499
-	JointMeshXform:  -0.0661309X, -0.269509, 0.960725
+	JointMeshXform:  0.993781X, 0.00918987, 0.110975
+	JointMeshXform:  -0.031913X, 0.97829, 0.204769
+	JointMeshXform:  -0.106683X, -0.207038, 0.972499
 	JointGlobalRestXform:  0.990875X, -0.0721204, 0.113862
 	JointGlobalRestXform:  0.0978781X, 0.96582, -0.240024
 	JointGlobalRestXform:  -0.09266X, 0.248978, 0.964067
-	JointGlobalAnimXform:  0.983752X, -0.0569936, 0.170245
-	JointGlobalAnimXform:  0.0519864X, 0.998078, 0.03373
-	JointGlobalAnimXform:  -0.17184X, -0.0243315, 0.984824
+	JointGlobalAnimXform:  0.974867X, -0.0850224, 0.205925
+	JointGlobalAnimXform:  0.0920536X, 0.995446, -0.0247901
+	JointGlobalAnimXform:  -0.202879X, 0.0431232, 0.978254
 JoinParents: 9
 Joint[11]RightToeBase11
-	JointPosition: 13.6361X, 99.3868Y, 13.8421Z
-	JointVelocitys: 0.0816214X, 0.117003Y, 0.204714Z
-	JointAnimXform:  0.99774X, 0.0608733, -0.0284573
-	JointAnimXform:  -0.0548638X, 0.982487, 0.178072
-	JointAnimXform:  0.0387987X, -0.176108, 0.983606
+	JointPosition: 22.453X, 94.5487Y, 18.4712Z
+	JointVelocitys: -0.328361X, -0.0292367Y, 0.333073Z
+	JointRotations:  0.998323X, 0.057026, -0.00998717
+	JointRotations:  -0.0509678X, 0.947532, 0.315572
+	JointRotations:  0.027459X, -0.314533, 0.948849
+	JointAnimXform:  0.996602X, 0.0604403, -0.0559513
+	JointAnimXform:  -0.0478919X, 0.977935, 0.203347
+	JointAnimXform:  0.067007X, -0.199976, 0.977507
 	JointRestXform:  0.989092X, 0.0466219, -0.139726
 	JointRestXform:  -0.0392118X, 0.997698, 0.0553263
 	JointRestXform:  0.141984X, -0.0492438, 0.988643
-	JointMeshXform:  0.997542X, -4.51133e-05, 0.0700675
-	JointMeshXform:  -0.00837077X, 0.992761, 0.119813
-	JointMeshXform:  -0.0695657X, -0.120105, 0.990321
+	JointMeshXform:  0.990973X, -0.0171956, 0.132952
+	JointMeshXform:  -0.00251932X, 0.989176, 0.146715
+	JointMeshXform:  -0.134036X, -0.145725, 0.980203
 	JointGlobalRestXform:  0.987003X, 0.0524284, -0.151911
 	JointGlobalRestXform:  -0.0248451X, 0.983703, 0.178077
 	JointGlobalRestXform:  0.158771X, -0.171988, 0.97222
-	JointGlobalAnimXform:  0.994706X, 0.0702496, -0.0750021
-	JointGlobalAnimXform:  -0.0454064X, 0.955195, 0.292472
-	JointGlobalAnimXform:  0.0921878X, -0.287519, 0.953328
+	JointGlobalAnimXform:  0.998323X, 0.057026, -0.00998716
+	JointGlobalAnimXform:  -0.0509678X, 0.947532, 0.315572
+	JointGlobalAnimXform:  0.027459X, -0.314533, 0.948849
 JoinParents: 0
 Joint[12]LowerBack12
-	JointPosition: 13.2573X, 110.621Y, 16.0264Z
-	JointVelocitys: 0.0578788X, 0.0904129Y, 0.225448Z
-	JointAnimXform:  0.992625X, 0.116554, -0.0333292
-	JointAnimXform:  -0.102152X, 0.952252, 0.287717
-	JointAnimXform:  0.0652722X, -0.282191, 0.957135
+	JointPosition: 21.7615X, 105.305Y, 20.8685Z
+	JointVelocitys: -0.192927X, -0.0538082Y, 0.38369Z
+	JointRotations:  0.98695X, 0.156251, -0.0389286
+	JointRotations:  -0.106176X, 0.813215, 0.572195
+	JointRotations:  0.121063X, -0.560595, 0.819193
+	JointAnimXform:  0.994594X, 0.085465, -0.0589827
+	JointAnimXform:  -0.0653383X, 0.956528, 0.284228
+	JointAnimXform:  0.0807102X, -0.278838, 0.956941
 	JointRestXform:  0.977024X, 0.167705, -0.131525
 	JointRestXform:  -0.131991X, 0.960645, 0.244418
 	JointRestXform:  0.167339X, -0.221443, 0.960709
-	JointMeshXform:  0.986847X, -0.090048, 0.134256
-	JointMeshXform:  0.0656558X, 0.98217, 0.176158
-	JointMeshXform:  -0.147725X, -0.165027, 0.975164
+	JointMeshXform:  0.978393X, -0.128214, 0.162203
+	JointMeshXform:  0.09525X, 0.975808, 0.196792
+	JointMeshXform:  -0.18351X, -0.17709, 0.966935
 	JointGlobalRestXform:  0.939276X, 0.238817, -0.246427
 	JointGlobalRestXform:  -0.115336X, 0.896032, 0.428748
 	JointGlobalRestXform:  0.323199X, -0.374291, 0.869166
-	JointGlobalAnimXform:  0.979005X, 0.190646, -0.072134
-	JointGlobalAnimXform:  -0.118326X, 0.819687, 0.560458
-	JointGlobalAnimXform:  0.165976X, -0.540156, 0.825036
+	JointGlobalAnimXform:  0.98695X, 0.156251, -0.0389286
+	JointGlobalAnimXform:  -0.106176X, 0.813216, 0.572195
+	JointGlobalAnimXform:  0.121063X, -0.560595, 0.819193
 JoinParents: 11
 Joint[13]Spine13
-	JointPosition: 12.1156X, 120.28Y, 22.3487Z
-	JointVelocitys: 0.0324793X, 0.086427Y, 0.226525Z
-	JointAnimXform:  0.983194X, -0.153922, 0.0981671
-	JointAnimXform:  0.181784X, 0.775848, -0.604164
-	JointAnimXform:  0.0168311X, 0.611856, 0.79079
+	JointPosition: 21.0559X, 114.5Y, 27.2303Z
+	JointVelocitys: -0.0536108X, -0.0812166Y, 0.404106Z
+	JointRotations:  0.997963X, 0.018674, -0.0610087
+	JointRotations:  -0.0202553X, 0.999472, -0.0254038
+	JointRotations:  0.0605021X, 0.0265878, 0.997814
+	JointAnimXform:  0.990232X, -0.125683, 0.06037
+	JointAnimXform:  0.137166X, 0.800401, -0.583561
+	JointAnimXform:  0.0250235X, 0.586142, 0.809822
 	JointRestXform:  0.954044X, -0.19292, 0.229308
 	JointRestXform:  0.278933X, 0.851386, -0.444229
 	JointRestXform:  -0.109529X, 0.487775, 0.866071
-	JointMeshXform:  0.998367X, 0.0377214, 0.042893
-	JointMeshXform:  -0.0382755X, 0.999193, 0.0121714
-	JointMeshXform:  -0.0423993X, -0.0137932, 0.999006
+	JointMeshXform:  0.997349X, 0.0419595, 0.0594495
+	JointMeshXform:  -0.0457066X, 0.996958, 0.0631391
+	JointMeshXform:  -0.0566194X, -0.065689, 0.996233
 	JointGlobalRestXform:  0.992474X, -0.0308483, -0.11851
 	JointGlobalRestXform:  0.0202255X, 0.995753, -0.0898155
 	JointGlobalRestXform:  0.120777X, 0.0867426, 0.988882
-	JointGlobalAnimXform:  0.997059X, 0.00824868, -0.076197
-	JointGlobalAnimXform:  -0.0141124X, 0.996951, -0.076739
-	JointGlobalAnimXform:  0.0753317X, 0.0775887, 0.994136
+	JointGlobalAnimXform:  0.997963X, 0.018674, -0.0610087
+	JointGlobalAnimXform:  -0.0202553X, 0.999472, -0.0254038
+	JointGlobalAnimXform:  0.0605021X, 0.0265878, 0.997814
 JoinParents: 12
 Joint[14]Spine114
-	JointPosition: 12.1156X, 120.28Y, 22.3487Z
-	JointVelocitys: 0.0324794X, 0.0864272Y, 0.226525Z
-	JointAnimXform:  0.997083X, -0.0705216, 0.0291868
-	JointAnimXform:  0.0751222X, 0.974366, -0.212055
-	JointAnimXform:  -0.0134842X, 0.213629, 0.976822
+	JointPosition: 21.0559X, 114.5Y, 27.2303Z
+	JointVelocitys: -0.0536108X, -0.0812166Y, 0.404106Z
+	JointRotations:  0.98921X, -0.061813, -0.132827
+	JointRotations:  0.0284486X, 0.970422, -0.239734
+	JointRotations:  0.143717X, 0.233368, 0.961709
+	JointAnimXform:  0.994144X, -0.0784428, -0.0743307
+	JointAnimXform:  0.0611381X, 0.975423, -0.211687
+	JointAnimXform:  0.0891092X, 0.205903, 0.974507
 	JointRestXform:  0.994809X, -0.0595385, 0.0825209
 	JointRestXform:  0.0784538X, 0.965224, -0.249374
 	JointRestXform:  -0.0648037X, 0.254554, 0.964885
-	JointMeshXform:  0.999755X, 0.0212542, -0.00615159
-	JointMeshXform:  -0.020887X, 0.998289, 0.0546173
-	JointMeshXform:  0.00730187X, -0.0544753, 0.998489
+	JointMeshXform:  0.995495X, 0.0170942, -0.0932614
+	JointMeshXform:  -0.00651961X, 0.993627, 0.112534
+	JointMeshXform:  0.0945906X, -0.111419, 0.989262
 	JointGlobalRestXform:  0.996084X, -0.0828158, -0.0309434
 	JointGlobalRestXform:  0.0672669X, 0.937073, -0.342591
 	JointGlobalRestXform:  0.0573683X, 0.339169, 0.938975
-	JointGlobalAnimXform:  0.997344X, -0.0598175, -0.0415473
-	JointGlobalAnimXform:  0.0451762X, 0.955562, -0.291307
-	JointGlobalAnimXform:  0.0571263X, 0.288657, 0.955727
+	JointGlobalAnimXform:  0.98921X, -0.061813, -0.132827
+	JointGlobalAnimXform:  0.0284486X, 0.970422, -0.239734
+	JointGlobalAnimXform:  0.143717X, 0.233368, 0.961709
 JoinParents: 13
 Joint[15]Neck15
-	JointPosition: 12.5503X, 130.113Y, 20.5707Z
-	JointVelocitys: 0.0424206X, 0.0698028Y, 0.248399Z
-	JointAnimXform:  0.996862X, 0.0701212, 0.0367467
-	JointAnimXform:  -0.0780282X, 0.948698, 0.306406
-	JointAnimXform:  -0.0133759X, -0.308312, 0.951191
+	JointPosition: 21.2973X, 124.042Y, 25.7784Z
+	JointVelocitys: -0.0992559X, -0.0731159Y, 0.429717Z
+	JointRotations:  0.977623X, 0.00136614, -0.210358
+	JointRotations:  0.00322785X, 0.999764, 0.021494
+	JointRotations:  0.210338X, -0.021692, 0.977388
+	JointAnimXform:  0.994932X, 0.0795677, -0.0614839
+	JointAnimXform:  -0.0614604X, 0.965132, 0.254448
+	JointAnimXform:  0.0795859X, -0.24938, 0.96513
 	JointRestXform:  0.994123X, 0.0645988, 0.0868664
 	JointRestXform:  -0.0822127X, 0.972568, 0.217609
 	JointRestXform:  -0.0704262X, -0.223471, 0.972163
-	JointMeshXform:  0.998314X, 0.0145567, -0.0561858
-	JointMeshXform:  -0.00624064X, 0.989348, 0.145438
-	JointMeshXform:  0.0577044X, -0.144842, 0.987771
+	JointMeshXform:  0.970994X, -0.00198087, -0.239098
+	JointMeshXform:  0.0372317X, 0.989022, 0.143007
+	JointMeshXform:  0.236189X, -0.147761, 0.960407
 	JointGlobalRestXform:  0.999559X, 0.00766702, 0.0286727
 	JointGlobalRestXform:  -0.00398537X, 0.991982, -0.126321
 	JointGlobalRestXform:  -0.0294113X, 0.126151, 0.991575
-	JointGlobalAnimXform:  0.999481X, 0.0179827, -0.0267239
-	JointGlobalAnimXform:  -0.0174585X, 0.999653, 0.0197202
-	JointGlobalAnimXform:  0.0270693X, -0.0192433, 0.999449
+	JointGlobalAnimXform:  0.977624X, 0.00136615, -0.210358
+	JointGlobalAnimXform:  0.00322786X, 0.999764, 0.021494
+	JointGlobalAnimXform:  0.210338X, -0.0216921, 0.977388
 JoinParents: 14
 Joint[16]Neck116
-	JointPosition: 13.0571X, 140.091Y, 20.1324Z
-	JointVelocitys: 0.0432244X, 0.0597954Y, 0.249453Z
-	JointAnimXform:  0.999629X, -0.0222385, 0.0157495
-	JointAnimXform:  0.0232845X, 0.997297, -0.0696835
-	JointAnimXform:  -0.0141573X, 0.0700243, 0.997445
+	JointPosition: 21.9647X, 133.93Y, 25.1525Z
+	JointVelocitys: -0.106896X, -0.0719088Y, 0.43757Z
+	JointRotations:  0.971902X, -0.0104729, -0.235152
+	JointRotations:  -0.00682174X, 0.997337, -0.072613
+	JointRotations:  0.235286X, 0.0721769, 0.969243
+	JointAnimXform:  0.999606X, -0.0123876, -0.0251793
+	JointAnimXform:  0.00996816X, 0.995519, -0.0940402
+	JointAnimXform:  0.0262314X, 0.0937522, 0.99525
 	JointRestXform:  0.997976X, -0.0606108, 0.0192149
 	JointRestXform:  0.0631665X, 0.979636, -0.190586
 	JointRestXform:  -0.00727204X, 0.191414, 0.981482
-	JointMeshXform:  0.996967X, 0.0583458, -0.0515095
-	JointMeshXform:  -0.0426296X, 0.963084, 0.265807
-	JointMeshXform:  0.0651167X, -0.262805, 0.962649
+	JointMeshXform:  0.96007X, 0.0515603, -0.274968
+	JointMeshXform:  0.0186831X, 0.968859, 0.246907
+	JointMeshXform:  0.279136X, -0.242186, 0.929209
 	JointGlobalRestXform:  0.997213X, -0.0500493, 0.0553241
 	JointGlobalRestXform:  0.0648398X, 0.948223, -0.310917
 	JointGlobalRestXform:  -0.0368984X, 0.313638, 0.948825
-	JointGlobalAnimXform:  0.999925X, -0.00455786, -0.0114117
-	JointGlobalAnimXform:  0.00397484X, 0.998711, -0.0506005
-	JointGlobalAnimXform:  0.0116276X, 0.0505513, 0.998654
+	JointGlobalAnimXform:  0.971902X, -0.0104729, -0.235152
+	JointGlobalAnimXform:  -0.00682176X, 0.997337, -0.072613
+	JointGlobalAnimXform:  0.235286X, 0.0721769, 0.969243
 JoinParents: 15
 Joint[17]Head17
-	JointPosition: 12.1156X, 120.28Y, 22.3487Z
-	JointVelocitys: 0.0324793X, 0.0864271Y, 0.226525Z
-	JointAnimXform:  0.839134X, 0.029578, -0.54312
-	JointAnimXform:  0.00645841X, 0.997908, 0.0643239
-	JointAnimXform:  0.543887X, -0.057484, 0.837187
+	JointPosition: 21.0559X, 114.5Y, 27.2303Z
+	JointVelocitys: -0.0536107X, -0.0812164Y, 0.404106Z
+	JointRotations:  0.84052X, 0.0376923, -0.540468
+	JointRotations:  -0.0373214X, 0.999235, 0.0116457
+	JointRotations:  0.540494X, 0.0103826, 0.841284
+	JointAnimXform:  0.872484X, 0.0343774, -0.487431
+	JointAnimXform:  -0.0192961X, 0.999168, 0.0359297
+	JointAnimXform:  0.488261X, -0.0219426, 0.872422
 	JointRestXform:  0.772774X, 0.163757, -0.613192
 	JointRestXform:  -0.163563X, 0.984891, 0.0568928
 	JointRestXform:  0.613244X, 0.05633, 0.787882
-	JointMeshXform:  0.9814X, -0.130964, 0.140365
-	JointMeshXform:  0.129614X, 0.991387, 0.0187611
-	JointMeshXform:  -0.141613X, -0.000218957, 0.989922
+	JointMeshXform:  0.971245X, -0.101876, 0.215185
+	JointMeshXform:  0.0923695X, 0.99427, 0.0538082
+	JointMeshXform:  -0.219434X, -0.0323844, 0.97509
 	JointGlobalRestXform:  0.69621X, 0.0860331, -0.712664
 	JointGlobalRestXform:  -0.13554X, 0.990689, -0.0128144
 	JointGlobalRestXform:  0.704926X, 0.105516, 0.701389
-	JointGlobalAnimXform:  0.795334X, -0.00573041, -0.606144
-	JointGlobalAnimXform:  -0.0027978X, 0.99991, -0.013124
-	JointGlobalAnimXform:  0.606165X, 0.0121339, 0.795247
+	JointGlobalAnimXform:  0.84052X, 0.0376923, -0.540468
+	JointGlobalAnimXform:  -0.0373214X, 0.999236, 0.0116457
+	JointGlobalAnimXform:  0.540494X, 0.0103826, 0.841284
 JoinParents: 13
 Joint[18]RightShoulder18
-	JointPosition: 26.5315X, 127.285Y, 9.84348Z
-	JointVelocitys: -0.0212511X, 0.0966236Y, 0.348581Z
-	JointAnimXform:  0.298661X, -0.938607, 0.172682
-	JointAnimXform:  0.491493X, 0.306372, 0.815212
-	JointAnimXform:  -0.818068X, -0.1586, 0.55282
+	JointPosition: 35.361X, 121.984Y, 15.5568Z
+	JointVelocitys: -0.401679X, 0.0120155Y, 0.0630102Z
+	JointRotations:  0.288981X, -0.957311, 0.0067241
+	JointRotations:  0.855862X, 0.261491, 0.446233
+	JointRotations:  -0.428942X, -0.123198, 0.894892
+	JointAnimXform:  0.203177X, -0.967286, 0.15191
+	JointAnimXform:  0.48805X, 0.234546, 0.840711
+	JointAnimXform:  -0.848838X, -0.0966733, 0.519738
 	JointRestXform:  0.680015X, -0.305432, 0.666552
 	JointRestXform:  -0.322249X, 0.692085, 0.64589
 	JointRestXform:  -0.658586X, -0.654011, 0.372203
-	JointMeshXform:  0.494694X, -0.86498, -0.0841908
-	JointMeshXform:  0.791706X, 0.488494, -0.366844
-	JointMeshXform:  0.358439X, 0.114821, 0.926465
+	JointMeshXform:  0.448046X, -0.89356, -0.028375
+	JointMeshXform:  0.856582X, 0.43816, -0.272551
+	JointMeshXform:  0.255974X, 0.0978101, 0.961723
 	JointGlobalRestXform:  0.984701X, -0.173752, -0.0131965
 	JointGlobalRestXform:  0.137146X, 0.726069, 0.673807
 	JointGlobalRestXform:  -0.107494X, -0.665308, 0.73879
-	JointGlobalAnimXform:  0.344835X, -0.938139, -0.031389
-	JointGlobalAnimXform:  0.884197X, 0.313419, 0.346358
-	JointGlobalAnimXform:  -0.315094X, -0.14719, 0.937577
+	JointGlobalAnimXform:  0.288981X, -0.957312, 0.00672406
+	JointGlobalAnimXform:  0.855862X, 0.261491, 0.446233
+	JointGlobalAnimXform:  -0.428942X, -0.123198, 0.894892
 JoinParents: 17
 Joint[19]RightArm19
-	JointPosition: 35.8528X, 101.086Y, 8.52663Z
-	JointVelocitys: 0.0326932X, 0.165784Y, -0.0190302Z
-	JointAnimXform:  0.77606X, -0.0124787, 0.630536
-	JointAnimXform:  -0.117056X, 0.979581, 0.163458
-	JointAnimXform:  -0.619701X, -0.200661, 0.758753
+	JointPosition: 44.0629X, 95.34Y, 15.2707Z
+	JointVelocitys: -0.27821X, 0.0257288Y, -0.236061Z
+	JointRotations:  -0.126848X, -0.760367, 0.636987
+	JointRotations:  0.746367X, 0.349806, 0.566191
+	JointRotations:  -0.653335X, 0.547246, 0.52314
+	JointAnimXform:  0.695534X, -0.0231494, 0.71812
+	JointAnimXform:  -0.115381X, 0.982911, 0.143437
+	JointAnimXform:  -0.709168X, -0.182622, 0.680977
 	JointRestXform:  0.982488X, 0.0898937, 0.163209
 	JointRestXform:  -0.0269097X, 0.935197, -0.353105
 	JointRestXform:  -0.184374X, 0.34253, 0.921238
-	JointMeshXform:  0.311111X, -0.83378, 0.456093
-	JointMeshXform:  0.908201X, 0.402205, 0.115765
-	JointMeshXform:  -0.279966X, 0.378208, 0.882371
+	JointMeshXform:  0.134843X, -0.810622, 0.569834
+	JointMeshXform:  0.929792X, 0.302295, 0.21001
+	JointMeshXform:  -0.342496X, 0.501509, 0.794472
 	JointGlobalRestXform:  0.962241X, -0.214024, 0.168183
 	JointGlobalRestXform:  0.139717X, 0.918616, 0.369626
 	JointGlobalRestXform:  -0.233604X, -0.332171, 0.913833
-	JointGlobalAnimXform:  0.0579011X, -0.824771, 0.562494
-	JointGlobalAnimXform:  0.774273X, 0.392775, 0.496215
-	JointGlobalAnimXform:  -0.630197X, 0.406793, 0.661341
+	JointGlobalAnimXform:  -0.126848X, -0.760367, 0.636987
+	JointGlobalAnimXform:  0.746367X, 0.349806, 0.566191
+	JointGlobalAnimXform:  -0.653335X, 0.547246, 0.52314
 JoinParents: 18
 Joint[20]RightForeArm20
-	JointPosition: 37.2383X, 85.4591Y, 18.2034Z
-	JointVelocitys: 0.274397X, -0.0614671Y, -0.201677Z
-	JointAnimXform:  0.983264X, 0.155872, 0.0943248
-	JointAnimXform:  -0.170545X, 0.969582, 0.175573
-	JointAnimXform:  -0.0640888X, -0.188721, 0.979937
+	JointPosition: 42.127X, 81.044Y, 26.8547Z
+	JointVelocitys: 0.302919X, -0.0498462Y, -0.0398306Z
+	JointRotations:  0.0129368X, -0.602369, 0.798113
+	JointRotations:  0.659682X, 0.604971, 0.445903
+	JointRotations:  -0.751433X, 0.520733, 0.405198
+	JointAnimXform:  0.964767X, 0.250828, 0.0794293
+	JointAnimXform:  -0.259645X, 0.956454, 0.133344
+	JointAnimXform:  -0.042524X, -0.149269, 0.987882
 	JointRestXform:  0.972444X, 0.0674245, -0.223176
 	JointRestXform:  -0.108626X, 0.978047, -0.177834
 	JointRestXform:  0.206286X, 0.197176, 0.958419
-	JointMeshXform:  0.162627X, -0.664948, 0.72897
-	JointMeshXform:  0.748756X, 0.56432, 0.347718
-	JointMeshXform:  -0.642587X, 0.489272, 0.589657
+	JointMeshXform:  0.05988X, -0.555041, 0.829665
+	JointMeshXform:  0.78236X, 0.542291, 0.306323
+	JointMeshXform:  -0.619942X, 0.630754, 0.466714
 	JointGlobalRestXform:  0.99728X, -0.0720567, -0.0154756
 	JointGlobalRestXform:  0.0736683X, 0.98077, 0.180732
 	JointGlobalRestXform:  0.00215503X, -0.181381, 0.983411
-	JointGlobalAnimXform:  0.118176X, -0.711375, 0.692807
-	JointGlobalAnimXform:  0.630201X, 0.59291, 0.501303
-	JointGlobalAnimXform:  -0.767386X, 0.377365, 0.518377
+	JointGlobalAnimXform:  0.0129368X, -0.602369, 0.798113
+	JointGlobalAnimXform:  0.659683X, 0.604971, 0.445903
+	JointGlobalAnimXform:  -0.751433X, 0.520733, 0.405198
 JoinParents: 19
 Joint[21]RightHand21
-	JointPosition: 37.2383X, 85.4591Y, 18.2034Z
-	JointVelocitys: 0.274397X, -0.0614675Y, -0.201677Z
-	JointAnimXform:  0.96032X, -0.0103631, -0.278708
-	JointAnimXform:  0.0175585X, 0.999574, 0.0233331
-	JointAnimXform:  0.278348X, -0.027301, 0.960092
+	JointPosition: 42.127X, 81.044Y, 26.8547Z
+	JointVelocitys: 0.302919X, -0.0498463Y, -0.0398301Z
+	JointRotations:  0.164243X, -0.755809, 0.633859
+	JointRotations:  0.642404X, 0.569592, 0.51272
+	JointRotations:  -0.748559X, 0.322983, 0.579087
+	JointAnimXform:  0.963291X, -0.066255, -0.260154
+	JointAnimXform:  0.0744155X, 0.996993, 0.0216344
+	JointAnimXform:  0.257938X, -0.0401998, 0.965325
 	JointRestXform:  0.974333X, 0.00746949, -0.224989
 	JointRestXform:  -0.00766604X, 0.999971, 0
 	JointRestXform:  0.224982X, 0.00172477, 0.974361
-	JointMeshXform:  0.188919X, -0.699576, 0.689133
-	JointMeshXform:  0.733437X, 0.567164, 0.374693
-	JointMeshXform:  -0.652977X, 0.434649, 0.620243
+	JointMeshXform:  0.0323933X, -0.623665, 0.781021
+	JointMeshXform:  0.769924X, 0.513849, 0.378387
+	JointMeshXform:  -0.637313X, 0.589069, 0.496819
 	JointGlobalRestXform:  0.971748X, -0.0220726, -0.234985
 	JointGlobalRestXform:  0.066021X, 0.981293, 0.180846
 	JointGlobalRestXform:  0.226597X, -0.19125, 0.955027
-	JointGlobalAnimXform:  0.320833X, -0.794466, 0.515645
-	JointGlobalAnimXform:  0.614102X, 0.588971, 0.52535
-	JointGlobalAnimXform:  -0.721073X, 0.148109, 0.676845
+	JointGlobalAnimXform:  0.164243X, -0.75581, 0.633859
+	JointGlobalAnimXform:  0.642404X, 0.569592, 0.51272
+	JointGlobalAnimXform:  -0.748559X, 0.322983, 0.579087
 JoinParents: 20
 Joint[22]RightFingerBase22
-	JointPosition: 38.1053X, 82.6252Y, 19.8189Z
-	JointVelocitys: 0.315289X, -0.102435Y, -0.252172Z
-	JointAnimXform:  1X, 2.98023e-07, -1.19209e-07
-	JointAnimXform:  -2.98023e-07X, 1, -5.96046e-08
-	JointAnimXform:  1.19209e-07X, 2.68221e-07, 1
+	JointPosition: 42.2405X, 78.4894Y, 28.9451Z
+	JointVelocitys: 0.439355X, -0.0544671Y, 0.0043416Z
+	JointRotations:  0.164243X, -0.755809, 0.633859
+	JointRotations:  0.642404X, 0.569592, 0.51272
+	JointRotations:  -0.748559X, 0.322983, 0.579087
+	JointAnimXform:  1X, 5.96046e-08, 1.78814e-07
+	JointAnimXform:  0X, 1, -8.9407e-08
+	JointAnimXform:  -5.96046e-08X, 5.96046e-08, 1
 	JointRestXform:  1X, 0, 0
 	JointRestXform:  0X, 1, 0
 	JointRestXform:  0X, 0, 1
-	JointMeshXform:  0.18892X, -0.699576, 0.689132
-	JointMeshXform:  0.733437X, 0.567164, 0.374693
-	JointMeshXform:  -0.652977X, 0.434649, 0.620243
+	JointMeshXform:  0.0323932X, -0.623665, 0.781021
+	JointMeshXform:  0.769924X, 0.513849, 0.378387
+	JointMeshXform:  -0.637313X, 0.58907, 0.496819
 	JointGlobalRestXform:  0.971748X, -0.0220726, -0.234985
 	JointGlobalRestXform:  0.066021X, 0.981293, 0.180846
 	JointGlobalRestXform:  0.226597X, -0.19125, 0.955027
-	JointGlobalAnimXform:  0.320833X, -0.794466, 0.515645
-	JointGlobalAnimXform:  0.614102X, 0.588971, 0.525349
-	JointGlobalAnimXform:  -0.721072X, 0.148109, 0.676845
+	JointGlobalAnimXform:  0.164243X, -0.75581, 0.633859
+	JointGlobalAnimXform:  0.642405X, 0.569592, 0.51272
+	JointGlobalAnimXform:  -0.748559X, 0.322983, 0.579087
 JoinParents: 21
 Joint[23]RightHandIndex123
-	JointPosition: 37.2383X, 85.4591Y, 18.2034Z
-	JointVelocitys: 0.274397X, -0.0614671Y, -0.201677Z
-	JointAnimXform:  1X, 8.9407e-08, -1.19209e-07
-	JointAnimXform:  5.96046e-08X, 1, -2.08616e-07
-	JointAnimXform:  1.49012e-07X, 3.27826e-07, 1
+	JointPosition: 42.127X, 81.044Y, 26.8547Z
+	JointVelocitys: 0.302919X, -0.049846Y, -0.0398303Z
+	JointRotations:  0.0129368X, -0.602369, 0.798113
+	JointRotations:  0.659682X, 0.604971, 0.445903
+	JointRotations:  -0.751433X, 0.520733, 0.405198
+	JointAnimXform:  1X, -2.98023e-08, 2.98023e-08
+	JointAnimXform:  0X, 1, 2.98023e-08
+	JointAnimXform:  0X, 2.98023e-08, 1
 	JointRestXform:  1X, 0, 0
 	JointRestXform:  0X, 1, 0
 	JointRestXform:  0X, 0, 1
-	JointMeshXform:  0.162627X, -0.664948, 0.72897
-	JointMeshXform:  0.748756X, 0.56432, 0.347718
-	JointMeshXform:  -0.642587X, 0.489272, 0.589657
+	JointMeshXform:  0.0598799X, -0.555041, 0.829665
+	JointMeshXform:  0.78236X, 0.542291, 0.306324
+	JointMeshXform:  -0.619942X, 0.630754, 0.466714
 	JointGlobalRestXform:  0.99728X, -0.0720567, -0.0154756
 	JointGlobalRestXform:  0.0736683X, 0.98077, 0.180732
 	JointGlobalRestXform:  0.00215503X, -0.181381, 0.983411
-	JointGlobalAnimXform:  0.118176X, -0.711375, 0.692807
-	JointGlobalAnimXform:  0.630201X, 0.59291, 0.501303
-	JointGlobalAnimXform:  -0.767386X, 0.377365, 0.518377
+	JointGlobalAnimXform:  0.0129367X, -0.602369, 0.798113
+	JointGlobalAnimXform:  0.659683X, 0.604971, 0.445903
+	JointGlobalAnimXform:  -0.751433X, 0.520733, 0.405198
 JoinParents: 20
 Joint[24]RThumb24
-	JointPosition: 12.1156X, 120.28Y, 22.3487Z
-	JointVelocitys: 0.0324794X, 0.0864272Y, 0.226525Z
-	JointAnimXform:  0.773349X, -0.076434, 0.629357
-	JointAnimXform:  0.114771X, 0.993182, -0.0204099
-	JointAnimXform:  -0.623506X, 0.0880158, 0.776849
+	JointPosition: 21.0559X, 114.5Y, 27.2303Z
+	JointVelocitys: -0.0536108X, -0.0812167Y, 0.404106Z
+	JointRotations:  0.809905X, -0.0317476, 0.585701
+	JointRotations:  0.0576978X, 0.998004, -0.025688
+	JointRotations:  -0.583716X, 0.0545985, 0.81012
+	JointAnimXform:  0.771929X, -0.0630148, 0.632577
+	JointAnimXform:  0.0777841X, 0.996961, 0.00439373
+	JointAnimXform:  -0.630932X, 0.0458129, 0.774485
 	JointRestXform:  0.654891X, -0.19591, 0.729888
 	JointRestXform:  0.386306X, 0.916878, -0.100513
 	JointRestXform:  -0.649527X, 0.347785, 0.676136
-	JointMeshXform:  0.953999X, 0.290874, -0.0726557
-	JointMeshXform:  -0.276175X, 0.946907, 0.164603
-	JointMeshXform:  0.116677X, -0.136965, 0.983681
+	JointMeshXform:  0.941598X, 0.335363, -0.0303989
+	JointMeshXform:  -0.319669X, 0.918596, 0.232366
+	JointMeshXform:  0.105852X, -0.209078, 0.972153
 	JointGlobalRestXform:  0.734154X, -0.151967, 0.661759
 	JointGlobalRestXform:  0.389803X, 0.892348, -0.227526
 	JointGlobalRestXform:  -0.555943X, 0.424994, 0.714358
-	JointGlobalAnimXform:  0.819563X, -0.0209909, 0.572604
-	JointGlobalAnimXform:  0.0988797X, 0.989518, -0.105251
-	JointGlobalAnimXform:  -0.564393X, 0.142879, 0.813048
+	JointGlobalAnimXform:  0.809905X, -0.0317477, 0.585701
+	JointGlobalAnimXform:  0.0576978X, 0.998004, -0.0256879
+	JointGlobalAnimXform:  -0.583716X, 0.0545985, 0.81012
 JoinParents: 13
 Joint[25]LeftShoulder25
-	JointPosition: 0.221381X, 128.33Y, 9.89235Z
-	JointVelocitys: 0.124005X, 0.0653042Y, 0.163505Z
-	JointAnimXform:  0.279966X, 0.959896, -0.0147943
-	JointAnimXform:  -0.491692X, 0.15661, 0.85657
-	JointAnimXform:  0.824535X, -0.232536, 0.515819
+	JointPosition: 8.80714X, 122.315Y, 15.6203Z
+	JointVelocitys: -0.320232X, -0.0202615Y, 0.784409Z
+	JointRotations:  0.335922X, 0.932079, 0.13559
+	JointRotations:  -0.896337X, 0.27212, 0.350043
+	JointRotations:  0.289371X, -0.239121, 0.926869
+	JointAnimXform:  0.321888X, 0.946118, -0.0353489
+	JointAnimXform:  -0.529567X, 0.210868, 0.821641
+	JointAnimXform:  0.784823X, -0.245757, 0.568908
 	JointRestXform:  0.660397X, 0.565971, -0.49351
 	JointRestXform:  -0.226376X, 0.776689, 0.587799
 	JointRestXform:  0.715981X, -0.276462, 0.641046
-	JointMeshXform:  0.513905X, 0.857428, 0.0268362
-	JointMeshXform:  -0.81633X, 0.47918, 0.32248
-	JointMeshXform:  0.263644X, -0.187631, 0.946196
+	JointMeshXform:  0.517437X, 0.846798, 0.12326
+	JointMeshXform:  -0.834533X, 0.467507, 0.291536
+	JointMeshXform:  0.189247X, -0.253716, 0.948585
 	JointGlobalRestXform:  0.979814X, 0.194945, -0.0442925
 	JointGlobalRestXform:  -0.190222X, 0.97729, 0.0933755
 	JointGlobalRestXform:  0.0614898X, -0.0830652, 0.994645
-	JointGlobalAnimXform:  0.332714X, 0.941844, 0.0472511
-	JointGlobalAnimXform:  -0.870929X, 0.287676, 0.398404
-	JointGlobalAnimXform:  0.361641X, -0.173707, 0.915992
+	JointGlobalAnimXform:  0.335922X, 0.93208, 0.13559
+	JointGlobalAnimXform:  -0.896338X, 0.27212, 0.350043
+	JointGlobalAnimXform:  0.289371X, -0.239121, 0.926869
 JoinParents: 24
 Joint[26]LeftArm26
-	JointPosition: -9.30191X, 100.938Y, 8.18248Z
-	JointVelocitys: 0.0225403X, 0.144623Y, 0.165373Z
-	JointAnimXform:  0.849592X, 0.0255146, -0.526823
-	JointAnimXform:  0.0888723X, 0.977623, 0.190669
-	JointAnimXform:  0.519899X, -0.208811, 0.828313
+	JointPosition: -0.0996666X, 95.6109Y, 11.8939Z
+	JointVelocitys: -0.372699X, 0.00592919Y, 1.12374Z
+	JointRotations:  0.0592725X, 0.894782, -0.442553
+	JointRotations:  -0.826813X, 0.292418, 0.480491
+	JointRotations:  0.559345X, 0.337428, 0.75715
+	JointAnimXform:  0.793913X, 0.035447, -0.606997
+	JointAnimXform:  0.0599616X, 0.988869, 0.136173
+	JointAnimXform:  0.605068X, -0.144506, 0.78295
 	JointRestXform:  0.997181X, 0.0130129, -0.0738991
 	JointRestXform:  -0.0162064X, 0.998953, -0.0427807
 	JointRestXform:  0.073265X, 0.0438577, 0.996348
-	JointMeshXform:  0.306449X, 0.838527, -0.450511
-	JointMeshXform:  -0.737197X, 0.508479, 0.444961
-	JointMeshXform:  0.602187X, 0.195758, 0.773983
+	JointMeshXform:  0.299669X, 0.849068, -0.435065
+	JointMeshXform:  -0.809206X, 0.467763, 0.355506
+	JointMeshXform:  0.505356X, 0.245523, 0.827245
 	JointGlobalRestXform:  0.970032X, 0.213251, -0.116456
 	JointGlobalRestXform:  -0.208533X, 0.976661, 0.0514439
 	JointGlobalRestXform:  0.124709X, -0.0256175, 0.991863
-	JointGlobalAnimXform:  0.069929X, 0.899035, -0.432257
-	JointGlobalAnimXform:  -0.752918X, 0.331822, 0.568339
-	JointGlobalAnimXform:  0.654389X, 0.28571, 0.700103
+	JointGlobalAnimXform:  0.0592725X, 0.894782, -0.442552
+	JointGlobalAnimXform:  -0.826813X, 0.292418, 0.480491
+	JointGlobalAnimXform:  0.559345X, 0.337428, 0.75715
 JoinParents: 25
 Joint[27]LeftForeArm27
-	JointPosition: -10.1475X, 84.5813Y, 15.4336Z
-	JointVelocitys: -0.0567149X, 0.165601Y, 0.200468Z
-	JointAnimXform:  0.985999X, -0.0759923, -0.148426
-	JointAnimXform:  0.0931717X, 0.98928, 0.112444
-	JointAnimXform:  0.13829X, -0.124698, 0.98251
+	JointPosition: -1.1131X, 78.8499Y, 19.4506Z
+	JointVelocitys: -0.294991X, -0.0635193Y, 0.863348Z
+	JointRotations:  0.0672708X, 0.820522, -0.567642
+	JointRotations:  -0.757346X, 0.412376, 0.506333
+	JointRotations:  0.649539X, 0.39584, 0.64916
+	JointAnimXform:  0.989387X, -0.0884323, -0.115295
+	JointAnimXform:  0.100017X, 0.990058, 0.0988995
+	JointAnimXform:  0.105403X, -0.109381, 0.988396
 	JointRestXform:  0.999882X, 0.0116935, 0.00994511
 	JointRestXform:  -0.0112652X, 0.999051, -0.0420763
 	JointRestXform:  -0.0104277X, 0.0419593, 0.999065
-	JointMeshXform:  0.256297X, 0.731944, -0.631324
-	JointMeshXform:  -0.631396X, 0.621314, 0.464012
-	JointMeshXform:  0.731881X, 0.279691, 0.621388
+	JointMeshXform:  0.303872X, 0.744125, -0.594929
+	JointMeshXform:  -0.714321X, 0.591152, 0.374546
+	JointMeshXform:  0.630403X, 0.311156, 0.711178
 	JointGlobalRestXform:  0.968719X, 0.224392, -0.105977
 	JointGlobalRestXform:  -0.22451X, 0.97441, 0.0109732
 	JointGlobalRestXform:  0.105727X, 0.0131628, 0.994308
-	JointGlobalAnimXform:  0.0290376X, 0.818825, -0.573308
-	JointGlobalAnimXform:  -0.664749X, 0.444155, 0.600695
-	JointGlobalAnimXform:  0.746502X, 0.363663, 0.557211
+	JointGlobalAnimXform:  0.0672708X, 0.820523, -0.567642
+	JointGlobalAnimXform:  -0.757346X, 0.412376, 0.506333
+	JointGlobalAnimXform:  0.64954X, 0.39584, 0.64916
 JoinParents: 26
 Joint[28]LeftHand28
-	JointPosition: -10.1475X, 84.5813Y, 15.4336Z
-	JointVelocitys: -0.0567147X, 0.165601Y, 0.200468Z
-	JointAnimXform:  0.975219X, 0.0845782, 0.204437
-	JointAnimXform:  -0.0909604X, 0.995611, 0.0220083
-	JointAnimXform:  -0.201678X, -0.0400586, 0.978632
+	JointPosition: -1.1131X, 78.8499Y, 19.4506Z
+	JointVelocitys: -0.294991X, -0.0635193Y, 0.863348Z
+	JointRotations:  0.194873X, 0.925066, -0.326002
+	JointRotations:  -0.762583X, 0.351927, 0.542784
+	JointRotations:  0.61684X, 0.142829, 0.774021
+	JointAnimXform:  0.957199X, 0.0688224, 0.281129
+	JointAnimXform:  -0.0706428X, 0.997495, -0.00366688
+	JointAnimXform:  -0.280677X, -0.0163499, 0.959663
 	JointRestXform:  0.976633X, 0.0276095, 0.213131
 	JointRestXform:  -0.0282588X, 0.999601, 8.67362e-19
 	JointRestXform:  -0.213046X, -0.00602281, 0.977024
-	JointMeshXform:  0.206762X, 0.764028, -0.611155
-	JointMeshXform:  -0.626729X, 0.583097, 0.516922
-	JointMeshXform:  0.751306X, 0.276149, 0.599401
+	JointMeshXform:  0.316812X, 0.787158, -0.529163
+	JointMeshXform:  -0.714616X, 0.564933, 0.412522
+	JointMeshXform:  0.623662X, 0.247456, 0.741493
 	JointGlobalRestXform:  0.962419X, 0.248857, 0.10872
 	JointGlobalRestXform:  -0.251795X, 0.96768, 0.0139636
 	JointGlobalRestXform:  -0.101732X, -0.040814, 0.993974
-	JointGlobalAnimXform:  0.124708X, 0.910446, -0.39438
-	JointGlobalAnimXform:  -0.648044X, 0.375729, 0.66247
-	JointGlobalAnimXform:  0.751324X, 0.172961, 0.636865
+	JointGlobalAnimXform:  0.194873X, 0.925066, -0.326002
+	JointGlobalAnimXform:  -0.762583X, 0.351927, 0.542784
+	JointGlobalAnimXform:  0.61684X, 0.142829, 0.774021
 JoinParents: 27
 Joint[29]LeftFingerBase29
-	JointPosition: -10.3669X, 81.7293Y, 16.5027Z
-	JointVelocitys: -0.0605564X, 0.172094Y, 0.196482Z
-	JointAnimXform:  1X, -2.98023e-08, 2.38419e-07
-	JointAnimXform:  0X, 1, 3.27826e-07
-	JointAnimXform:  -1.78814e-07X, -1.78814e-07, 1
+	JointPosition: -1.56613X, 75.811Y, 20.5782Z
+	JointVelocitys: -0.272243X, -0.0742476Y, 0.794469Z
+	JointRotations:  0.194873X, 0.925066, -0.326002
+	JointRotations:  -0.762583X, 0.351927, 0.542784
+	JointRotations:  0.61684X, 0.142829, 0.774021
+	JointAnimXform:  1X, -7.45058e-08, -1.78814e-07
+	JointAnimXform:  5.96046e-08X, 1, -1.49012e-07
+	JointAnimXform:  8.9407e-08X, 8.9407e-08, 1
 	JointRestXform:  1X, 0, 0
 	JointRestXform:  0X, 1, 0
 	JointRestXform:  0X, 0, 1
-	JointMeshXform:  0.206762X, 0.764028, -0.611155
-	JointMeshXform:  -0.626729X, 0.583097, 0.516922
-	JointMeshXform:  0.751306X, 0.276149, 0.599401
+	JointMeshXform:  0.316812X, 0.787158, -0.529163
+	JointMeshXform:  -0.714617X, 0.564933, 0.412522
+	JointMeshXform:  0.623662X, 0.247456, 0.741493
 	JointGlobalRestXform:  0.962419X, 0.248857, 0.10872
 	JointGlobalRestXform:  -0.251795X, 0.96768, 0.0139636
 	JointGlobalRestXform:  -0.101732X, -0.040814, 0.993974
-	JointGlobalAnimXform:  0.124708X, 0.910446, -0.39438
-	JointGlobalAnimXform:  -0.648044X, 0.375729, 0.662471
-	JointGlobalAnimXform:  0.751324X, 0.17296, 0.636865
+	JointGlobalAnimXform:  0.194873X, 0.925066, -0.326002
+	JointGlobalAnimXform:  -0.762583X, 0.351927, 0.542784
+	JointGlobalAnimXform:  0.61684X, 0.142829, 0.774021
 JoinParents: 28
 Joint[30]LeftHandIndex130
-	JointPosition: -10.1475X, 84.5813Y, 15.4336Z
-	JointVelocitys: -0.0567146X, 0.165601Y, 0.200468Z
-	JointAnimXform:  1X, 0, 0
-	JointAnimXform:  0X, 1, -2.98023e-08
-	JointAnimXform:  2.98023e-08X, 2.98023e-08, 1
+	JointPosition: -1.1131X, 78.8499Y, 19.4506Z
+	JointVelocitys: -0.294991X, -0.0635191Y, 0.863348Z
+	JointRotations:  0.0672703X, 0.820522, -0.567642
+	JointRotations:  -0.757346X, 0.412375, 0.506333
+	JointRotations:  0.649539X, 0.39584, 0.64916
+	JointAnimXform:  1X, 3.57628e-07, -2.98023e-07
+	JointAnimXform:  -4.17233e-07X, 1, -2.38419e-07
+	JointAnimXform:  1.78814e-07X, 1.19209e-07, 1
 	JointRestXform:  1X, 0, 0
 	JointRestXform:  0X, 1, 0
 	JointRestXform:  0X, 0, 1
-	JointMeshXform:  0.256297X, 0.731944, -0.631324
-	JointMeshXform:  -0.631396X, 0.621314, 0.464012
-	JointMeshXform:  0.731881X, 0.279691, 0.621388
+	JointMeshXform:  0.303872X, 0.744125, -0.594929
+	JointMeshXform:  -0.714321X, 0.591152, 0.374547
+	JointMeshXform:  0.630403X, 0.311156, 0.711178
 	JointGlobalRestXform:  0.968719X, 0.224392, -0.105977
 	JointGlobalRestXform:  -0.22451X, 0.97441, 0.0109732
 	JointGlobalRestXform:  0.105727X, 0.0131628, 0.994308
-	JointGlobalAnimXform:  0.0290376X, 0.818825, -0.573308
-	JointGlobalAnimXform:  -0.664749X, 0.444155, 0.600695
-	JointGlobalAnimXform:  0.746502X, 0.363663, 0.557211
+	JointGlobalAnimXform:  0.0672704X, 0.820523, -0.567642
+	JointGlobalAnimXform:  -0.757346X, 0.412375, 0.506333
+	JointGlobalAnimXform:  0.64954X, 0.39584, 0.64916
 JoinParents: 27
 End Joints
 
 FinalLocations
-Bone[0]
-	FinalBoneLocation: 13.7573X, 13.9624Y, 99.3868Z
-	FinalBoneRotation: -0.478606X, -0.0128639Y, 0.0238967Z, 0.877611W
-Bone[1]
-	FinalBoneLocation: 13.7225X, 13.9099Y, 99.3868Z
-	FinalBoneRotation: -0.417772X, -0.119387Y, 0.182971Z, 0.881893W
-Bone[2]
-	FinalBoneLocation: 21.9444X, 13.6664Y, 88.715Z
-	FinalBoneRotation: -0.397455X, -0.177477Y, 0.146265Z, 0.888335W
-Bone[3]
-	FinalBoneLocation: 26.7352X, 21.4426Y, 50.4841Z
-	FinalBoneRotation: -0.389055X, -0.22121Y, 0.0724016Z, 0.891325W
-Bone[4]
-	FinalBoneLocation: 25.6979X, 13.0972Y, 9.47283Z
-	FinalBoneRotation: -0.467141X, -0.0328789Y, 0.107902Z, 0.876958W
-Bone[5]
-	FinalBoneLocation: 29.1556X, 24.4266Y, 4.39271Z
-	FinalBoneRotation: -0.455883X, -0.0671595Y, 0.126506Z, 0.87844W
-Bone[6]
-	FinalBoneLocation: 13.7164X, 13.8877Y, 99.3868Z
-	FinalBoneRotation: -0.449745X, 0.0557109Y, -0.160483Z, 0.876853W
-Bone[7]
-	FinalBoneLocation: 4.62881X, 15.0813Y, 89.5862Z
-	FinalBoneRotation: -0.368642X, 0.22274Y, -0.12934Z, 0.893175W
-Bone[8]
-	FinalBoneLocation: 4.52795X, 16.6895Y, 47.9045Z
-	FinalBoneRotation: -0.373413X, 0.242061Y, -0.0665143Z, 0.893054W
-Bone[9]
-	FinalBoneLocation: 7.96872X, 2.30937Y, 8.7086Z
-	FinalBoneRotation: -0.474152X, -0.041253Y, -0.0747147Z, 0.876297W
-Bone[10]
-	FinalBoneLocation: 5.57898X, 14.0311Y, 3.56958Z
-	FinalBoneRotation: -0.472345X, 0.0176902Y, -0.0878448Z, 0.876847W
-Bone[11]
-	FinalBoneLocation: 13.6361X, 13.8421Y, 99.3868Z
-	FinalBoneRotation: -0.477391X, -0.00204821Y, 0.051304Z, 0.87719W
-Bone[12]
-	FinalBoneLocation: 13.2573X, 16.0264Y, 110.621Z
-	FinalBoneRotation: -0.472075X, 0.0130982Y, 0.100736Z, 0.875686W
-Bone[13]
-	FinalBoneLocation: 12.1156X, 22.3487Y, 120.28Z
-	FinalBoneRotation: -0.478017X, -0.0118117Y, 0.0364441Z, 0.877515W
-Bone[14]
-	FinalBoneLocation: 12.1156X, 22.3487Y, 120.28Z
-	FinalBoneRotation: -0.477376X, -0.0334828Y, 0.0142772Z, 0.877945W
-Bone[15]
-	FinalBoneLocation: 12.5503X, 20.5707Y, 130.113Z
-	FinalBoneRotation: -0.479239X, 0.0011756Y, 0.0160612Z, 0.877536W
-Bone[16]
-	FinalBoneLocation: 13.0571X, 20.1324Y, 140.091Z
-	FinalBoneRotation: -0.479373X, -0.00453121Y, 0.00414942Z, 0.87759W
-Bone[17]
-	FinalBoneLocation: 12.1156X, 22.3487Y, 120.28Z
-	FinalBoneRotation: -0.370002X, -0.114354Y, 0.27569Z, 0.879782W
-Bone[18]
-	FinalBoneLocation: 26.5315X, 9.84348Y, 127.285Z
-	FinalBoneRotation: -0.21928X, -0.391944Y, -0.212201Z, 0.86791W
-Bone[19]
-	FinalBoneLocation: 35.8528X, 8.52663Y, 101.086Z
-	FinalBoneRotation: -0.142439X, -0.350493Y, -0.297245Z, 0.876648W
-Bone[20]
-	FinalBoneLocation: 37.2383X, 18.2034Y, 85.4591Z
-	FinalBoneRotation: -0.167876X, -0.265858Y, -0.372266Z, 0.873244W
-Bone[21]
-	FinalBoneLocation: 37.2383X, 18.2034Y, 85.4591Z
-	FinalBoneRotation: -0.247727X, -0.225472Y, -0.377133Z, 0.863461W
-Bone[22]
-	FinalBoneLocation: 38.1053X, 19.8189Y, 82.6252Z
-	FinalBoneRotation: -0.247727X, -0.225472Y, -0.377133Z, 0.863461W
-Bone[23]
-	FinalBoneLocation: 37.2383X, 18.2034Y, 85.4591Z
-	FinalBoneRotation: -0.167876X, -0.265858Y, -0.372266Z, 0.873244W
-Bone[24]
-	FinalBoneLocation: 12.1156X, 22.3487Y, 120.28Z
-	FinalBoneRotation: -0.394805X, 0.0672724Y, -0.274009Z, 0.87437W
-Bone[25]
-	FinalBoneLocation: 0.221381X, 9.89235Y, 128.33Z
-	FinalBoneRotation: -0.222502X, 0.382226Y, 0.229515Z, 0.867017W
-Bone[26]
-	FinalBoneLocation: -9.30191X, 8.18248Y, 100.938Z
-	FinalBoneRotation: -0.148864X, 0.337465Y, 0.310868Z, 0.875967W
-Bone[27]
-	FinalBoneLocation: -10.1475X, 15.4336Y, 84.5813Z
-	FinalBoneRotation: -0.131746X, 0.298786Y, 0.349062Z, 0.878365W
-Bone[28]
-	FinalBoneLocation: -10.1475X, 15.4336Y, 84.5813Z
-	FinalBoneRotation: -0.171535X, 0.273931Y, 0.365576Z, 0.872864W
-Bone[29]
-	FinalBoneLocation: -10.3669X, 16.5027Y, 81.7293Z
-	FinalBoneRotation: -0.171535X, 0.273931Y, 0.365576Z, 0.872864W
-Bone[30]
-	FinalBoneLocation: -10.1475X, 15.4336Y, 84.5813Z
-	FinalBoneRotation: -0.131746X, 0.298786Y, 0.349062Z, 0.878365W
+Joint[0]root
+	FinalBoneLocation: 22.3342X, 18.4233Y, 94.5487Z
+	FinalBoneRotation: -0.479028X, 0.00723647Y, -0.0184808Z, 0.877575W
+Joint[1]Hips
+	FinalBoneLocation: 22.3462X, 18.4382Y, 94.5487Z
+	FinalBoneRotation: -0.442293X, -0.106276Y, 0.127804Z, 0.881334W
+Joint[2]LHipJoint
+	FinalBoneLocation: 30.413X, 18.7809Y, 83.6171Z
+	FinalBoneRotation: -0.423857X, -0.160884Y, 0.0961767Z, 0.886122W
+Joint[3]LeftUpLeg
+	FinalBoneLocation: 35.1524X, 24.2622Y, 45.6251Z
+	FinalBoneRotation: -0.422817X, -0.186704Y, 0.0257297Z, 0.8864W
+Joint[4]LeftLeg
+	FinalBoneLocation: 34.1427X, 2.81636Y, 10.6919Z
+	FinalBoneRotation: -0.470275X, 0.0768168Y, 0.0573398Z, 0.877299W
+Joint[5]LeftFoot
+	FinalBoneLocation: 36.2037X, 11.5965Y, 3.22598Z
+	FinalBoneRotation: -0.47577X, 0.00850251Y, 0.0712989Z, 0.876634W
+Joint[6]LeftToeBase
+	FinalBoneLocation: 22.386X, 18.4073Y, 94.5487Z
+	FinalBoneRotation: -0.421397X, 0.089639Y, -0.206735Z, 0.878436W
+Joint[7]RHipJoint
+	FinalBoneLocation: 13.5432X, 19.052Y, 84.6615Z
+	FinalBoneRotation: -0.378925X, 0.186398Y, -0.174426Z, 0.889521W
+Joint[8]RightUpLeg
+	FinalBoneLocation: 9.37181X, 28.0191Y, 45.4398Z
+	FinalBoneRotation: -0.359523X, 0.241972Y, -0.108397Z, 0.894675W
+Joint[9]RightLeg
+	FinalBoneLocation: 11.294X, 15.5474Y, 6.75103Z
+	FinalBoneRotation: -0.472314X, -0.0398583Y, -0.0926751Z, 0.875638W
+Joint[10]RightFoot
+	FinalBoneLocation: 8.71159X, 27.3828Y, 2.13891Z
+	FinalBoneRotation: -0.469575X, 0.00693551Y, -0.110816Z, 0.875883W
+Joint[11]RightToeBase
+	FinalBoneLocation: 22.453X, 18.4712Y, 94.5487Z
+	FinalBoneRotation: -0.478796X, 0.0158001Y, 0.0242464Z, 0.877449W
+Joint[12]LowerBack
+	FinalBoneLocation: 21.7615X, 20.8685Y, 105.305Z
+	FinalBoneRotation: -0.474983X, 0.0180315Y, 0.0782915Z, 0.87632W
+Joint[13]Spine
+	FinalBoneLocation: 21.0559X, 27.2303Y, 114.5Z
+	FinalBoneRotation: -0.478557X, -0.00558457Y, 0.0314012Z, 0.877477W
+Joint[14]Spine1
+	FinalBoneLocation: 21.0559X, 27.2303Y, 114.5Z
+	FinalBoneRotation: -0.472512X, -0.0465641Y, 0.0564514Z, 0.878281W
+Joint[15]Neck
+	FinalBoneLocation: 21.2973X, 25.7784Y, 124.042Z
+	FinalBoneRotation: -0.466832X, -0.050711Y, 0.091928Z, 0.878092W
+Joint[16]Neck1
+	FinalBoneLocation: 21.9647X, 25.1525Y, 133.93Z
+	FinalBoneRotation: -0.464173X, -0.051823Y, 0.105365Z, 0.877927W
+Joint[17]Head
+	FinalBoneLocation: 21.0559X, 27.2303Y, 114.5Z
+	FinalBoneRotation: -0.397669X, -0.0924864Y, 0.251033Z, 0.877661W
+Joint[18]RightShoulder
+	FinalBoneLocation: 35.361X, 15.5568Y, 121.984Z
+	FinalBoneRotation: -0.215405X, -0.373374Y, -0.250005Z, 0.867W
+Joint[19]RightArm
+	FinalBoneLocation: 44.0629X, 15.2707Y, 95.34Z
+	FinalBoneRotation: -0.0608565X, -0.363546Y, -0.276316Z, 0.88757W
+Joint[20]RightForeArm
+	FinalBoneLocation: 42.127X, 26.8547Y, 81.044Z
+	FinalBoneRotation: -0.124539X, -0.299048Y, -0.349101Z, 0.879312W
+Joint[21]RightHand
+	FinalBoneLocation: 42.127X, 26.8547Y, 81.044Z
+	FinalBoneRotation: -0.18748X, -0.264405Y, -0.369839Z, 0.870724W
+Joint[22]RightFingerBase
+	FinalBoneLocation: 42.2405X, 28.9451Y, 78.4894Z
+	FinalBoneRotation: -0.18748X, -0.264405Y, -0.369839Z, 0.870724W
+Joint[23]RightHandIndex1
+	FinalBoneLocation: 42.127X, 26.8547Y, 81.044Z
+	FinalBoneRotation: -0.124539X, -0.299048Y, -0.349101Z, 0.879312W
+Joint[24]RThumb
+	FinalBoneLocation: 21.0559X, 27.2303Y, 114.5Z
+	FinalBoneRotation: -0.384786X, 0.0879214Y, -0.275234Z, 0.876616W
+Joint[25]LeftShoulder
+	FinalBoneLocation: 8.80714X, 15.6203Y, 122.315Z
+	FinalBoneRotation: -0.210685X, 0.401031Y, 0.199795Z, 0.868831W
+Joint[26]LeftArm
+	FinalBoneLocation: -0.0996666X, 11.8939Y, 95.6109Z
+	FinalBoneRotation: -0.136927X, 0.378462Y, 0.264117Z, 0.876504W
+Joint[27]LeftForeArm
+	FinalBoneLocation: -1.1131X, 19.4506Y, 78.8499Z
+	FinalBoneRotation: -0.14751X, 0.340193Y, 0.3081Z, 0.876119W
+Joint[28]LeftHand
+	FinalBoneLocation: -1.1131X, 19.4506Y, 78.8499Z
+	FinalBoneRotation: -0.198458X, 0.325469Y, 0.31491Z, 0.869204W
+Joint[29]LeftFingerBase
+	FinalBoneLocation: -1.56613X, 20.5782Y, 75.811Z
+	FinalBoneRotation: -0.198458X, 0.325469Y, 0.31491Z, 0.869204W
+Joint[30]LeftHandIndex1
+	FinalBoneLocation: -1.1131X, 19.4506Y, 78.8499Z
+	FinalBoneRotation: -0.14751X, 0.340194Y, 0.308099Z, 0.876119W
 End FinalLocations

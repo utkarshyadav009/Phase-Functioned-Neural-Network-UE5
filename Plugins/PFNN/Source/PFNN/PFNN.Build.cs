@@ -18,6 +18,15 @@ public class PFNN : ModuleRules
             }
         );
 
+        if (Target.Platform == UnrealTargetPlatform.Win64)
+        {
+            // Disable the warning for discarding the return value of a function with the 'nodiscard' attribute
+            PublicDefinitions.Add("_SILENCE_CXX17_RESULT_OF_DEPRECATION_WARNING");
+            PublicDefinitions.Add("EIGEN_MPL2_ONLY");
+            // Enable exception handling
+            bEnableExceptions = true;
+        }
+        
         PrivateIncludePaths.AddRange(
             new string[] {
                 // ... add other private include paths required here ...
@@ -28,12 +37,11 @@ public class PFNN : ModuleRules
             new string[]
             {
                 "Core",
-                "CoreUObject", 
-				"Engine",
-				"AnimGraph",
-                "BlueprintGraph",
+                "CoreUObject",
+                "Engine",
                 "DeveloperSettings",
-                "Projects"
+                "Projects",
+                "NavigationSystem"
                 // ... add other public dependencies that you statically link with here ...
             }
         );
@@ -51,5 +59,18 @@ public class PFNN : ModuleRules
                 // ... add any modules that your module loads dynamically here ...
             }
         );
+
+        // Only include editor-specific modules when building for the editor
+        // if (Target.bBuildEditor)
+        // {
+        //     PrivateDependencyModuleNames.AddRange(
+        //         new string[]
+        //         {
+        //             "AnimGraph",
+        //             "BlueprintGraph",
+        //             "UnrealEd" // Add this line
+        //         }
+        //     );
+        // }
     }
 }
